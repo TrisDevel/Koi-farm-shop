@@ -1,0 +1,106 @@
+/* Font chữ mềm mại */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Màu sắc chủ đạo */
+:root {
+  --primary-color: #FF6B6B;  /* Màu đỏ nhạt */
+  --secondary-color: #4A4A4A;  /* Màu đen nhạt */
+  --light-color: #F8F9FA;
+  --dark-color: #333333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--light-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand, .nav-link {
+  color: var(--secondary-color) !important;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #FF5252;
+  border-color: #FF5252;
+}
+
+/* Cards */
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  padding: 2rem 0;
+}
+
+footer a {
+  color: var(--primary-color);
+}
+
+footer a:hover {
+  color: #FF5252;
+  text-decoration: none;
+}
+
+/* Forms */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
+}
+
+/* Custom spacing */
+.section-padding {
+  padding: 4rem 0;
+}
+
+/* Hero section */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption h1 {
+  color: var(--light-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 10px;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 1.5rem;
+  }
+}

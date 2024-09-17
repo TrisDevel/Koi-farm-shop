@@ -1,0 +1,40 @@
+I want to design a web app. Using reactJS technology and frameworks connected to Java Spring boot via API. Please design an E-commerce website for me with the theme "A Koi fish farm's website". With the following requirements:
+- Consistent directory structure, easy to maintain for the future
+- Easy-to-see interface and complete pages
+- Light and eye-catching effects
+- Easy to use for customers
+- Finally, complete the following functional requirements:
+1. Home
+Farm introduction: Provides information about the history, scale, and main activities of the farm.
+Koi fish breed information: List of Koi fish breeds, with pictures and brief descriptions.
+Shared blog: Area to share knowledge and experience about Koi fish care.
+News: Update the latest information about the market, events related to Koi fish.
+Frequently asked questions: A summary of FAQs for customers to easily search for information.
+2. View detailed information about Koi fish
+Product details: Displays complete information about Koi fish including:
+Origin
+Gender
+Age
+Size
+Breed
+Personality
+Amount of food/day Screening rate Search by criteria: Provides filters for customers to search for Koi fish by types such as purebred imported, F1 hybrid, pure Vietnamese.
+3. Order function Buy Koi fish: Customers can order in batches or individually.
+Certificate: In case of individuals buying, attach a certificate of origin, health status, and award certificate.
+4. Koi consignment Consignment care: Customers can consign Koi fish at the farm for care.
+Consignment for sale: Offline: Customers raise normally.
+Online: Customers consign for business.
+Consignment process: Customers submit a consignment request.
+The store directly checks the Koi fish if necessary.
+The two parties negotiate the consignment price.
+Customers bring the fish to the store (if consigning offline).
+The store sells the fish.
+5. Comparison function Compare Koi fish: Customers can compare information between Koi fish to make a purchase decision.
+6. Order Management Order Management: Track the entire process from when a customer places an order until the order is completed, including information about the order status.
+7. Promotion Management Promotion Management: Create and manage promotions, discount codes, and reward points for customers.
+8. Feedback Management Reviews and Feedback: Customers can leave reviews and feedback on products and services.
+9. Customer Profile Management Customer Profile: Store customer personal information, order history, and transactions.
+10. Reports and Statistics Dashboard: Intuitive interface for important store metrics.
+Reporting: Make reports related to revenue, sales volume, promotion effectiveness, etc.
+
+Currently my project folder has been created and has default files when creating a reactJS project using the command npx create-react-app koi-shop. Let's replace and edit to match. Please help me from the first step.
