@@ -1,0 +1,25 @@
+.icon-youtube:hover,
+.icon-facebook:hover,
+.icon-ig:hover,
+.icon-zalo:hover {
+    opacity: 0.7;
+    transform: scale(1.5);
+}
+
+.footer-top {
+    background-color: #EFE9D9;
+    padding: 20px 0;
+    color: #333;
+}
+
+.footer h5 {
+    font-weight: bold;
+}
+
+.footer-bottom {
+    background-color: #231815;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+

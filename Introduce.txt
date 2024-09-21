@@ -37,4 +37,4 @@ The store sells the fish.
 10. Reports and Statistics Dashboard: Intuitive interface for important store metrics.
 Reporting: Make reports related to revenue, sales volume, promotion effectiveness, etc.
 
-Currently my project folder has been created and has default files when creating a reactJS project using the command npx create-react-app koi-shop. Let's replace and edit to match. Please help me from the first step.
+Currently my project folder has been created and has default files when creating a reactJS project using the command "npm create vite "  Koi-Farm. Let's replace and edit to match. Please help me from the first step.

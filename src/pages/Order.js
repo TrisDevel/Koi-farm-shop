@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
+import { placeOrder } from '../api'; // Assuming this is where the API function is imported
 
 const Order = () => {
   const [orderForm, setOrderForm] = useState({
@@ -18,9 +19,12 @@ const Order = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you would typically send the order data to your backend
-    console.log('Order submitted:', orderForm);
-    setOrderPlaced(true);
+    placeOrder(orderForm).then(response => {
+      console.log('Order submitted:', response.data);
+      setOrderPlaced(true);
+    }).catch(error => {
+      console.error('Error placing order:', error);
+    });
   };
 
   return (

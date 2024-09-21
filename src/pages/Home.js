@@ -1,25 +1,27 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
-
+import '../assets/home.css';
 const Home = () => {
   return (
     <Container fluid className="p-0">
       {/* Hero Section */}
       <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://file.hstatic.net/1000310443/file/bieu-tuong-ca-chep-koi-lod2_73796644637c4628b7c1d14770a1c6fa_grande.png"
-            alt="Koi Pond"
-          />
-          <Carousel.Caption>
-            <h1>Welcome to Koi Fish Farm</h1>
-            <p>The best Japanese koi for sale online and by phone!</p>
-            <Button variant="primary" href="/koi">View Koi for Sale</Button>
-            <Button variant="outline-light" href="/account/create">Create Account</Button>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    style={{ height: '700px', objectFit: 'cover' }}
+                    src="./farm.jpg"
+                    alt="Koi Pond"
+                />
+                <Carousel.Caption className="carousel-caption-custom">
+                    <h1>Welcome to Koi Paradise</h1>
+                    <p>The best Japanese koi for sale online and by phone!</p>
+                    <Button variant="primary" href="/koi">View Koi for Sale</Button>
+                    <Button variant="outline-light" href="/account/create">Create Account</Button>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
+      
 
       {/* Main Content */}
       <Container className="section-padding">
@@ -62,6 +64,15 @@ const Home = () => {
                 <Button variant="primary" href="/shop/food">Shop Now</Button>
               </Card.Body>
             </Card>
+          </Col>
+        </Row>
+
+        {/* Blog Section */}
+        <Row className="mb-5">
+          <Col>
+            <h2>Blog về chăm sóc cá Koi</h2>
+            <p>Chia sẻ kiến thức và kinh nghiệm về cách chăm sóc cá Koi.</p>
+            {/* Thêm liên kết đến blog */}
           </Col>
         </Row>
 

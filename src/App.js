@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import AppNavbar from './components/Navbar';
@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App d-flex flex-column min-vh-100">
-        <AppNavbar />
+        <AppNavbar fixed="top" />
         <Container fluid className="flex-grow-1 p-0">
           <Routes>
             <Route path="/" element={<Home />} />

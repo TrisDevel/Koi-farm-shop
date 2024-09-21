@@ -70,6 +70,11 @@ const KoiList = () => {
     setFilteredKois(filtered);
   };
 
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setFilteredKois(kois.filter(koi => koi.name.toLowerCase().includes(searchTerm)));
+  };
+
   return (
     <Container className="my-5">
       <h1 className="mb-4">Koi Fish for Sale</h1>
@@ -124,6 +129,14 @@ const KoiList = () => {
                     min={0}
                     max={30}
                     step={1}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Tìm kiếm Koi</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Nhập tên Koi"
+                    onChange={handleSearchChange}
                   />
                 </Form.Group>
                 <Button variant="primary" onClick={applyFilters}>Apply Filters</Button>

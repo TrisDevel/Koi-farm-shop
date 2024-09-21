@@ -1,0 +1,80 @@
+/* src/assets/navbar.css */
+.navbar-custom {
+    height: 150px;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    font-size: 16px;
+    background-color: #231815 !important;
+    font-weight: 600;
+}
+
+.navbar-custom .navbar-collapse {
+    justify-content: flex-end; /* Căn phải cho navbar collapse */
+}
+
+.header {
+    background-color: #C54125;
+}
+
+.header a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #D8C8A1 !important;
+    text-decoration: none;
+}
+
+.navbar-custom .nav-link {
+    margin-right: 18px;
+    color: #D8C8A1 !important;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ffcc00;
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: #212529;
+    transition: all 0.5s ease; /* Thêm hiệu ứng mềm mại cho dropdown */
+}
+
+.navbar-custom .dropdown-item {
+    color: #ffffff;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: #212529;
+}
+
+.cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+/* Hiệu ứng cho dropdown */
+.nav-dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.nav-dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.nav-dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
