@@ -10,6 +10,7 @@ import Order from './pages/Order';
 import Consignment from './pages/Consignment';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/consignment" element={<Consignment />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/user-profile" element={<UserProfile />} />
           </Routes>
         </Container>
         <Footer />

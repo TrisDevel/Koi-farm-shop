@@ -37,6 +37,8 @@ const Login = () => {
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={!email} // Thêm kiểm tra lỗi nếu email trống
+            helperText={!email ? 'Email is required' : ''} // Hiển thị thông báo nếu email trống
           />
           <TextField
             margin="normal"
@@ -49,6 +51,8 @@ const Login = () => {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={!password} // Thêm kiểm tra lỗi nếu mật khẩu trống
+            helperText={!password ? 'Password is required' : ''} // Hiển thị thông báo nếu mật khẩu trống
           />
           <Button
             type="submit"

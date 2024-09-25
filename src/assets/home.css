@@ -1,26 +1,36 @@
+.body {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
 .carousel-caption {
+    height: 90px;
+    width: 780px;
     position: absolute;
     top: 50%;
     left: 50% !important;
     transform: translate(-50%, -50%);
-    
     background-color: transparent !important;
     padding: 20px;
-    
 
-} 
 
-.carousel-caption-custom     {
-    width: 600px;
-    height: 200px;
 }
+
 .carousel-caption h1 {
     font-family: 'Playfair Display', 'Balthazar', serif;
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 900;
     word-spacing: 0px;
-    line-height: 50px;
+    line-height: 52px;
     text-decoration: none solid rgb(255, 255, 255);
+    word-spacing: 0;
+    display: inline-block
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+    /* Ẩn mũi tên điều hướng */
 }
 
 .carousel-caption a {
@@ -31,10 +41,85 @@
     padding: 10px;
     border: 2px solid #C53125;
 }
+
 .carousel-caption a:hover {
-    color: #FFFFFF; /* Màu chữ khi hover */
-    background-color: #C53125; /* Màu nền khi hover */
-    border: 2px solid #FFFFFF; /* Màu border khi hover */
+    color: #FFFFFF;
+    /* Màu chữ khi hover */
+    background-color: #C53125;
+    /* Màu nền khi hover */
+    border: 2px solid #FFFFFF;
+    /* Màu border khi hover */
 }
 
- 
+.carousel-item {
+    position: relative;
+    /* Để lớp phủ nằm trên hình ảnh */
+}
+
+.button-text {
+    font-size: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu đen với độ trong suốt 50% */
+    z-index: 1;
+    /* Đảm bảo lớp phủ nằm trên hình ảnh */
+}
+
+.carousel-caption-custom {
+    position: relative;
+    /* Để chữ nằm trên lớp phủ */
+    z-index: 2;
+    /* Đảm bảo chữ nằm trên lớp phủ */
+}
+
+.banner {
+    background-color: #c54125;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .banner h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .banner p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .banner a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .banner a:hover {
+    color: #f4e04d;
+  }
+  
+  @media (max-width: 768px) {
+    .banner h1 {
+      font-size: 1.8rem;
+    }
+  
+    .banner p {
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -63,11 +63,6 @@ const Footer = () => {
         </div>
           </Col>
         </Row>
-        <Row className="mt-3">
-          <Col className="text-center">
-            <p>&copy; 2023 Koi Fish Farm. All rights reserved.</p>
-          </Col>
-        </Row>
       </Container >
     </footer>
     <footer className="footer-bottom">

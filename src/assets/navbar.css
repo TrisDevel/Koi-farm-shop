@@ -21,8 +21,20 @@
     color: #D8C8A1 !important;
     text-decoration: none;
 }
+ .header-info {
+    font-size: 16px;
+    color: #D8C8A1 !important;
+    text-decoration: none;
+ }
 
+
+.header-info span {
+ margin-right: 20px;
+}
 .navbar-custom .nav-link {
+
+
+
     margin-right: 18px;
     color: #D8C8A1 !important;
 }
@@ -77,4 +89,16 @@
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 12px;
 }

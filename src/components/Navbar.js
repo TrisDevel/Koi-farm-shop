@@ -1,20 +1,24 @@
-import React, { useState } from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import "../assets/navbar.css";
+import "font-awesome/css/font-awesome.min.css";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function CustomNavbar() {
-  const [cartCount, setCartCount] = useState(0);
-  const [dropdownOpen1, setDropdownOpen1] = useState(false);
-  const [dropdownOpen2, setDropdownOpen2] = useState(false);
-
   return (
     <>
       <header className="header text-white py-2">
         <div className="container d-flex justify-content-between align-items-center">
-          <div>
-            <span>0372899192</span> | <span>info@Koiparadise.com</span>
+          <div className="header-info">
+            <span>
+              <i className="fa fa-phone"></i> 0372899192
+            </span>
+
+            <span>
+              <i className="fa fa-envelope"></i> info@Koiparadise.com
+            </span>
           </div>
-          <div>
+          <div className="d-flex align-items-center">
             <a href="#" className="text-white mx-2">
               Check Out Koi Food
             </a>
@@ -24,12 +28,12 @@ function CustomNavbar() {
             <a href="#" className="text-white mx-2">
               Wholesale Sign Up
             </a>
-            <a href="#" className="text-white mx-2">
-              Careers
+            <span className="mx-2">
+              <i className="fa fa-shopping-cart">
+                <a href="/cart">Cart
             </a>
-            <a href="#" className="text-white mx-2">
-              {<span className="cart-count">{cartCount}</span>}
-            </a>
+              </i>
+            </span>
           </div>
         </div>
       </header>
@@ -43,34 +47,7 @@ function CustomNavbar() {
             <Nav className="ml-auto">
               <Nav.Link href="/login">Login/Register</Nav.Link>
               <Nav.Link href="#">Instructions</Nav.Link>
-              <NavDropdown 
-                title="Search" 
-                id="searchDropdown" 
-                show={dropdownOpen1} 
-                onMouseEnter={() => setDropdownOpen1(true)} 
-                onMouseLeave={() => setDropdownOpen1(false)}
-              >
-                <NavDropdown.Item href="#">All Fixed Price Koi</NavDropdown.Item>
-                <NavDropdown.Item href="#">Kodama Small Koi Packs</NavDropdown.Item>
-                <NavDropdown.Item href="#">Taro’s Summer Collection</NavDropdown.Item>
-                <NavDropdown.Item href="#">Koi of the week</NavDropdown.Item>
-                <NavDropdown.Item href="#">Fixed Price Over $500</NavDropdown.Item>
-                <NavDropdown.Item href="#">Fixed Price Under $500</NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown 
-                title="Fixed Price Koi" 
-                id="fixedPriceKoiDropdown" 
-                show={dropdownOpen2} 
-                onMouseEnter={() => setDropdownOpen2(true)} 
-                onMouseLeave={() => setDropdownOpen2(false)}
-              >
-                <NavDropdown.Item href="#">All Fixed Price Koi</NavDropdown.Item>
-                <NavDropdown.Item href="#">Kodama Small Koi Packs</NavDropdown.Item>
-                <NavDropdown.Item href="#">Taro’s Summer Collection</NavDropdown.Item>
-                <NavDropdown.Item href="#">Koi of the week</NavDropdown.Item>
-                <NavDropdown.Item href="#">Fixed Price Over $500</NavDropdown.Item>
-                <NavDropdown.Item href="#">Fixed Price Under $500</NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="#">Search Koi</Nav.Link>
               <Nav.Link href="#">Auction</Nav.Link>
               <Nav.Link href="#">Service</Nav.Link>
               <Nav.Link href="#">About</Nav.Link>
