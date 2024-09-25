@@ -1,17 +1,10 @@
 import React, { useState } from "react"; // Thêm useState
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-  Carousel,
-  Modal,
-} from "react-bootstrap"; 
+import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
 import "../assets/home.css";
+import { Lock, Edit, Search } from "@mui/icons-material";
 
 const Home = () => {
-  const [showVideo, setShowVideo] = useState(false); 
+  const [showVideo, setShowVideo] = useState(false);
 
   return (
     <Container fluid className="p-0">
@@ -23,7 +16,7 @@ const Home = () => {
             src="./farm.jpg"
             alt="Koi Pond"
           />
-          <div className="overlay" /> 
+          <div className="overlay" />
           <Carousel.Caption className="carousel-caption-custom">
             <h1>Welcome to Koi Paradise</h1>
             <p>The best Japanese koi for sale online and by phone!</p>
@@ -38,7 +31,7 @@ const Home = () => {
       </Carousel>
       <div className="body">
         <Row className="mb-3 text-center">
-          <Col style={{marginTop:'20px', fontSize:'23px'}}>
+          <Col style={{ marginTop: "20px", fontSize: "23px" }}>
             <strong>
               Kodama Koi Farm is not a Store Front. An appointment is needed to
               schedule a tour or order pickup.
@@ -73,41 +66,86 @@ const Home = () => {
           </Col>
         </Row>
       </div>
-      <Container className="section-padding body">
-        <Row className="mb-5">
+      <Container className="body">
+        {/* <Row style={{marginTop:'0px'}} className="mb-5">
           <Col>
-            <h2>Discover Our Koi Farm</h2>
-            <p>
-              We take pride in being one of the leading farms specializing in
-              high-quality Koi fish. With over 20 years of experience, we are
-              committed to providing you with the healthiest and most beautiful
-              Koi.
-            </p>
+            <div style={{textAlign:'center'}}>
             <img style={{width:'80%'}} src="./koi-farm.jpeg" alt="Koi Farm" className="img-fluid" />
+            </div>
           </Col>
-        </Row>
+        </Row> */}
 
         <Row className="mb-5">
-          <Col>
-            <h2>3 Secrets for Buying Koi Fish</h2>
-            <p>From the Koi Master, Mamoru Kodama</p>
+          <Col className="md-6 mx-auto">
+            <h2 style={{ textAlign: "center" }}>
+              3 Secrets for Buying Koi Fish From the Koi Master, Mamoru Kodama
+            </h2>
             <iframe
-              width="500"
-              height="300"
+              width="600"
+              height="350"
               src="https://www.youtube.com/embed/jCl9cXZjCAU"
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
-              style={{ cursor: "pointer" }} // Thay đổi con trỏ khi di chuột
+              style={{ cursor: "pointer", marginTop: "50px" }} // Thay đổi con trỏ khi di chuột
             ></iframe>
-            <p>It's best to buy the one chosen from a thousand Koi.</p>
+          </Col>
+          <Col className="md-6 mx-auto">
+            <Card style={{ border: "2px dashed #c3432c" }}>
+              <Card.Body>
+                <Card.Title style={{ textAlign: "center", fontSize: "34px" }}>
+                  Sign Up For Our Newsletter to Receive 10% Off Koi Food Coupon
+                </Card.Title>
+                <Card.Text style={{ textAlign: "center", fontSize: "16px" }}>
+                  Stay up-to-date with current auctions, promotions, new blog
+                  posts and updates from the Kodama Koi Farm team.
+                </Card.Text>
+                <p style={{ textAlign: "center", color: "red" }}>
+                  <em>"*"</em> indicates required fields
+                </p>
+                <form style={{ padding: "20px" }}>
+                  <div className="form-group">
+                    <label htmlFor="firstName">Name *</label>
+                    <div className="name-inputs">
+                      <input
+                        type="text"
+                        className="form-control mb-2"
+                        id="firstName"
+                        placeholder="First"
+                        required
+                      />
+                      <input
+                        type="text"
+                        className="form-control mb-2"
+                        id="lastName"
+                        placeholder="Last"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email">Email *</label>
+                    <input
+                      type="email"
+                      className="form-control mb-2"
+                      id="email"
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </div>
+                  <Button variant="primary" type="submit">
+                    Sign-up
+                  </Button>
+                </form>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
 
         {/* Modal for Video */}
-        <Modal show={showVideo} onHide={() => setShowVideo(false)} size="lg">
+        {/* <Modal show={showVideo} onHide={() => setShowVideo(false)} size="lg">
           <Modal.Header closeButton>
             <Modal.Title>3 Secrets for Buying Koi Fish</Modal.Title>
           </Modal.Header>
@@ -122,10 +160,9 @@ const Home = () => {
               allowFullScreen
             ></iframe>
           </Modal.Body>
-        </Modal>
+        </Modal> */}
 
-        {/* Featured Sections */}
-        <Row className="mb-5">
+        {/* <Row className="mb-5">
           <Col md={4}>
             <Card className="h-100">
               <Card.Img variant="top" src="./koi-vari.jpg" />
@@ -168,6 +205,42 @@ const Home = () => {
               </Card.Body>
             </Card>
           </Col>
+        </Row> */}
+
+        <Row style={{ marginTop: "100px" }} className="mb-5 mid-body">
+          <h2>
+            How to Get Started and Buy Live Koi Online at Paradise Koi Farm
+          </h2>
+          <p>
+            Sign up for an account on our website to view all koi for sale, koi
+            prices, and more koi details. Read our <a href="#">welcome guide</a>{" "}
+            and <a href="#">FAQs</a> to learn more about how our new website
+            operates. You can buy koi fish online or on the phone. Please call
+            us Monday – Friday at: <a href="tel:0327899192">0372899192</a>; When
+            you cannot reach us by phone, please contact us via EMAIL at:{" "}
+            <a href="mailto:info@koiparadise.com">info@koiparadise.com</a> with
+            any questions. Sign up for wholesale here.
+          </p>
+        </Row>
+        <Row className="text-center mb-5 mid-body">
+          <Col>
+            <a href="/login">
+              <Lock style={{ fontSize: "70px", color: "#C53125" }} />
+              <div>Login</div>
+            </a>
+          </Col>
+          <Col>
+            <a href="/login">
+              <Edit style={{ fontSize: "70px", color: "#C53125" }} />
+              <div>Sign Up</div>
+            </a>
+          </Col>
+          <Col>
+            <a href="/koi">
+              <Search style={{ fontSize: "70px", color: "#C53125" }} />
+              <div>View All Koi</div>
+            </a>
+          </Col>
         </Row>
 
         {/* Blog Section */}
@@ -176,44 +249,6 @@ const Home = () => {
             <h2>Blog on Koi Care</h2>
             <p>Share knowledge and experiences on how to care for Koi fish.</p>
             {/* Add blog link here */}
-          </Col>
-        </Row>
-
-        {/* Newsletter Signup */}
-        <Row className="mb-5">
-          <Col md={6} className="mx-auto">
-            <Card>
-              <Card.Body>
-                <Card.Title>Sign Up for Our Newsletter</Card.Title>
-                <Card.Text>
-                  Stay up-to-date with current auctions, promotions, and updates
-                  from our team.
-                </Card.Text>
-                <form>
-                  <input
-                    type="text"
-                    className="form-control mb-2"
-                    placeholder="First Name"
-                    required
-                  />
-                  <input
-                    type="text"
-                    className="form-control mb-2"
-                    placeholder="Last Name"
-                    required
-                  />
-                  <input
-                    type="email"
-                    className="form-control mb-2"
-                    placeholder="Enter your email"
-                    required
-                  />
-                  <Button variant="primary" type="submit">
-                    Sign Up
-                  </Button>
-                </form>
-              </Card.Body>
-            </Card>
           </Col>
         </Row>
 
