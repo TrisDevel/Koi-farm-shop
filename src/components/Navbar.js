@@ -2,7 +2,6 @@ import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/navbar.css";
 import "font-awesome/css/font-awesome.min.css";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function CustomNavbar() {
   return (

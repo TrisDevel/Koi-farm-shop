@@ -10,10 +10,27 @@
     background-color: #EFE9D9;
     padding: 20px 0;
     color: #333;
+
 }
 
+.footer {
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
+    line-height: 27.2px;
+    font-weight: 500;
+}
+
+.footer a {
+    color: #c53125;
+    text-decoration: none;
+}
 .footer h5 {
     font-weight: bold;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif;
+}
+
+.footer p {
+    font-size: 14px;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
 }
 
 .footer-bottom {
@@ -22,4 +39,3 @@
     padding: 10px 0;
     text-align: center;
 }
-
