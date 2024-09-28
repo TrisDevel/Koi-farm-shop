@@ -31,7 +31,7 @@ const Home = () => {
       </Carousel>
       <div className="body">
         <Row className="mb-3 text-center">
-          <Col style={{ marginTop: "20px", fontSize: "23px" }}>
+          <Col style={{ marginTop: "20px", fontSize: "17px" }}>
             <strong>
               Kodama Koi Farm is not a Store Front. An appointment is needed to
               schedule a tour or order pickup.
@@ -243,14 +243,43 @@ const Home = () => {
           </Col>
         </Row>
 
-        {/* Blog Section */}
-        <Row className="mb-5">
+        <Container fluid>
+        <Row className="mb-5 text-center">
           <Col>
             <h2>Blog on Koi Care</h2>
             <p>Share knowledge and experiences on how to care for Koi fish.</p>
-            {/* Add blog link here */}
           </Col>
         </Row>
+        <Row style={{}}>
+          <Col style={{justifyContent:'center'}} md={6}>
+            <Card style={{ width: "500px" }}>
+              <Card.Img variant="top" src="./koipack.jpg" />
+              <Card.Body>
+                <Card.Title><strong>Small Koi Packs!
+                </strong></Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col md={6}>
+          <Card style={{ width: "500px" }}>
+              <Card.Img variant="top" src="./koioftheweek.jpg" />
+              <Card.Body>
+                <Card.Title><strong>Koi Of The Week This Week!</strong></Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        </Container>
 
         {/* Latest News */}
         <Row className="mb-5">
