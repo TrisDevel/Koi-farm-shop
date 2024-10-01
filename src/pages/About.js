@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrophy, faWater, faUsers } from '@fortawesome/free-solid-svg-icons'; // Import the icons you want to use
+import { faTrophy, faWater, faUsers } from '@fortawesome/free-solid-svg-icons'; 
 import '../assets/about.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   return (
-    <Container fluid className="p-0">
+    <Container style={{fontFamily: 'Lato, Arial, Helvetica, Arial, Lucida, sans-serif'}} fluid className="p-0">
       <Row>
         <Col>
           <div className="img-about" style={{ backgroundImage: 'url("./about.jpg")', height: 900, backgroundSize: 'cover', maxWidth: '100%' }}>

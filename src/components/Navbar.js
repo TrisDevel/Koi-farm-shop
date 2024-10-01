@@ -59,7 +59,7 @@ function CustomNavbar() {
             </NavDropdown>
               <Nav.Link href="#">Auction</Nav.Link>
               <Nav.Link href="#">Service</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
