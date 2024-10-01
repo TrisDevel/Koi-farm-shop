@@ -1,11 +1,11 @@
 .contact-title {
     font-size: 2rem !important; 
-    font-family: 'Times New Roman', serif !important; 
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important; 
 }
 
 .contact-text {
     font-size: 1.5rem !important; 
-    font-family: 'Times New Roman', serif !important; 
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
     margin-top : 10px !important;
     margin-bottom : 10px !important;
 
@@ -13,12 +13,12 @@
 
 .hours-title{
     font-size: 1.5rem !important; 
-    font-family: 'Times New Roman', serif !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
 }
 
 .farm-title{
     font-size: 1.5rem !important; 
-    font-family: 'Times New Roman', serif !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
 }
 
 .tick{
