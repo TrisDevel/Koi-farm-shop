@@ -79,6 +79,10 @@
     /* Đảm bảo chữ nằm trên lớp phủ */
 }
 
+.text-center{
+    text-align: center;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+}
 .banner {
     background-color: #c54125;
     padding: 50px;

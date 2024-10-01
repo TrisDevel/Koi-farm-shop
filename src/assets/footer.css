@@ -29,13 +29,28 @@
 }
 
 .footer p {
-    font-size: 14px;
+    font-size: 16px;
     font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
 }
 
 .footer-bottom {
-    background-color: #231815;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #231815; 
+    color: #d8c8a1;
+    padding: 20px 0 20px 0;
     text-align: center;
 }
+.footer-bottom p {
+    font-weight: 500;
+    margin: 0 !important;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
+}
+
+.icon-button {
+    color: #fff !important;
+    background-color: #d8c8a3 !important;
+    border-radius: 3px !important;
+    margin-right: 10px !important;
+    
+}
+
+

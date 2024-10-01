@@ -18,7 +18,7 @@ function CustomNavbar() {
             </span>
           </div>
           <div className="d-flex align-items-center">
-            <a href="#" className="text-white mx-2">
+            <a href="/contact" className="text-white mx-2">
               Check Out Koi Food
             </a>
             <a href="#" className="text-white mx-2">

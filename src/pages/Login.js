@@ -9,7 +9,7 @@ import '../assets/login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // Thêm state để quản lý lỗi
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,10 +17,9 @@ const Login = () => {
       const response = await axios.post('/login', { email, password });
       console.log(response.data);
       
-      // Xử lý đăng nhập thành công
       if (response.data.token) {
         localStorage.setItem('token', JSON.stringify(response.data.token));
-        // Chuyển hướng người dùng đến trang chủ hoặc trang khác
+
         window.location.href = '/home';
       } else {
         setError('Đăng nhập thất bại. Vui lòng thử lại.');
@@ -32,8 +31,8 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Row >
-        <Col >
+      <Row>
+        <Col>
           <Typography variant="body2" color='#212529' className='header-login' >
             <span className='title-login'>Welcome to <strong>KOI PARADISE</strong></span>
             <span className='login-text'><br /> Please login or register below for access to the highest quality koi fish available from Japan.</span>

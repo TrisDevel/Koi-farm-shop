@@ -31,9 +31,9 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
         <div className="body">
-          <Row className="mb-3 text-center">
-            <Col style={{ marginTop: "20px", fontSize: "17px" }}>
-              <strong>
+          <Row style={{backgroundImage:'url(./menu-bg.jpg)'}} className="text-center">
+            <Col style={{ margin:'15px 0 15 px 0', fontSize: "23px" }}>
+              <strong style={{justifyContent:'center'}}>
                 Kodama Koi Farm is not a Store Front. An appointment is needed
                 to schedule a tour or order pickup.
               </strong>
@@ -210,7 +210,7 @@ const Home = () => {
           </Col>
         </Row> */}
 
-          <Row style={{ marginTop: "100px" }} className="mb-5 mid-body">
+          <Row style={     { marginTop: "100px" }    } className="mb-5 mid-body">
             <h2>
               How to Get Started and Buy Live Koi Online at Paradise Koi Farm
             </h2>
