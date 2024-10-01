@@ -7,6 +7,7 @@ const Home = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
+    <>
     <Container fluid className="p-0">
       <Carousel>
         <Carousel.Item>
@@ -243,7 +244,13 @@ const Home = () => {
           </Col>
         </Row>
 
-        <Container fluid>
+        
+
+        {/* Latest News */}
+       
+      </Container>
+    </Container>
+    <Container fluid style={{backgroundColor:'#f4f0e7', padding:'100px'}}>
         <Row className="mb-5 text-center">
           <Col>
             <h2>Blog on Koi Care</h2>
@@ -251,7 +258,7 @@ const Home = () => {
           </Col>
         </Row>
         <Row style={{}}>
-          <Col style={{justifyContent:'center'}} md={6}>
+          <Col style={{paddingLeft:'100px'}} md={6}>
             <Card style={{ width: "500px" }}>
               <Card.Img variant="top" src="./koipack.jpg" />
               <Card.Body>
@@ -261,11 +268,11 @@ const Home = () => {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button className="btn-blog">Go somewhere</Button>
               </Card.Body>
             </Card>
           </Col>
-          <Col md={6}>
+          <Col style={{paddingLeft:'100px'}} md={6}>
           <Card style={{ width: "500px" }}>
               <Card.Img variant="top" src="./koioftheweek.jpg" />
               <Card.Body>
@@ -274,14 +281,12 @@ const Home = () => {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button className="btn-blog">Go somewhere</Button>
               </Card.Body>
             </Card>
           </Col>
         </Row>
         </Container>
-
-        {/* Latest News */}
         <Row className="mb-5">
           <Col>
             <h2>Latest News</h2>
@@ -296,8 +301,7 @@ const Home = () => {
             {/* Add FAQ items here */}
           </Col>
         </Row>
-      </Container>
-    </Container>
+        </>
   );
 };
 

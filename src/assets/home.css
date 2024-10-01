@@ -176,3 +176,11 @@ form p {
   margin-bottom: 15px;
 }
 
+.btn-blog {
+  font-size: 15px;
+  color: #C53125 !important;
+  background-color: #F4F0E7 !important;
+  margin-right: 10px;
+  padding: 10px;
+  border: 2px solid #C53125 !important;
+}

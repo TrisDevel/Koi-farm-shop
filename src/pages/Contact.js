@@ -90,7 +90,7 @@ const Contact = () => {
                 <br /> <a href="/contact" style={{ color: 'red', textDecoration: 'none' }}>Contact Us</a>
             </Typography>
 
-            <Box component="form" onSubmit={handleSubmit} noValidate className="mt-3">
+            <Box style={{with:'500px'}} component="form" onSubmit={handleSubmit} noValidate className="mt-3">
                 <TextField
                     margin="normal"
                     required

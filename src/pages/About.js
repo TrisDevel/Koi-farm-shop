@@ -16,7 +16,7 @@ const About = () => {
         </Col>
       </Row>
 
-      <Container className="section-padding">
+      <Container className="">
         <Row>
           <Col md={8}>
             <p>
