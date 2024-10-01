@@ -2,17 +2,32 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap'; 
 import { TextField, Button, Typography, Box } from '@mui/material'; 
 import { Link } from 'react-router-dom';
+import axios from '../config/axios'; // Import axios instance
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../assets/login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // Thêm state để quản lý lỗi
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Login attempt with:', { email, password });
-    // Implement your login logic here
+    try {
+      const response = await axios.post('/login', { email, password });
+      console.log(response.data);
+      
+      // Xử lý đăng nhập thành công
+      if (response.data.token) {
+        localStorage.setItem('token', JSON.stringify(response.data.token));
+        // Chuyển hướng người dùng đến trang chủ hoặc trang khác
+        window.location.href = '/home';
+      } else {
+        setError('Đăng nhập thất bại. Vui lòng thử lại.');
+      }
+    } catch (error) {
+      setError('Đăng nhập thất bại. Vui lòng thử lại.');
+    }
   };
 
   return (
@@ -72,6 +87,7 @@ const Login = () => {
               backgroundColor: '#efe9d9',
             }}
           />
+          {error && <Typography color="error">{error}</Typography>} {/* Hiển thị lỗi nếu có */}
           <Button
             type="submit"
             fullWidth
@@ -95,4 +111,5 @@ const Login = () => {
     </Container>
   );
 };
+
 export default Login;
