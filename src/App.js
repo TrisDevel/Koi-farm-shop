@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import KoiList from './pages/KoiList';
 import KoiDetails from './pages/KoiDetails';
-import Order from './pages/Order';
+// import Order from './pages/Order';
 import Consignment from './pages/Consignment';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/koi" element={<KoiList />} />
             <Route path="/koi/:id" element={<KoiDetails />} />
-            <Route path="/order" element={<Order />} />
+            <Route path="/cart" element={<card />} />
             <Route path="/consignment" element={<Consignment />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
