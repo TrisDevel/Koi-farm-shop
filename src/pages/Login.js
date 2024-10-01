@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { Container, Row, Col } from 'react-bootstrap'; 
+import { TextField, Button, Typography, Box } from '@mui/material'; 
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import '../assets/login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,17 +17,30 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
+      <Row >
+        <Col >
+          <Typography variant="body2" color='#212529' className='header-login' >
+            <span className='title-login'>Welcome to <strong>KOI PARADISE</strong></span>
+            <span className='login-text'><br /> Please login or register below for access to the highest quality koi fish available from Japan.</span>
+          </Typography>
+        </Col>
+      </Row>
       <Box
         sx={{
-          marginTop: 8,
+          marginTop: 20,
+          marginBottom: 23,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5">
+
+
+
+        <Typography component="h1" variant="h5" className="text-center">
           Sign in
         </Typography>
+
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
@@ -37,8 +53,9 @@ const Login = () => {
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            error={!email} // Thêm kiểm tra lỗi nếu email trống
-            helperText={!email ? 'Email is required' : ''} // Hiển thị thông báo nếu email trống
+            sx={{
+              backgroundColor: '#efe9d9',
+            }}
           />
           <TextField
             margin="normal"
@@ -51,8 +68,9 @@ const Login = () => {
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            error={!password} // Thêm kiểm tra lỗi nếu mật khẩu trống
-            helperText={!password ? 'Password is required' : ''} // Hiển thị thông báo nếu mật khẩu trống
+            sx={{
+              backgroundColor: '#efe9d9',
+            }}
           />
           <Button
             type="submit"
@@ -67,8 +85,14 @@ const Login = () => {
           </Link>
         </Box>
       </Box>
+      <Row >
+        <Col>
+          <Typography variant="body2" color='#212529' className="text-footer">
+            <span style={{ color: 'red' }}>Read FAQs </span> or call us with any questions at <span style={{ color: 'red' }}>+84 KOI PARADISE SUPPORT (84-8567-1020)</span>
+          </Typography>
+        </Col>
+      </Row>
     </Container>
   );
 };
-
 export default Login;

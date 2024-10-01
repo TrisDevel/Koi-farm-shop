@@ -11,7 +11,7 @@ import Consignment from './pages/Consignment';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
-
+import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
@@ -27,6 +27,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Container>
         <Footer />
