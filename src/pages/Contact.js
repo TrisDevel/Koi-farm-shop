@@ -60,7 +60,7 @@ const Contact = () => {
                         src="https://japandeluxetours.com/uploads/2017/05/20170502125611_5908e45b4bb09.jpg"
                         alt="Description of the image"
                         style={{ width: '100%', height: '550px', marginBottom: '20px' }}
-                        />
+                    />
                 </Col>
             </Row>
             <Row className="mt-4">
@@ -90,7 +90,7 @@ const Contact = () => {
                 <br /> <a href="/contact" style={{ color: 'red', textDecoration: 'none' }}>Contact Us</a>
             </Typography>
 
-            <Box style={{with:'500px'}} component="form" onSubmit={handleSubmit} noValidate className="mt-3">
+            <Box component="form" onSubmit={handleSubmit} noValidate className="mt-3">
                 <TextField
                     margin="normal"
                     required
@@ -155,7 +155,7 @@ const Contact = () => {
                 <Button
                     variant="success"
                     type="submit"
-                    style={{ width: '10%', marginTop: '5px', marginBottom: '8px', backgroundColor: '#efe9d9', border: '2px solid red', color: 'red' }}
+                    style={{marginTop: '5px', marginBottom: '8px', backgroundColor: '#efe9d9', border: '2px solid red', color: 'red' }}
                 >
                     Submit
                 </Button>
