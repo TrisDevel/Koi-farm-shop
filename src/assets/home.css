@@ -188,7 +188,8 @@ form p {
 }
 
 .btn-blog {
-  font-size: 15px;
+  width: 250px;
+  font-size: 15px !important;
   color: #C53125 !important;
   background-color: #F4F0E7 !important;
   margin-right: 10px;

@@ -31,9 +31,12 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
         <div className="body">
-          <Row style={{backgroundImage:'url(./menu-bg.jpg)'}} className="text-center">
-            <Col style={{ margin:'15px 0 15 px 0', fontSize: "23px" }}>
-              <strong style={{justifyContent:'center'}}>
+          <Row
+            style={{ backgroundImage: "url(./menu-bg.jpg)" }}
+            className="text-center"
+          >
+            <Col style={{ margin: "15px 0 15 px 0", fontSize: "23px" }}>
+              <strong style={{ justifyContent: "center" }}>
                 Kodama Koi Farm is not a Store Front. An appointment is needed
                 to schedule a tour or order pickup.
               </strong>
@@ -210,7 +213,7 @@ const Home = () => {
           </Col>
         </Row> */}
 
-          <Row style={     { marginTop: "100px" }    } className="mb-5 mid-body">
+          <Row style={{ marginTop: "100px" }} className="mb-5 mid-body">
             <h2>
               How to Get Started and Buy Live Koi Online at Paradise Koi Farm
             </h2>
@@ -269,7 +272,7 @@ const Home = () => {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button className="btn-blog">Go somewhere</Button>
+                <Button className="btn-blog">Buy</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -278,13 +281,13 @@ const Home = () => {
               <Card.Img className="img-blog" src="./koioftheweek.jpg" />
               <Card.Body>
                 <Card.Title className="title-blog">
-                <h2>Koi Of The Week This Week!</h2>
+                  <h2>Koi Of The Week This Week!</h2>
                 </Card.Title>
                 <Card.Text className="text-blog">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button className="btn-blog">Go somewhere</Button>
+                <Button className="btn-blog">Buy</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -295,13 +298,13 @@ const Home = () => {
               <Card.Img className="img-blog" src="./koipack.jpg" />
               <Card.Body>
                 <Card.Title className="title-blog">
-                <h2>Koi Of The Month!</h2>
+                  <h2>Koi Of The Month!</h2>
                 </Card.Title>
                 <Card.Text className="text-blog">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button className="btn-blog">Go somewhere</Button>
+                <Button className="btn-blog">Buy</Button>
               </Card.Body>
             </Card>
           </Col>
@@ -310,13 +313,13 @@ const Home = () => {
               <Card.Img className="img-blog" src="./koipack.jpg" />
               <Card.Body>
                 <Card.Title className="title-blog">
-                <h2>Koi Of The Year!</h2>
+                  <h2>Koi Of The Year!</h2>
                 </Card.Title>
                 <Card.Text className="text-blog">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button className="btn-blog">Go somewhere</Button>
+                <Button className="btn-blog">Buy</Button>
               </Card.Body>
             </Card>
           </Col>

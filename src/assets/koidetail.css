@@ -1,0 +1,8 @@
+.custom-tab {
+    color: black!important; /* Màu chữ khi chưa nhấn */
+  }
+  
+  .custom-tab.active {
+    color: #c54125 !important; /* Màu chữ khi nhấn */
+  }
+
