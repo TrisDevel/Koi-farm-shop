@@ -20,11 +20,11 @@ const KoiList = () => {
   useEffect(() => {
     // Trong thực tế, bạn sẽ fetch dữ liệu từ API
     const fetchedKois = [
-      { id: 1, name: 'Kohaku Koi', breed: 'Kohaku', price: 1000, size: 18, image: '/images/kohaku-koi.jpg' },
-      { id: 2, name: 'Sanke Koi', breed: 'Sanke', price: 1500, size: 20, image: '/images/sanke-koi.jpg' },
-      { id: 3, name: 'Showa Koi', breed: 'Showa', price: 2000, size: 22, image: '/images/showa-koi.jpg' },
-      { id: 4, name: 'Butterfly Koi', breed: 'Butterfly', price: 2500, size: 24, image: '/images/butterfly-koi.jpg' },
-      { id: 5, name: 'Ogon Koi', breed: 'Ogon', price: 1200, size: 16, image: '/images/ogon-koi.jpg' },
+      { id: 1, name: 'Kohaku Koi', breed: 'Kohaku', price: 1000, size: 18, image: './koi-care.jpg' },
+      { id: 2, name: 'Sanke Koi', breed: 'Sanke', price: 1500, size: 20, image: './koi-care.jpg' },
+      { id: 3, name: 'Showa Koi', breed: 'Showa', price: 2000, size: 22, image: './koi-care.jpg' },
+      { id: 4, name: 'Butterfly Koi', breed: 'Butterfly', price: 2500, size: 24, image: './koi-care.jpg' },
+      { id: 5, name: 'Ogon Koi', breed: 'Ogon', price: 1200, size: 16, image: './koi-care.jpg' },
     ];
     setKois(fetchedKois);
     setFilteredKois(fetchedKois);

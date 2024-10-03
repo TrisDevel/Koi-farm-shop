@@ -1,8 +1,67 @@
-.custom-tab {
-    color: black!important; /* Màu chữ khi chưa nhấn */
-  }
-  
-  .custom-tab.active {
-    color: #c54125 !important; /* Màu chữ khi nhấn */
-  }
+.koidetail-container {
+  font-family: "Lato", Helvetica, Arial, Lucida, sans-serif;
+  color: #606060; /* Màu chữ mềm mại hơn */
+  /* font-weight: 400; /* Giảm độ đậm của chữ */
+  /* line-height: 1.6; Tăng khoảng cách giữa các dòng */
+  /* color: #606060; Màu chữ mềm mại hơn */
+}
+*/ .img-koi {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
+.koi-detail-item {
+  border: none !important;
+  font-size: 16px; /* Kích thước chữ */
+  line-height: 1.5; /* Khoảng cách giữa các dòng */
+  letter-spacing: 0.5px; /* Khoảng cách giữa các chữ */
+}
+
+.koi-detail-item strong {
+  font-weight: bold; /* Giữ nguyên độ đậm cho chữ trong thẻ strong */
+  color: inherit; /* Giữ nguyên màu chữ */
+}
+
+.btn-add-to-cart {
+  margin-top: 20px;
+  height: 50px;
+  width: 150px;
+  background-color: #F4F0E7 !important;
+  color: #c3402b !important;
+  border: 2px solid #c3402b !important;
+  padding: 6px 20px 6px 20px !important;
+  font-size: 20px !important;
+  font-weight: 500;
+  line-height: 34px;
+  word-spacing: 0px;
+  border-radius: 5px;
+}
+
+.custom-tab {
+  color: black !important; /* Màu chữ khi chưa nhấn */
+  font-weight: 400; /* Giảm độ đậm của chữ */
+}
+
+.custom-tab.active {
+  color: #c54125 !important; /* Màu chữ khi nhấn */
+  font-weight: 700; /* Tăng độ đậm của chữ khi nhấn */
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail.selected {
+  border-color: #007bff;
+}
