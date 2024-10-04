@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
 import Contact from './pages/Contact';
 import About from './pages/About'
+import FAQs from './pages/FAQs';
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
             <Route path="/user-profile" element={<UserProfile />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/faqs" element={<FAQs />} />
           </Routes>
         </Container>
         <Footer />

@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/navbar.css";
 import "font-awesome/css/font-awesome.min.css";
+import { Link } from 'react-router-dom';
 
 function CustomNavbar() {
   return (
@@ -61,6 +62,7 @@ function CustomNavbar() {
               <Nav.Link href="#">Service</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
+              <Nav.Link href="/faqs">FAQs</Nav.Link> {/* Add this line */}
             </Nav>
           </Navbar.Collapse>
         </div>

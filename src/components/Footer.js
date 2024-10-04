@@ -90,7 +90,7 @@ const Footer = () => {
           </Row>
         </Container>
       </footer>
-      <footer className="footer-bottom">
+      <footer className="footer-custom">
         <Container>
           <Row>
             <Col style={{}} md={6}>
