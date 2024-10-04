@@ -14,13 +14,15 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/login', { email, password });
+      const response = await axios.post('http://localhost:8080/api/v1/customer/authenticate', {
+        username: email, // 
+        password: password,
+      });
       console.log(response.data);
-      
-      if (response.data.token) {
-        localStorage.setItem('token', JSON.stringify(response.data.token));
 
-        window.location.href = '/home';
+      if (response.data.code === 200) {
+        localStorage.setItem('token', JSON.stringify(response.data.data.token)); // Adjust if token is in a different location
+        window.location.href = '/';
       } else {
         setError('Đăng nhập thất bại. Vui lòng thử lại.');
       }

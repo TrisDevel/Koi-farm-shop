@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
-import '../assets/register.css'; // Import your CSS file
+import { Container, Box, Typography, TextField, Button, Alert } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha'; // Import reCAPTCHA
 
 const Register = () => {
@@ -10,30 +8,38 @@ const Register = () => {
   const [phone, setPhone] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [recaptchaToken, setRecaptchaToken] = useState(null); // Add state for reCAPTCHA token
+  const [recaptchaToken, setRecaptchaToken] = useState(null); // State for reCAPTCHA token
+  const [errors, setErrors] = useState({}); // State for validation errors
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!name) newErrors.name = 'Name is required';
+    if (!email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Email is invalid';
+    }
+    if (!phone) newErrors.phone = 'Phone number is required';
+    if (!username) newErrors.username = 'Username is required';
+    if (!password) newErrors.password = 'Password is required';
+    if (!recaptchaToken) newErrors.recaptcha = 'Please complete the reCAPTCHA';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!recaptchaToken) {
-      alert('Please complete the reCAPTCHA');
-      return;
+    if (validateForm()) {
+      console.log('Registration attempt with:', { name, email, phone, username, password, recaptchaToken });
+      // Implement your registration logic here
     }
-    console.log('Registration attempt with:', { name, email, phone, username, password, recaptchaToken });
-    // Implement your registration logic here
   };
 
   return (
     <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+      <Box sx={{ mt: 3 }}>
         <div>
-          <h2 style={{width: '1200px', height: '38px'}}>
+          <h2 style={{ width: '1200px', height: '38px' }}>
             Welcome to PARADISE Farm!
           </h2>
           <p>Please login or register below for access to the highest quality koi fish available from Japan.</p>
@@ -41,20 +47,18 @@ const Register = () => {
         <Typography component="h1" variant="h4">
           Sign up
         </Typography>
-
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
           <TextField
             margin="normal"
-            required 
+            required
             fullWidth
             id="name"
-            label="Fullname"
+            label="Name"
             name="name"
-            autoComplete="name"
-            autoFocus
-            className='name-input'
             value={name}
             onChange={(e) => setName(e.target.value)}
+            error={!!errors.name}
+            helperText={errors.name}
           />
           <TextField
             margin="normal"
@@ -63,35 +67,34 @@ const Register = () => {
             id="email"
             label="Email Address"
             name="email"
-            autoComplete="email"
-            className='email-input'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={!!errors.email}
+            helperText={errors.email}
           />
           <TextField
             margin="normal"
             required
             fullWidth
             id="phone"
-            label="Phone Number "
+            label="Phone Number"
             name="phone"
-            autoComplete="phone"
-            className='phone-input'
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            error={!!errors.phone}
+            helperText={errors.phone}
           />
           <TextField
             margin="normal"
             required
             fullWidth
             id="username"
-            label="Username "
+            label="Username"
             name="username"
-            autoComplete="username"
-            className='username-input'
-            autoFocus
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            error={!!errors.username}
+            helperText={errors.username}
           />
           <TextField
             margin="normal"
@@ -101,15 +104,16 @@ const Register = () => {
             label="Password"
             type="password"
             id="password"
-            autoComplete="new-password"
-            className='password-input'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={!!errors.password}
+            helperText={errors.password}
           />
           <ReCAPTCHA
-            sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your site key
-            onChange={(token) => setRecaptchaToken(token)} // Set token on change
+            sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your reCAPTCHA site key
+            onChange={(token) => setRecaptchaToken(token)}
           />
+          {errors.recaptcha && <Alert severity="error">{errors.recaptcha}</Alert>}
           <Button
             type="submit"
             fullWidth
@@ -118,9 +122,6 @@ const Register = () => {
           >
             Sign Up
           </Button>
-          <Link to="/login" variant="body2">
-            {"Already have an account? Sign in"}
-          </Link>
         </Box>
       </Box>
     </Container>

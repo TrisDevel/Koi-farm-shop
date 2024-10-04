@@ -13,9 +13,7 @@
  height: 120px;
 }
 
-h1 {
-    color: #2c3e50; /* Màu tiêu đề */
-}
+
 
 .faqs-container .accordion-button {
     background-color: white; /* Accordion button background */
