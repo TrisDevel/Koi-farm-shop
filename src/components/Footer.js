@@ -94,7 +94,7 @@ const Footer = () => {
         <Container>
           <Row>
             <Col style={{}} md={6}>
-              <p>© 2023 Koi Fish Farm. All rights reserved.</p>
+              <p style={{marginBottom: '0px'}}>© 2023 Koi Fish Farm. All rights reserved.</p>
             </Col>
             <Col md={6}>
               <IconButton className="icon-button"

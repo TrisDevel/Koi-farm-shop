@@ -150,7 +150,7 @@ const KoiList = () => {
               <Col key={koi.id} md={4} className="mb-4">
                 <Card>
                   <Card.Img variant="top" src={koi.image} />
-                  <Card.Body>
+                  <Card.Body> 
                     <Card.Title>{koi.name}</Card.Title>
                     <Card.Text>
                       Breed: {koi.breed}<br />
