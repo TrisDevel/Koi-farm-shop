@@ -7,16 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   return (
-    <Container style={{fontFamily: 'Lato, Arial, Helvetica, Arial, Lucida, sans-serif'}} fluid className="p-0">
-      <Row>
-        <Col>
+    <Container fluid className="about-container" >
+ 
           <div className="img-about" style={{ backgroundImage: 'url("./about.jpg")', height: 900, backgroundSize: 'cover', maxWidth: '100%' }}>
-            <h1 className="about-title">About Our Farm History</h1>
+          <div className="overlay-text">ABOUT OUR FARM HISTORY</div>
           </div>
-        </Col>
-      </Row>
+      
 
-      <Container className="">
+      <Container className="about-content">
         <Row>
           <Col md={8}>
             <p>
@@ -43,10 +41,10 @@ const About = () => {
         </Row>
       </Container>
 
-      <Container className='text'>
+      <Container className='about-text'>
         <Row>
           <Col>
-            <h3>Raised with care, love, and the highest quality food.</h3>
+            <h2 className='text-topic'>Raised with care, love, and the highest quality food.</h2>
             <p>
               <strong>We are dedicated to ensuring continuity in the tradition of raising champion Japanese Nishikigoi.</strong>
             </p>
@@ -60,10 +58,10 @@ const About = () => {
         </Row>
       </Container>
 
-      <Container className='c-text-3'>
+      <Container className='about-nishikigoi'>
         <Row>
           <Col md={8}>
-            <h4>What does Nishikigoi mean?</h4>
+            <h2 className='text-topic2'>What does Nishikigoi mean?</h2>
             <p>
               Nishikigoi (nee-shee-kee-goy) is a blend of two Japanese words. Nishiki translates as brocade, referring to the rich silk fabric with beautiful patterns. In Japan specifically, it is the traditional fabric of the Kimono. The second part “koi” translates as carp, referring to the plain colored fish that is a common food source. The word Nishikigoi is used because the beautiful coloring on these creatures is similar to the patterning on the textile.
             </p>
@@ -85,15 +83,9 @@ const About = () => {
         </Row>
       </Container>
 
-      {/* New Section for Kodama Commitment to Quality */}
-      <Container className="text-center my-5">
-        <h2>The Kodama Commitment to Quality</h2>
-        <p>
-          Taro Kodama, president of Kodama Koi Farm describes the 6 ways that their family’s experience and traditional values deliver consistent results and special access to the highest quality Nishikigoi in the World. This commitment to quality koi is what sets us apart.
-        </p>
-      </Container>
-
-      <Container>
+      
+      <Container className='text-5'>
+             <h2>The Kodama Commitment to Quality</h2>
         <Row>
           <Col md={4}>
             <h4>We are dedicated to koi health and use a strict quarantine system</h4>
@@ -125,50 +117,51 @@ const About = () => {
         </Row>
       </Container>
 
-      <Container className="text-center my-5">
-      <Row>
-        <Col md={6}>
-          <h2>
-            <FontAwesomeIcon icon={faTrophy} size="3x" />
-            <br />
-            50 +
-          </h2>
-          <h5>Years</h5>
-          <p>
-            50 + years of family experience helps us raise champions!
-            <br />
-            210 + award-winning koi in shows
-            <br />
-            5 grand champions at the All Japan Koi Show
-          </p>
-        </Col>
-        <Col md={6}>
-          <h2>
-            <FontAwesomeIcon icon={faWater} size="3x" />
-            <br />
-            3,000,000
-          </h2>
-          <h5>Gallons</h5>
-          <p>
-            1 of the largest koi farms in the world!
-            <br />
-            3,000,000 gallons of pond space
-            <br />
-            500,000 + Kodama raised koi
-          </p>
-        </Col>
-      </Row>
-      <Row className="mt-5">
-        <Col>
-          <h4>
-            <FontAwesomeIcon icon={faUsers} size="3x" />
-          </h4>
-          <h5>Industry Affiliations</h5>
-          <p>
-            We are proud to be members of many Japanese Nishikigoi organizations.
-          </p>
-        </Col>
-      </Row>
+      <Container className="statistics-section">
+        <h1 className="text-center">Our Achievements</h1>
+        <Row>
+          <Col md={6}>
+            <h2>
+              <FontAwesomeIcon icon={faTrophy} size="3x" />
+              <br />
+              50 +
+            </h2>
+            <h5>Years</h5>
+            <p>
+              50 + years of family experience helps us raise champions!
+              <br />
+              210 + award-winning koi in shows
+              <br />
+              5 grand champions at the All Japan Koi Show
+            </p>
+          </Col>
+          <Col md={6}>
+            <h2>
+              <FontAwesomeIcon icon={faWater} size="3x" />
+              <br />
+              3,000,000
+            </h2>
+            <h5>Gallons</h5>
+            <p>
+              1 of the largest koi farms in the world!
+              <br />
+              3,000,000 gallons of pond space
+              <br />
+              500,000 + Kodama raised koi
+            </p>
+          </Col>
+        </Row>
+        <Row className="mt-5 text-center">
+          <Col >
+            <h4>
+              <FontAwesomeIcon icon={faUsers} size="3x" />
+            </h4>
+            <h5>Industry Affiliations</h5>
+            <p>
+              We are proud to be members of many Japanese Nishikigoi organizations.
+            </p>
+          </Col>
+        </Row>
       </Container>
     </Container>
   );

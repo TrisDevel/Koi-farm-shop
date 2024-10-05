@@ -9,6 +9,9 @@
     background-color: #EFE9D9; 
     border-radius: 4px; 
     width: 100%; 
+    border-color: yellow !important;
+    
+    
   }
 .email-input{
     background-color: #EFE9D9;

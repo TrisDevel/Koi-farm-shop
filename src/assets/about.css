@@ -1,79 +1,83 @@
-.about-title {
+
+.section-padding {
+    padding-top: 59px;
+    padding-bottom: 59px;
+}
+.about-text{
+    color: #666666;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    padding-bottom: 59px;
+}
+
+.text-inner {
+    color: #666666;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    
+}
+.text-topic{
+    color: black;
+}
+.text-topic2{
+    color: black;
+
+}
+
+.about-content {
+    padding-top: 59px;
+    padding-bottom: 59px;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
+}
+
+.video-container {
+    display: flex;
+}
+
+.commitment-section {
+    padding-top: 59px;
+    padding-bottom: 59px;
+}
+
+.statistics-section {
+    padding-top: 59px;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    text-align: center;
+
+
+}
+.overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4rem; /* Adjust size as needed */
-    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-    margin: 0; 
+    font-family: 'Playfair Display SC', Georgia, "Times New Roman", serif;
+    font-size: 50px;
+    color: white; 
+    padding-top: 600px;
+    text-align: center; 
 }
+.about-nishikigoi{
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
 
-.img-about {
-    position: relative;
+}
+.text-5{
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
+}
+.text-5 h2{
+    color: black;
     text-align: center;
-    color: white;
-    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-
-
+    padding-top: 59px; 
 }
-.h1.about-title{
-    margin-top: 20px;
-}
-
-   
-
-.section-padding{
-    padding-top: 59px;
+.text-center{
+    color: black;
     padding-bottom: 59px;
-    margin-left: 158px;
-    margin-right: 158px;
-    width: 1180px;
-    height: 301px;
-
 }
-
-.text-inner{
-    color: #666666;
-    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-   
-}
-.Text.container{
-    padding-top: 59px;
-    padding-bottom: 59px;
-    margin-left: 158px;
-    margin-right: 158px;
-    width: 1180px;
-    height: 301px;
-    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-}
-.text-inner-2{
-    color: #666666;
-    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
-
-}
-.video-container{
-    width: 433px;
-    height: 233px;
-    display: flex;
-}
-.c-text-3{
-    width: 1180px;
-    height: 515.88px;
-    padding-top: 59px;
-    padding-bottom: 59px;
-
-
-}
-.text-3{
     
-    width: 765px;
-    height: 383px;
-
-}
-.image_wrap{
-    margin-left: 72px;
-}
 
 
- 
+
+
+
 

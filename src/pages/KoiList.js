@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-import RangeSlider from 'react-bootstrap-range-slider';
-import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
+import RangeSlider from "react-bootstrap-range-slider";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
+import { Link } from "react-router-dom";
+import "../assets/KoiList.css";
+import KoiCard from "./KoiCard";
+import axios from "axios";
+import ReactPaginate from 'react-paginate';
 const KoiList = () => {
+  /*
   const [kois, setKois] = useState([]);
   const [filteredKois, setFilteredKois] = useState([]);
   const [filters, setFilters] = useState({
@@ -168,6 +172,320 @@ const KoiList = () => {
         </Col>
       </Row>
     </Container>
+  );*/
+  const [cards, setCards] = useState([
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Kin Showa – koi",
+      price: "800$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "900%",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1000$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1100$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1100$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1100$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1100$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+    {
+      imgSrc: "w0819t003-260x421.jpg",
+      title: "Koi Fish 1",
+      price: "1100$",
+      breeder: "Kanno Koi Farm",
+      sex: "Male",
+      bornIn: "2023",
+      size: "10.00 inch / 27.5 cm",
+      variety: "Kin Showa",
+    },
+  ]);
+
+  // Optional: Fetch from API if needed
+  const fetchCardsData = async () => {
+    try {
+      const response = await axios.get("https://api.example.com/koi-cards"); // Replace with your API URL
+      setCards(response.data); // Assuming API returns an array of card objects
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  //paginate
+  const ITEMS_PER_PAGE = 10; // Number of items per page
+
+  
+    const [data, setData] = useState([]); // Store your fetched data
+    const [currentPage, setCurrentPage] = useState(0); // Current page state
+    const [totalPages, setTotalPages] = useState(0); // Total number of pages
+  
+    // Fetch data from API
+    const fetchData = async (page) => {
+      try {
+        const response = await axios.get(`https://api.example.com/items?page=${page}&limit=${ITEMS_PER_PAGE}`);
+        setData(response.data.items); // Assuming response.data.items contains the array of items
+        setTotalPages(Math.ceil(response.data.totalCount / ITEMS_PER_PAGE)); // Assuming totalCount gives total items
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    // Load data when the component mounts or when currentPage changes
+    useEffect(() => {
+      fetchData(currentPage + 1); // API page index typically starts at 1
+    }, [currentPage]);
+  
+    // Handle page change
+    const handlePageClick = (event) => {
+      setCurrentPage(event.selected);
+    };
+  
+
+  return (
+    <>
+      <div className="container">
+        <div className="breadcrumb-wrapper">
+          <nav className="woocommerce-breadcrumb">
+            <a
+              href="https://www.kodamakoifarm.com/"
+              className="breadcrumb-link"
+            >
+              Home
+            </a>
+            /
+            <a
+              href="https://www.kodamakoifarm.com/shop/live-koi/"
+              className="breadcrumb-link"
+            >
+              Search Live Koi Fish for Sale
+            </a>
+            / High Quality Koi
+          </nav>
+        </div>
+      </div>
+      <div className="container">
+        <header className="products-header">
+          <h1 className="products-header__title page-title">
+            High Quality Koi
+          </h1>
+        </header>
+        <div className="koi-description container my-5">
+          <div className="row">
+            <div className="col-md-8 koi-column koi-column-main">
+              <strong>Gokujo is a special expression for the Japanese.</strong>
+              <p>
+                We use Gokujo to describe the highest quality article, time, and
+                even a space. Our family is committed to raising the best
+                quality koi in the world and only select Japanese Koi from the
+                Niigata region. In the past, these carefully raised Gokujo class
+                of Koi have been introduced one-by-one, on an off-line request
+                basis. We are happy to now have the opportunity to offer you our
+                Gokujo class of high-quality koi fish online.
+              </p>
+              <strong>
+                We have Gokujo class Nishikigoi available to buy if shown below
+                the search field. If not, please contact us with what you are
+                looking for, and we will help find the right koi.
+              </strong>
+            </div>
+            <div className="col-md-4 koi-column koi-column-image">
+              <span className="koi-image-wrap">
+                <img
+                  className="img-fluid koi-image"
+                  src="https://www.kodamakoifarm.com/wp-content/uploads/2018/02/g-g-2.jpg"
+                  alt="Koi Fish"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="product-search-form">
+          <div className="search-heading">Search All Our Available Koi</div>
+          <div className="search-box">
+            <div className="search-form">
+              <div className="text-search-container">
+                <div className="search-overlay" />
+                <div className="search-inner">
+                  <div>
+                    <a className="search-button" />
+                    <input
+                      id="text-search"
+                      className="text-input"
+                      name="search_text"
+                      type="search"
+                      placeholder="Search by title"
+                    />
+                  </div>
+                </div>
+                <div className="select-inner">
+                  <select className="meta-select" name="select_sex">
+                    <option value="0">Search by sex</option>
+                    <option value="1">Male (348)</option>
+                    <option value="2">Female (549)</option>
+                    <option value="3">Unknown (245)</option>
+                  </select>
+                </div>
+                <div className="select-inner">
+                  <select className="meta-select breeder-select" name="breeder">
+                    <option value="0">Search by breeder</option>
+                    <option value="dainichi-koi-farm">
+                      Dainichi Koi Farm (86)
+                    </option>
+                    <option value="dainichi-toyota">
+                      Dainichi Koi Farm Toyota (1)
+                    </option>
+                    <option value="hiroi-koi-farm">Hiroi Koi Farm (96)</option>
+                    <option value="isa-koi-farm">Isa Koi Farm (39)</option>
+                    <option value="izumiya-koi-farm">
+                      Izumiya Koi Farm (26)
+                    </option>
+                    <option value="kaneko-koi-farm">
+                      Kaneko Koi Farm (31)
+                    </option>
+                  </select>
+                </div>
+
+                <div className="select-inner">
+                  <select className="meta-select variety-select" name="variety">
+                    <option value="0">Search by variety</option>
+                    <option value="aigoromo">Aigoromo (21)</option>
+                    <option value="aka-matsuba">Aka Matsuba (5)</option>
+                    <option value="aka-matsuba-ogon">
+                      Aka Matsuba Ogon (1)
+                    </option>
+                    <option value="aragoke">Aragoke (5)</option>
+                    <option value="asagi">Asagi (29)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="submit-search-container">
+            <button className="button submit-search-form">Filter</button>
+          </div>
+        </div>
+        <div>
+          <p className="woocommerce-result-count">
+            Showing 1–16 of 133 results
+          </p>
+          <select
+            className="orderby"
+            name="orderby"
+            defaultValue="date"
+            aria-label="Shop order"
+          >
+            <option value="popularity">Sort by popularity</option>
+            <option value="date">Sort by latest</option>
+            <option value="price">Sort by price: low to high</option>
+            <option value="price-desc">Sort by price: high to low</option>
+            <option value="auction_sort">Sort by Auction</option>
+            <option value="bid_asc">Sort by current bid: Low to high</option>
+            <option value="bid_desc">Sort by current bid: High to low</option>
+            <option value="auction_end">Sort auction by ending soonest</option>
+            <option value="auction_started">
+              Sort auction by recently started
+            </option>
+            <option value="auction_activity">
+              Sort auction by most active
+            </option>
+          </select>
+        </div>
+
+        <Container fluid className="no-padding card-k">
+          <Row>
+            {cards.map((card, index) => (
+              <Col key={index} md={3}>
+                <KoiCard
+                  imgSrc={card.imgSrc}
+                  title={card.title}
+                  price={card.price}
+                  breeder={card.breeder}
+                  sex={card.sex}
+                  bornIn={card.bornIn}
+                  size={card.size}
+                  variety={card.variety}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+        <nav className="woocommerce-pagination">
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="→"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={10} // Update with your total page count
+        previousLabel="←"
+        pageClassName="page-numbers" // Use your existing class
+        pageLinkClassName="page-link" // Use your existing class
+        previousClassName="page-numbers" // Consistent class
+        previousLinkClassName="page-link" // Use your existing class
+        nextClassName="page-numbers" // Consistent class
+        nextLinkClassName="page-link" // Use your existing class
+        breakClassName="page-numbers" // Use your existing class
+        breakLinkClassName="page-link" // Use your existing class
+        containerClassName="page-numbers" // Optional, if you want a similar structure
+        activeClassName="current" // Matches your original active class
+      />
+    </nav>
+      </div>
+    </>
   );
 };
 
