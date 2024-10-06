@@ -8,7 +8,6 @@ const Register = () => {
   const [phone, setPhone] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-<<<<<<< Updated upstream
   const [recaptchaToken, setRecaptchaToken] = useState(null); // State for reCAPTCHA token
   const [errors, setErrors] = useState({}); // State for validation errors
 
@@ -27,9 +26,8 @@ const Register = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0; // Return true if no errors
   };
-=======
-  const [recaptchaToken, setRecaptchaToken] = useState(null); 
->>>>>>> Stashed changes
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,24 +35,16 @@ const Register = () => {
       console.log('Registration attempt with:', { name, email, phone, username, password, recaptchaToken });
       // Implement your registration logic here
     }
-<<<<<<< Updated upstream
-=======
-    console.log('Registration attempt with:', { name, email, phone, username, password, recaptchaToken });
-    
->>>>>>> Stashed changes
+
   };
 
   return (
     <Container component="main" maxWidth="xs">
       <Box sx={{ mt: 3 }}>
         <div>
-<<<<<<< Updated upstream
           <h2 style={{ width: '1200px', height: '38px' }}>
             Welcome to PARADISE Farm!
-=======
-          <h2 style={{width: '1200px', height: '38px'}}>
-            Welcome to KOI PARADISE!
->>>>>>> Stashed changes
+
           </h2>
           <p>Please login or register below for access to the highest quality koi fish available from Japan.</p>
         </div>
@@ -125,13 +115,9 @@ const Register = () => {
             helperText={errors.password}
           />
           <ReCAPTCHA
-<<<<<<< Updated upstream
-            sitekey="YOUR_RECAPTCHA_SITE_KEY" // Replace with your reCAPTCHA site key
-            onChange={(token) => setRecaptchaToken(token)}
-=======
+
             sitekey="6LcWOVUqAAAAAKTbKnxdEtQFd6QWMELXb0b9n6dE" // Replace with your site key
             onChange={(token) => setRecaptchaToken(token)} // Set token on change
->>>>>>> Stashed changes
           />
           {errors.recaptcha && <Alert severity="error">{errors.recaptcha}</Alert>}
           <Button

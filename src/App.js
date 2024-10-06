@@ -13,9 +13,18 @@ import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
 import Contact from './pages/Contact';
 import About from './pages/About'
+<<<<<<< Updated upstream
 import FAQs from './pages/FAQs';
+=======
+import Cart from  './pages/Cart';
+import { CartProvider } from './contexts/CartContext'; // Nhập CartProvider
+
+
+
+>>>>>>> Stashed changes
 function App() {
   return (
+    <CartProvider>
     <Router>
       <div className="App d-flex flex-column min-vh-100">
         <AppNavbar fixed="top" />
@@ -24,7 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/koi" element={<KoiList />} />
             <Route path="/koi/:id" element={<KoiDetails />} />
-            <Route path="/cart" element={<card />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/consignment" element={<Consignment />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -37,6 +46,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </CartProvider>
   );
 }
 
