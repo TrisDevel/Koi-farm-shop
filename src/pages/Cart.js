@@ -4,7 +4,7 @@ import { Container, Table, Button } from 'react-bootstrap';
 import { Typography } from '@mui/material';
 import { useCart } from '../contexts/CartContext'; // Sử dụng useCart để lấy thông tin giỏ hàng
 import { useNavigate } from 'react-router-dom';
-// import '../assets/cart.css';
+import '../assets/cart.css';
 
 const Cart = () => {
     const { cartItems } = useCart(); // Lấy giỏ hàng từ context

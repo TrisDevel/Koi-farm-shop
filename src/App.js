@@ -13,15 +13,12 @@ import Register from './pages/Register';
 import UserProfile from './pages/UserProfile';
 import Contact from './pages/Contact';
 import About from './pages/About'
-<<<<<<< Updated upstream
 import FAQs from './pages/FAQs';
-=======
 import Cart from  './pages/Cart';
 import { CartProvider } from './contexts/CartContext'; // Nhập CartProvider
 
 
 
->>>>>>> Stashed changes
 function App() {
   return (
     <CartProvider>
