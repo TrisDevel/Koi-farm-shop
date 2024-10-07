@@ -14,7 +14,7 @@ function KoiCard({ imgSrc, title,price, breeder,sex,bornIn,size,variety}) {
                 <Card.Text  className='born-koi '><strong>Born in:</strong> {bornIn || 'Unknown'}</Card.Text>
                 <Card.Text  className='size-koi '><strong>Size:</strong> {size || 'Unknown'}</Card.Text>
                 <Card.Text  className='variety-koi '><strong>Variety:</strong> {variety || 'Unknown'}</Card.Text>
-                <a     className='add-to-cart'  variant="primary">ADD TO CART</a>
+                <a className='add-to-cart'  variant="primary">ADD TO CART</a>
             </Card.Body>
         </Card>
     );

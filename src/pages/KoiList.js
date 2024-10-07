@@ -4,7 +4,7 @@ import RangeSlider from "react-bootstrap-range-slider";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import { Link } from "react-router-dom";
 import "../assets/KoiList.css";
-import KoiCard from "./KoiCard";
+import KoiCard from "../components/KoiCard";
 import axios from "axios";
 import ReactPaginate from 'react-paginate';
 const KoiList = () => {

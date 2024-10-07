@@ -4,81 +4,12 @@ import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import { IoLogoFacebook } from "react-icons/io5";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
-
+import { faqsShipping } from "../components/Custom/custom-faqs";
 import "../assets/koidetail.css"; // Import tệp CSS
 
 const KoiDetails = () => {
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false); // State để quản lý modal
-
-  const faqs = [
-    // Các mục FAQ hiện tại...
-    {
-      question: "Can you tell me about shipping and delivering koi?",
-      answer: "We offer various shipping options for koi, ensuring they arrive safely and promptly.",
-    },
-    {
-      question: "Return and Cancellation Policy",
-      answer: "You can return koi within 14 days of delivery. Please refer to our policy for more details.",
-    },
-    {
-      question: "Do you ship Koi to Mexico?",
-      answer: "Yes, we ship Koi to Mexico. Please check our shipping guidelines for more information.",
-    },
-    {
-      question: "Do you ship Koi to any other countries?",
-      answer: "We ship Koi to several countries. Please contact us for specific locations.",
-    },
-    {
-      question: "Do you ship interisland?",
-      answer: "Yes, we offer interisland shipping for Koi.",
-    },
-    {
-      question: "Shipping by Air Cargo",
-      answer: "We provide air cargo shipping options for faster delivery.",
-    },
-    {
-      question: "I live in Hawaii. Can I pick up my Koi at your farm instead of them being shipped?",
-      answer: "Yes, local pickups are available. Please schedule an appointment.",
-    },
-    {
-      question: "Can you ship supplies with Koi?",
-      answer: "Yes, we can ship supplies along with your Koi order.",
-    },
-    {
-      question: "Do I have to be there when Koi is delivered?",
-      answer: "Yes, someone must be present to receive the delivery.",
-    },
-    {
-      question: "Can I pick up the Koi at the closest UPS station?",
-      answer: "Yes, you can arrange to pick up your Koi at a UPS location.",
-    },
-    {
-      question: "What is the holding policy?",
-      answer: "We have a holding policy for Koi that allows you to keep them for a specified period before delivery.",
-    },
-    {
-      question: "What is your koi health guarantee?",
-      answer: "We offer a health guarantee for all Koi shipped. Please refer to our policy for details.",
-    },
-    {
-      question: "Do you ship Koi to Canada?",
-      answer: "Yes, we ship Koi to Canada. Please check our shipping guidelines.",
-    },
-    {
-      question: "How do you ship koi supplies?",
-      answer: "Koi supplies are shipped using standard shipping methods to ensure they arrive safely.",
-    },
-    {
-      question: "How do I track my koi shipment?",
-      answer: "You will receive a tracking number via email once your shipment is on its way.",
-    },
-    {
-      question: "What is Koi insurance?",
-      answer: "Koi insurance covers the health and safety of your Koi during shipping.",
-
-    },
-  ];
 
   const koi = {
     id: id,
@@ -106,8 +37,8 @@ const KoiDetails = () => {
                 variant="top"
                 src="../koi1.jpg"
                 alt={koi.name}
-                onClick={() => setShowModal(true)} // Mở modal khi nhấp vào hình ảnh
-                style={{ cursor: "pointer" }} // Thay đổi con trỏ khi di chuột
+                onClick={() => setShowModal(true)} 
+                style={{ cursor: "pointer" }} 
               />
               <Card.Body></Card.Body>
             </Card>
@@ -227,16 +158,16 @@ const KoiDetails = () => {
                 <h2 style={{ margin: '30px 0 30px 0' }}>Shipping FAQs</h2>
                 <p style={{ color: '#C54125' }}>PLEASE CONTACT US WITH ANY QUESTIONS BEFORE ORDERING.</p>
                 <Accordion defaultActiveKey="0">
-                  {faqs.map((faq, index) => (
+                  {faqsShipping.map((faqShipping , index) => (
                     <Accordion.Item eventKey={index.toString()} key={index}>
                       <Accordion.Header>
                         <span style={{ marginRight: "10px" }}>
-                          {faq.icon}
+                          {faqShipping.icon}
                         </span>
-                        {faq.question}
+                        {faqShipping.question}
                       </Accordion.Header>
                       <Accordion.Body>
-                        {faq.answer}
+                        {faqShipping.answer}
                       </Accordion.Body>
                     </Accordion.Item>
                   ))}
