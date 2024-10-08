@@ -59,7 +59,7 @@ const ConsignmentPolicy = () => {
             <Typography variant="body2" color='#212529' className="consignmnet-text">
                 <span className="text-title"><strong>7. Terms and Agreements</strong></span>
                 <br /> -Custormers can directly contact <span style={{ color: 'red' }}>Koi Paradise Farm</span> via phone or email to discuss consignment details and others terms
-                <br />-If the customer does not contact the farm within 7 days after the consignment period ends, Koi Paradise Farm reserves the right to manage the fish according to internal rules.
+                <br />-If the customer does not contact the farm within 7 days after the consignment period ends, <span style={{ color: 'red' }}>Koi Paradise Farm</span> reserves the right to manage the fish according to internal rules.
             </Typography>
             <Typography variant="body2" color='#212529' className="consignmnet-text">
                If you have any questions about our consignment policies, feel free to reach out to us at: <strong> info@koiparadise.com </strong> 

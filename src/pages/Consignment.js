@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import '../assets/consignment.css';
+import Breadcrumb from "../components/breadcrumb";
 
 const Consignment = () => {
   const [time, setTime] = useState("3 Months");
@@ -54,12 +56,13 @@ const Consignment = () => {
   };
 
   return (
-    <Container>
-      <h2>Consignment Information</h2>
+    <Container >
+       <Breadcrumb title="Consignment Service" />
+      <h2 className="consignment-title">Consignment Information</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formTime">
-          <Form.Label>Time</Form.Label>
-          <Form.Control as="select" value={time} onChange={handleTimeChange}>
+          <Form.Label className="consignment-text" >Time</Form.Label>
+          <Form.Control as="select" value={time} onChange={handleTimeChange} className="time-text">
             <option>1 Months</option>
             <option>2 Months</option>
             <option>3 Months</option>
@@ -67,17 +70,17 @@ const Consignment = () => {
           <Form.Text>Price: {price}$</Form.Text>
         </Form.Group>
 
-        <h3>Fish Information</h3>
+        <h3 className="text-title">Fish Information</h3>
         <Row>
           <Col>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className="consignment-text">Name</Form.Label>
               <Form.Control type="text" placeholder="Name" />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="formGender">
-              <Form.Label>Gender</Form.Label>
+              <Form.Label className="consignment-text">Gender</Form.Label>
               <Form.Check
                 type="radio"
                 label="Male"
@@ -99,13 +102,13 @@ const Consignment = () => {
         <Row>
           <Col>
             <Form.Group controlId="formAge">
-              <Form.Label>Age</Form.Label>
+              <Form.Label className="consignment-text">Age</Form.Label>
               <Form.Control type="text" placeholder="Age" />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="formSize">
-              <Form.Label>Size</Form.Label>
+              <Form.Label className="consignment-text">Size</Form.Label>
               <Form.Control type="text" placeholder="Size" />
             </Form.Group>
           </Col>
@@ -114,41 +117,41 @@ const Consignment = () => {
         <Row>
           <Col>
             <Form.Group controlId="formOrigin">
-              <Form.Label>Origin</Form.Label>
+              <Form.Label className="consignment-text">Origin</Form.Label>
               <Form.Control type="text" placeholder="Origin" />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="formBreed">
-              <Form.Label>Breed</Form.Label>
+              <Form.Label className="consignment-text">Breed</Form.Label>
               <Form.Control type="text" placeholder="Breed" />
             </Form.Group>
           </Col>
         </Row>
 
         <Form.Group controlId="formFile">
-          <Form.Label>Upload Certificate</Form.Label>
+          <Form.Label className="consignment-text">Upload Certificate</Form.Label>
           <Form.Control type="file" onChange={handleFileChange} />
           {error && <Form.Text className="text-danger">{error}</Form.Text>}
         </Form.Group>
 
-        <Button variant="secondary" className="mb-3">
+        <Button variant="secondary" className="mb-3" className='certi-btn'>
           Certificate
         </Button>
 
         <Form.Group controlId="formNote">
-          <Form.Label>Note (optional):</Form.Label>
+          <Form.Label className="consignment-text">Note (optional):</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
 
-        <Form.Group controlId="formCheckbox">
+        <Form.Group controlId="formCheckbox" className ='tick'>
           <Form.Check
             type="checkbox"
             label="I have read and accept the Consignment Policy"
           />
         </Form.Group>
 
-        <Button variant="dark" type="submit">
+        <Button variant="dark" type="submit" className="ctn-to-payment">
           Continue to Payment
         </Button>
       </Form>

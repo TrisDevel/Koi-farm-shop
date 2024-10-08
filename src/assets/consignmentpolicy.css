@@ -1,7 +1,7 @@
 .consignment-title {
     font-size: 2rem !important; 
     font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important; 
-    margin-top: 20px !important;
+    margin-top: 50px !important;
     margin-bot: 20px !important;
 }
 
@@ -16,4 +16,9 @@ font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
     font-size: 1.5rem !important; 
     font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
 
+}
+
+.tick{
+
+    font-size: 1.2rem !important;
 }
