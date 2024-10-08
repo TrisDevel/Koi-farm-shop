@@ -6,10 +6,17 @@ import { IoLogoFacebook } from "react-icons/io5";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { faqsShipping } from "../components/Custom/custom-faqs";
 import "../assets/koidetail.css"; // Import tệp CSS
+import { useCart } from '../contexts/CartContext';
 import Breadcrumb from "../components/breadcrumb";
+
+
+
 const KoiDetails = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false); // State để quản lý modal
+
+
 
   const koi = {
     id: id,
@@ -25,6 +32,11 @@ const KoiDetails = () => {
     foodAmount: "50 grams per day",
     price: 1000,
   };
+
+  const handleAddToCart = () => {
+    console.log("Adding to cart:", koi); // In thông tin sản phẩm ra console
+    addToCart(koi); // Gọi hàm addToCart
+};
 
   return (
     <>
@@ -70,9 +82,13 @@ const KoiDetails = () => {
                 <strong>Food Amount:</strong> {koi.foodAmount}
               </ListGroup.Item>
             </ListGroup>
-            <Button className="btn-add-to-cart" variant="primary">
-              Add to Cart
-            </Button>
+            <Button
+                className="btn-add-to-cart"
+                variant="primary"
+                onClick={handleAddToCart} // Gọi hàm handleAddToCart
+              >
+                Add to Cart
+              </Button>
             <div className="social-icon">
               <IoLogoFacebook size={30} />
               <FaInstagram size={30} />
