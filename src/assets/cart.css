@@ -1,0 +1,17 @@
+.cart-title {
+    margin-top: 50px;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+}
+.cart-text {
+    margin-top: 50px !important;
+    text-align: center !important;
+   font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
+   color: rgba(0, 0, 0, 0.6);
+ 
+}
+.cart-text .btn {
+    margin-top: 20px !important;
+    background-color: #efe9d9 !important; 
+    border: 2px solid red !important; 
+    color: red !important; 
+}
