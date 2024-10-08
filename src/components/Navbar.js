@@ -59,10 +59,13 @@ function CustomNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
               <Nav.Link href="#">Auction</Nav.Link>
-              <Nav.Link href="#">Service</Nav.Link>
+              <NavDropdown title="Consignment" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/consignment">Consignment</NavDropdown.Item>
+              <NavDropdown.Item href="consignment-Policy">Consignment Policy</NavDropdown.Item>
+              </NavDropdown>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
-              <Nav.Link href="/faqs">FAQs</Nav.Link> {/* Add this line */}
+              <Nav.Link href="/faqs">FAQs</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </div>
