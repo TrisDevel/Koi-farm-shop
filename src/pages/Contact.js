@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import { Box, Typography, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Breadcrumb from "../components/breadcrumb";
 import '../assets/contact.css';
 
 const Contact = () => {
@@ -27,6 +28,8 @@ const Contact = () => {
     };
 
     return (
+        <>
+        <Breadcrumb title="Contact Us" />       
         <Container>
             <Row className="mt-5">
                 <Col md={6}>
@@ -162,6 +165,7 @@ const Contact = () => {
             </Box>
 
         </Container>
+        </>
     );
 };
 

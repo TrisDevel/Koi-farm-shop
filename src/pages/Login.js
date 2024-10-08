@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import axios from '../config/axios'; // Import axios instance
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../assets/login.css';
+import Breadcrumb from "../components/breadcrumb";
+import api from '../config/axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,24 +16,33 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/customer/authenticate', {
-        username: email, // 
+      const response = await api.post('/customers/login', {
+        email: email,
         password: password,
       });
-      console.log(response.data);
 
-      if (response.data.code === 200) {
-        localStorage.setItem('token', JSON.stringify(response.data.data.token)); // Adjust if token is in a different location
-        window.location.href = '/';
-      } else {
-        setError('Đăng nhập thất bại. Vui lòng thử lại.');
-      }
+        console.log(response.data); // In ra để kiểm tra phản hồi
+
+        if (response.data.code === 200) {
+            // Lưu token và username vào localStorage
+            localStorage.setItem('token', response.data.data.token);
+            localStorage.setItem('username', response.data.data.username); // Lưu username
+            localStorage.setItem('userId', response.data.data.userId); // Lưu username
+            window.location.href = '/'; // Chuyển hướng
+        } else {
+            setError('Đăng nhập thất bại. Vui lòng thử lại.');
+        }
     } catch (error) {
-      setError('Đăng nhập thất bại. Vui lòng thử lại.');
+        console.error(error); // In lỗi ra console để kiểm tra
+        setError('Đăng nhập thất bại. Vui lòng thử lại.');
     }
-  };
+};
+
 
   return (
+    <>
+    <Breadcrumb title="Login" />
+
     <Container component="main" maxWidth="xs">
       <Row>
         <Col>
@@ -110,6 +121,7 @@ const Login = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

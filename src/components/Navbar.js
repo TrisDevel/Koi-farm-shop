@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/navbar.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from 'react-router-dom';
 
 function CustomNavbar() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      // Giả sử thông tin người dùng được lưu trữ trong localStorage
+      const userData = localStorage.getItem("username");
+      if (userData) {
+        setUser(userData); // Không cần JSON.parse nếu đã lưu dưới dạng chuỗi
+      }
+    };
+  
+    fetchUser(); // Gọi hàm fetchUser
+  }, []); // Thêm mảng phụ thuộc để chạy một lần khi component mount
+  
+
   return (
     <>
       <header className="header text-white py-2">
@@ -45,19 +60,22 @@ function CustomNavbar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
+            {user ? (
+              <Nav.Link href="/user-profile">{user}</Nav.Link> // Sử dụng user trực tiếp
+            ) : (
               <Nav.Link href="/login">Login/Register</Nav.Link>
-              <Nav.Link href="#">Instructions</Nav.Link>
+            )}
               <NavDropdown title="Search Koi" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+                <NavDropdown.Item href="/koi">Action</NavDropdown.Item>
+                <NavDropdown.Item href="/koi">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/koi">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/koi">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown>
               <Nav.Link href="#">Auction</Nav.Link>
               <NavDropdown title="Consignment" id="basic-nav-dropdown">
               <NavDropdown.Item href="/consignment">Consignment</NavDropdown.Item>

@@ -3,11 +3,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy, faWater, faUsers } from '@fortawesome/free-solid-svg-icons'; 
 import '../assets/about.css';
+import Breadcrumb from "../components/breadcrumb";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   return (
-    <Container fluid className="about-container" >
+    <>
+    <Breadcrumb title="About Us" />
+    <Container fluid style={{ marginTop: '50px' }} className="about-container" >
  
           <div className="img-about" style={{ backgroundImage: 'url("./about.jpg")', height: 900, backgroundSize: 'cover', maxWidth: '100%' }}>
           <div className="overlay-text">ABOUT OUR FARM HISTORY</div>
@@ -164,6 +167,7 @@ const About = () => {
         </Row>
       </Container>
     </Container>
+    </>
   );
 };
 

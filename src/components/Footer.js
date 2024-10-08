@@ -6,7 +6,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Thêm import cho Zal
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../assets/footer.css";
+import "../components/styles/footer.css";
 const Footer = () => {
   return (
     <>

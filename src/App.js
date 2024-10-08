@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import AppNavbar from './components/Navbar';
@@ -16,8 +15,7 @@ import About from './pages/About'
 import FAQs from './pages/FAQs';
 import Cart from  './pages/Cart';
 import { CartProvider } from './contexts/CartContext'; // Nhập CartProvider
-
-
+import NotificationBar from './components/NotificationBar';
 
 function App() {
   return (
@@ -41,6 +39,7 @@ function App() {
           </Routes>
         </Container>
         <Footer />
+        <NotificationBar /> {/* Thêm dòng này */}
       </div>
     </Router>
     </CartProvider>

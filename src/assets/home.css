@@ -29,8 +29,12 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    display: none;
+    display: none !important;
     /* Ẩn mũi tên điều hướng */
+}
+
+.carousel-indicators {
+    display: none !important;
 }
 
 .carousel-caption a {

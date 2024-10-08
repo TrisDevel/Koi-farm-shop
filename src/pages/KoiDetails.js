@@ -6,7 +6,7 @@ import { IoLogoFacebook } from "react-icons/io5";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { faqsShipping } from "../components/Custom/custom-faqs";
 import "../assets/koidetail.css"; // Import tệp CSS
-
+import Breadcrumb from "../components/breadcrumb";
 const KoiDetails = () => {
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false); // State để quản lý modal
@@ -27,6 +27,8 @@ const KoiDetails = () => {
   };
 
   return (
+    <>
+    <Breadcrumb title="Koi Details" />
     <div className="koidetail-container">
       <Container className="my-5">
         <Row>
@@ -215,6 +217,7 @@ const KoiDetails = () => {
         </Row>
       </Container>
     </div>
+    </>
   );
 };
 

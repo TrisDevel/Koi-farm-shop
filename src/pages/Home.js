@@ -32,7 +32,7 @@ const Home = () => {
         </Carousel>
         <div className="body">
           <Row
-            style={{ backgroundImage: "url(./menu-bg.jpg)" }}
+            style={{ backgroundImage: "url(./menu-bg.jpg)", padding: "20px 0 20px 0" }}
             className="text-center"
           >
             <Col style={{ margin: "15px 0 15 px 0", fontSize: "23px" }}>

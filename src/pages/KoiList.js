@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import RangeSlider from "react-bootstrap-range-slider";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import { Link } from "react-router-dom";
+import Breadcrumb from "../components/breadcrumb";
 import "../assets/KoiList.css";
 import KoiCard from "../components/KoiCard";
 import axios from "axios";
@@ -298,26 +299,7 @@ const KoiList = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="breadcrumb-wrapper">
-          <nav className="woocommerce-breadcrumb">
-            <a
-              href="https://www.kodamakoifarm.com/"
-              className="breadcrumb-link"
-            >
-              Home
-            </a>
-            /
-            <a
-              href="https://www.kodamakoifarm.com/shop/live-koi/"
-              className="breadcrumb-link"
-            >
-              Search Live Koi Fish for Sale
-            </a>
-            / High Quality Koi
-          </nav>
-        </div>
-      </div>
+      <Breadcrumb title="High Quality Koi" />
       <div className="container">
         <header className="products-header">
           <h1 className="products-header__title page-title">

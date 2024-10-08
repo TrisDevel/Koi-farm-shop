@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Accordion, Form, Breadcrumb, Alert, Button } from "react-bootstrap";
+import { Accordion, Form, Alert, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Breadcrumb from "../components/breadcrumb";
 import "../assets/FAQs.css";
 import faqs from "../components/Custom/custom-faqs";
 function FAQs() {
@@ -18,21 +19,9 @@ function FAQs() {
   };
 
   return (
+    <>
+    <Breadcrumb title="High Quality Koi" />
     <div>
-      <div
-        className="bg-banner"
-        style={{ backgroundImage: "url(../menu-bg.jpg)" }}
-      >
-        <Breadcrumb style={{ paddingLeft: "50px", textAlign: "center" }}>
-          <Breadcrumb.Item
-            style={{ color: "#C54125", textDecoration: "none" }}
-            href="/"
-          >
-            Home
-          </Breadcrumb.Item>
-          <Breadcrumb.Item active>FAQs</Breadcrumb.Item>
-        </Breadcrumb>
-      </div>
       <div className="faqs-container mt-5">
         <h1 style={{ margin: '50px 0 100px 0' }} className="text-center">FAQs - Frequently Asked Questions</h1>
         <Form.Control
@@ -70,6 +59,7 @@ function FAQs() {
         </Accordion>
       </div>
     </div>
+    </>
   );
 }
 

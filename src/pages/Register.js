@@ -8,6 +8,7 @@ import {
   Alert,
 } from "@mui/material";
 import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
+import Breadcrumb from "../components/breadcrumb";
 
 const Register = () => {
 
@@ -61,15 +62,14 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Breadcrumb title="Register" />
     <Container component="main" maxWidth="xs">
       <Box sx={{ mt: 3 }}>
         <div>
 
           <h2 style={{ width: "1200px", height: "38px" }}>
             Welcome to PARADISE Farm!
-          </h2>
-          <h2 style={{ width: "1200px", height: "38px" }}>
-            Welcome to KOI PARADISE! Stashed changes
           </h2>
           <p>
             Please login or register below for access to the highest quality koi
@@ -159,6 +159,7 @@ const Register = () => {
         </Box>
       </Box>
     </Container>
+    </>
   );
 };
 
