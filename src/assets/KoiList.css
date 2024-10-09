@@ -1,8 +1,14 @@
 
-.products-header {
- 
-  display: block;
-  text-align: left;
+
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: none !important; /* Hoặc giá trị bạn muốn */
+  }
+}
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1140px !important;
+  }
 }
 
 .products-header__title {
@@ -88,6 +94,12 @@
     padding: 5px 10px;
     width: 100%;
     
+
+}
+.mb-5.card{
+  width: 261px;
+  height: auto;
+  margin: 20px auto;
 
 }
 .select-inner{
@@ -186,6 +198,7 @@
   
  
 }
+
 .add-to-cart:hover {
   background-color: #C54125; 
   color: white; 
@@ -280,8 +293,11 @@ body {
   color: rgb(197, 65, 37);
   text-decoration: none;
 }
+.cardlist.card-body{
+  padding: 10px !important;
+  margin-top: 0 !important;
 
-
+}
 
 
 

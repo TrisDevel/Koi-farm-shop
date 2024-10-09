@@ -1,12 +1,16 @@
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 import "../assets/KoiList.css";
-
-function KoiCard({ imgSrc, title,price, breeder,sex,bornIn,size,variety}) {
+import { Link } from 'react-router-dom'; 
+function KoiCard({ id, imgSrc, title,price, breeder,sex,bornIn,size,variety}) {
     return (
         <Card className='mb-5'>
-            <Card.Img variant="top" src={imgSrc || 'default-image.jpg'} /> {/* Provide a default image if not found */}
-            <Card.Body>
+            <div>
+                <Link to={`/koi/${id}`}>
+                    <img src={imgSrc} alt={title} className="koi-image" />
+                </Link>
+            </div>
+            <Card.Body className='cardlist'>
                 <Card.Title className='tittle-name-koi'>{title || 'Card Title'}</Card.Title>
                 <Card.Text  className='price-koi '><strong>price:</strong> {price || 'Unknown'}</Card.Text>
                 <Card.Text  className='breeder-koi '><strong>Breeder:</strong> {breeder || 'Unknown'}</Card.Text>

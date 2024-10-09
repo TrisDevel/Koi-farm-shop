@@ -1,4 +1,4 @@
-.css-form{
+L.css-form{
     background-color: #EFE9D9; /* Light background color */
     border-radius: 4px; /* Rounded corners */
     width: 100%; /* Full width */
@@ -9,9 +9,7 @@
     background-color: #EFE9D9; 
     border-radius: 4px; 
     width: 100%; 
-    border-color: yellow !important;
-    
-    
+   
   }
 .email-input{
     background-color: #EFE9D9;
