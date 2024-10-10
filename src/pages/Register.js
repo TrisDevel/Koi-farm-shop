@@ -1,36 +1,15 @@
-<<<<<<< Updated upstream
-import React, { useState } from "react";
-import {
-  Container,
-  Box,
-  Typography,
-  TextField,
-  Button,
-  Alert,
-} from "@mui/material";
-import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
-import Breadcrumb from "../components/breadcrumb";
 
-const Register = () => {
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-=======
 import React, { useState } from 'react';
 import { Container, Box, Typography, TextField, Button, Alert } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha'; // Import reCAPTCHA
 import '../assets/register.css';
+import Breadcrumb from '../components/breadcrumb';
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
->>>>>>> Stashed changes
   const [recaptchaToken, setRecaptchaToken] = useState(null); // State for reCAPTCHA token
   const [errors, setErrors] = useState({}); // State for validation errors
 
@@ -63,7 +42,7 @@ const Register = () => {
       });
       // Implement your registration logic here
     }
-<<<<<<< Updated upstream
+
 
     console.log("Registration attempt with:", {
       name,
@@ -73,8 +52,6 @@ const Register = () => {
       password,
       recaptchaToken,
     });
-=======
->>>>>>> Stashed changes
   };
 
   return (
@@ -83,14 +60,9 @@ const Register = () => {
     <Container component="main" maxWidth="xs">
       <Box sx={{ mt: 3 }}>
         <div>
-<<<<<<< Updated upstream
 
-          <h2 style={{ width: "1200px", height: "38px" }}>
-            Welcome to PARADISE Farm!
-=======
           <h2 style={{ width: '1200px', height: '38px' }}>
             Welcome to KOI PARADISE!
->>>>>>> Stashed changes
           </h2>
           <p>
             Please login or register below for access to the highest quality koi

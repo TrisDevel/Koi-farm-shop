@@ -1,19 +1,25 @@
 .cart-title {
     margin-top: 50px;
     font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+    margin-bottom: 50px;
 }
 .cart-text {
-    margin-top: 50px !important;
+
     text-align: center !important;
    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
    color: rgba(0, 0, 0, 0.6);
+   text-align: center !important;
+   vertical-align: middle !important;
+   justify-content: center !important;
+   align-items: 'center' !important;
  
 }
 .cart-text .btn {
-    margin-top: 20px !important;
+   
     background-color: #efe9d9 !important; 
     border: 2px solid red !important; 
     color: red !important; 
+    
 }
 
 .button-of-cart {
@@ -30,11 +36,25 @@ font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
 .go-to-checkout {
     text-align: right !important;
     font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
-    margin-top: 20px !important; /* Tạo khoảng cách phía trên nút */
-    margin-bottom: 20px !important; /* Tạo khoảng cách phía dưới nút */
+    margin-top: 20px !important; 
+    margin-bottom: 20px !important; 
     background-color: #efe9d9 !important;
     border: 2px solid red !important;
     color: red !important;
     margin-left : 1115px;
 
+}
+
+.form-control {
+    display: inline !important;
+}
+
+.price {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+
+.table {
+    background-color: white;
 }

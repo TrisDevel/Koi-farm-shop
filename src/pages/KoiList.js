@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-<<<<<<< Updated upstream
 import { Link } from "react-router-dom";
 import Breadcrumb from "../components/breadcrumb";
-=======
->>>>>>> Stashed changes
 import "../assets/KoiList.css";
 import KoiCard from "../components/KoiCard";
 import axios from "axios";
@@ -197,29 +194,9 @@ const KoiList = () => {
   };
 
   return (
-    <>
-<<<<<<< Updated upstream
-      <Breadcrumb title="High Quality Koi" />
+    <>      <Breadcrumb title="High Quality Koi" />
       <div className="container">
-=======
-      <div className="container">
-        {/* Breadcrumb and header */}
-        <div className="breadcrumb-wrapper">
-          <nav className="woocommerce-breadcrumb">
-            <a href="https://www.kodamakoifarm.com/" className="breadcrumb-link">
-              Home
-            </a>
-            /
-            <a href="https://www.kodamakoifarm.com/shop/live-koi/" className="breadcrumb-link">
-              Search Live Koi Fish for Sale
-            </a>
-            / High Quality Koi
-          </nav>
-        </div>
-      </div>
-      
       <div className="container" >
->>>>>>> Stashed changes
         <header className="products-header">
           <h1 className="products-header__title page-title">High Quality Koi</h1>
         </header>
@@ -364,7 +341,8 @@ const KoiList = () => {
           />
         </nav>
       </div>
-    </>
+      </div>
+      </>
   );
 };
 

@@ -43,7 +43,7 @@ const Cart = () => {
                 </Typography>
             ) : (
                 <>
-                    <Table striped bordered hover>
+                    <Table striped bordered hover className='table'>
                         <thead className='cart-text'>
                             <tr>
                                 <th>Product</th>
@@ -64,8 +64,8 @@ const Cart = () => {
                                         <br />
                                         {item.name}
                                     </td>
-                                    <td>${item.price.toFixed(2)}</td>
-                                    <td>
+                                    <td className='price'>${item.price.toFixed(2)}</td>
+                                    <td >
                                         {/* Input để người dùng thay đổi số lượng */}
                                         <Form.Control
                                             type="number"
@@ -75,7 +75,7 @@ const Cart = () => {
                                             style={{ width: '80px' }}
                                         />
                                     </td>
-                                    <td>${(item.price * item.quantity).toFixed(2)}</td>
+                                    <td className='price'>${(item.price * item.quantity).toFixed(2)}</td>
                                     <td className='button-of-cart'>
                                         {/* Nút xóa sản phẩm */}
                                         <Button 
