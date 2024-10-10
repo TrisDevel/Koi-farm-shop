@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button} from "react-bootstrap";
 import '../assets/consignment.css';
 import Breadcrumb from "../components/breadcrumb";
 import { Link } from 'react-router-dom';
-import '@fortawesome/fontawesome-free/css/all.min.css';  
+
 
 
 
