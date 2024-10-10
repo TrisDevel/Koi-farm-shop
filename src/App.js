@@ -17,6 +17,7 @@ import Cart from  './pages/Cart';
 import { CartProvider } from './contexts/CartContext'; // Nhập CartProvider
 import NotificationBar from './components/NotificationBar';
 import ConsignmentPolicy from './pages/ConsignmentPolicy';
+import Payment from './pages/Payment';
 
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/faqs" element={<FAQs />} />
-            <Route path="/ConsignmentPolicy" element={<ConsignmentPolicy />} />
+            <Route path="/consignmentPolicy" element={<ConsignmentPolicy />} />
+            <Route path="/payment" element={<Payment/>} />
           </Routes>
         </Container>
         <Footer />

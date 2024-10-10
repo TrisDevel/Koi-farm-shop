@@ -94,7 +94,7 @@ const Cart = () => {
                     <h3 className='cart-total'>Total: ${calculateTotal()}</h3>
                     
                     {/* Nút Checkout */}
-                    <Button variant="success" onClick={() => navigate('/checkout')} className='go-to-checkout'
+                    <Button variant="success" onClick={() => navigate('/payment')} className='go-to-checkout'
                     >
                         Proceed to Checkout
                     </Button>

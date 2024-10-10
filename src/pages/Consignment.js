@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button} from "react-bootstrap";
 import '../assets/consignment.css';
 import Breadcrumb from "../components/breadcrumb";
+import { Link } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';  
+
+
 
 const Consignment = () => {
   const [time, setTime] = useState("3 Months");
@@ -130,14 +134,12 @@ const Consignment = () => {
         </Row>
 
         <Form.Group controlId="formFile">
-          <Form.Label className="consignment-text">Upload Certificate</Form.Label>
+          <Form.Label className="consignment-text"> Upload Certificate</Form.Label>
           <Form.Control type="file" onChange={handleFileChange} />
           {error && <Form.Text className="text-danger">{error}</Form.Text>}
         </Form.Group>
 
-        <Button variant="secondary" className="mb-3" className='certi-btn'>
-          Certificate
-        </Button>
+        
 
         <Form.Group controlId="formNote">
           <Form.Label className="consignment-text">Note (optional):</Form.Label>
@@ -147,7 +149,13 @@ const Consignment = () => {
         <Form.Group controlId="formCheckbox" className ='tick'>
           <Form.Check
             type="checkbox"
-            label="I have read and accept the Consignment Policy"
+            label=
+             {
+            <span>
+            I have read and accept the 
+            <Link to="/consignmentPolicy" className="cp-link">  Consignment Policy</Link>
+        </span>
+          }
           />
         </Form.Group>
 

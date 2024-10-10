@@ -55,11 +55,16 @@ export const CartProvider = ({ children, userId }) => {
         console.log("Updated cart items after removal:", updatedCart);
     };
 
+    const calculateTotal = () => {
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    };
+
     const value = {
         cartItems,
         addToCart,
         updateQuantity,
         removeFromCart,
+        calculateTotal,
     };
 
     return (

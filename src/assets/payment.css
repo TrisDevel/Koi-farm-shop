@@ -1,0 +1,30 @@
+.payment-title {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+.mb-3 {
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important ;
+}
+
+
+.payment-summary {  
+    text-align: center !important;
+    vertical-align: middle !important;
+    justify-content: center !important;
+    align-items: 'center' !important;
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important 
+}  
+.price {  
+    margin-left: 230px; 
+}  
+.shipping{
+    margin-left:125px;
+}
+.btn{
+    background-color: #efe9d9 !important;
+    border: 2px solid red !important;
+    color: red !important;
+}

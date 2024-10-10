@@ -40,5 +40,9 @@ font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
 }
 
 .tick label {
-    font-size: 0.8rem; /* Thay đổi kích thước của label */
+    font-size: 0.8rem; 
+}
+
+.cp-link {
+    color : rgb(75, 75, 236);
 }
