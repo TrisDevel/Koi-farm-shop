@@ -79,7 +79,7 @@ const Payment = () => {
                                 </h6>
                             </Col>
                             <Col md={4} className='btn-to-checkout'>
-                                <Button variant="primary" type="submit" className='checkout' onClick={() => navigate('/payment')} >
+                                <Button variant="primary" type="submit" className='checkout'  >
                                     Checkout
                                 </Button>
                             </Col>
