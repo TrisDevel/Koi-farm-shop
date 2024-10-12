@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
-import { Box, Typography, TextField, Checkbox, FormControlLabel } from '@mui/material';
+import { Box, Typography, TextField, Checkbox, FormControlLabel, Snackbar } from '@mui/material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Breadcrumb from "../components/breadcrumb";
 import '../assets/contact.css';
@@ -11,22 +11,47 @@ const Contact = () => {
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
     const [checked, setChecked] = useState(false);
+    const [emailError, setEmailError] = useState('');
+    const [openSnackbar, setOpenSnackbar] = useState(false);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log({ name, email, phone, message, checked });
-
-        setName('');
-        setEmail('');
-        setPhone('');
-        setMessage('');
-        setChecked(false);
+    const validateEmail = (email) => {
+        const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return regex.test(email);
     };
 
+    const handleEmailChange = (event) => {
+        const emailInput = event.target.value;
+        setEmail(emailInput);
+        if (!validateEmail(emailInput) && emailInput !== '') {
+            setEmailError("Please enter a valid Gmail address (e.g., user@gmail.com).");
+        } else {
+            setEmailError('');
+        }
+    };
+    const handleSnackbarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpenSnackbar(false);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!emailError && email && name && message) {
+            console.log({ name, email, phone, message, checked });
+            // Reset form fields
+            setName('');
+            setEmail('');
+            setPhone('');
+            setMessage('');
+            setChecked(false);
+            setOpenSnackbar(true);
+        }
+    };
     return (
         <>
         <Breadcrumb title="Contact Us" />       
@@ -94,7 +119,7 @@ const Contact = () => {
             </Typography>
 
             <Box component="form" onSubmit={handleSubmit} noValidate className="mt-3">
-                <TextField
+            <TextField
                     margin="normal"
                     required
                     fullWidth
@@ -114,8 +139,11 @@ const Contact = () => {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    autoFocus
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
+                    error={!!emailError}
+                    helperText={emailError}
                 />
                 <TextField
                     margin="normal"
@@ -156,14 +184,20 @@ const Contact = () => {
                     label={<Typography variant="body1" className ='tick'>I want to sign-up to receive special offers</Typography>}
                 />
                 <Button
-                    variant="success"
                     type="submit"
+                    variant="success"
                     style={{marginTop: '5px', marginBottom: '8px', backgroundColor: '#efe9d9', border: '2px solid red', color: 'red' }}
+                    disabled={!!emailError || !name || !email || !message}  // Disable the submit button if there are errors or required fields are empty
                 >
                     Submit
                 </Button>
+                <Snackbar
+                    open={openSnackbar}
+                    autoHideDuration={6000}
+                    onClose={handleSnackbarClose}
+                    message="Form submitted successfully!"
+                />
             </Box>
-
         </Container>
         </>
     );

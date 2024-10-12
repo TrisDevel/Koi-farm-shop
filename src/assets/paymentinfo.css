@@ -3,39 +3,38 @@
     margin-top: 50px;
     margin-bottom: 20px;
 }
+
+
+.mb-3 {
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important ;
+}
+
+
 .payment-summary {  
     text-align: center !important;
     vertical-align: middle !important;
     justify-content: center !important;
     align-items: 'center' !important;
-    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important 
 }  
-.btn-return {
-    margin-left: 150px !important;
+.price {  
+    margin-left: 230px; 
+}  
+.shipping{
+    margin-left:125px;
 }
-
-.rtn-shipping{
-    color: black;
-    margin-top: 10px !important;
-}
-.btn-to-checkout{
-    padding-left: 70px;
+.btn-to-payment{
     
-
+    padding-left: 70px !important;
+   
 }
-.payment-price{  
-    margin-left: 225px !important; 
-}  
-
-.payment-total{  
-    margin-left: 190px !important; 
-}  
-.payment-shipping{
-    margin-left:125px !important;
-}
-
-.checkout{
+.ctn-to-payment {
+   
     background-color: #efe9d9 !important;
     border: 2px solid red !important;
     color: red !important;
+   
+}
+.rtn-to-cart {
+    margin-top: 20px !important;
 }
