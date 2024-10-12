@@ -1,0 +1,60 @@
+.cart-title {
+    margin-top: 50px;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+    margin-bottom: 50px;
+}
+.cart-text {
+
+    text-align: center !important;
+   font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
+   color: rgba(0, 0, 0, 0.6);
+   text-align: center !important;
+   vertical-align: middle !important;
+   justify-content: center !important;
+   align-items: 'center' !important;
+ 
+}
+.cart-text .btn {
+   
+    background-color: #efe9d9 !important; 
+    border: 2px solid red !important; 
+    color: red !important; 
+    
+}
+
+.button-of-cart {
+
+text-align: center !important;
+font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
+
+}
+.cart-total {
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
+    text-align: right !important;
+}
+
+.go-to-checkout {
+    text-align: right !important;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
+    margin-top: 20px !important; 
+    margin-bottom: 20px !important; 
+    background-color: #efe9d9 !important;
+    border: 2px solid red !important;
+    color: red !important;
+    margin-left : 937px;
+
+}
+
+.form-control {
+    display: inline !important;
+}
+
+.price {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+
+.table {
+    background-color: white;
+}

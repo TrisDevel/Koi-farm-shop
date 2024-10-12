@@ -1,0 +1,24 @@
+.breadcrumb-wrapper {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    text-size-adjust: 100%;
+    vertical-align: baseline;
+    background: url("https://www.kodamakoifarm.com/wp-content/uploads/2024/01/kodama_menu-bg.jpg") repeat-x;
+    margin: auto -50%;
+    text-align: left;
+  }
+  
+  .woocommerce-breadcrumb {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    color: rgb(102, 102, 102);
+    max-width: 100%;
+    width: 50%;
+    font-weight: bold;
+    font-size: 0.92em;
+  }
