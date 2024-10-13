@@ -18,6 +18,8 @@ import About from '../pages/About';
 import FAQs from '../pages/FAQs';
 import Cart from '../pages/Cart';
 import ConsignmentPolicy from '../pages/ConsignmentPolicy';
+import PaymentInfo from '../pages/PaymentInfo';
+import Payment from '../pages/Payment';
 import { CartProvider } from '../contexts/CartContext';
 
 // Đường dẫn cho admin layout
@@ -27,6 +29,7 @@ import Customer from '../Admin/views/Customer';
 import Product from '../Admin/views/Product';
 import Notification from '../Admin/views/Notification';
 import Order from '../Admin/views/Order';
+
 
 function App() {
   const location = useLocation();
@@ -52,6 +55,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/faqs" element={<FAQs />} />
               <Route path="/ConsignmentPolicy" element={<ConsignmentPolicy />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/paymentinfo" element={<PaymentInfo />} />
             </Routes>
           </Container>
           <Footer />
