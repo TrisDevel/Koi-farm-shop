@@ -1,8 +1,16 @@
-
 import Card from 'react-bootstrap/Card';
 import "../assets/KoiList.css";
 import { Link } from 'react-router-dom'; 
+import { useCart } from '../contexts/CartContext';
+import React, { useState } from "react";
+
 function KoiCard({ id, imgSrc, title,price, breeder,sex,bornIn,size,variety}) {
+
+    const { addToCart } = useCart();
+    const handleAddToCart = () => {
+        console.log("Adding to cart:", { id, imgSrc, title, price, breeder, sex, bornIn, size, variety }); // Log product details
+        addToCart({ id, imgSrc, title, price, breeder, sex, bornIn, size, variety }); // Pass product details to addToCart
+    };
     return (
         <Card className='mb-5'>
             <div>
@@ -18,7 +26,7 @@ function KoiCard({ id, imgSrc, title,price, breeder,sex,bornIn,size,variety}) {
                 <Card.Text  className='born-koi '><strong>Born in:</strong> {bornIn || 'Unknown'}</Card.Text>
                 <Card.Text  className='size-koi '><strong>Size:</strong> {size || 'Unknown'}</Card.Text>
                 <Card.Text  className='variety-koi '><strong>Variety:</strong> {variety || 'Unknown'}</Card.Text>
-                <a className='add-to-cart'  variant="primary">ADD TO CART</a>
+                <button onClick={handleAddToCart} className='add-to-cart'  variant="primary">ADD TO CART</button>
             </Card.Body>
         </Card>
     );

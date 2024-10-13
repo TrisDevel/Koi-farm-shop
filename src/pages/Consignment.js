@@ -139,7 +139,10 @@ const Consignment = () => {
           {error && <Form.Text className="text-danger">{error}</Form.Text>}
         </Form.Group>
 
-        
+        <Button variant="secondary" className="mb-3 certi-btn">
+          Certificate
+        </Button>
+
 
         <Form.Group controlId="formNote">
           <Form.Label className="consignment-text">Note (optional):</Form.Label>

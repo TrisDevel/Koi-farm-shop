@@ -1,7 +1,8 @@
 
+import ReCAPTCHA from "react-google-recaptcha"; // Import reCAPTCHA
+import Breadcrumb from "../components/breadcrumb";
 import React, { useState } from 'react';
 import { Container, Box, Typography, TextField, Button, Alert } from '@mui/material';
-import ReCAPTCHA from 'react-google-recaptcha'; // Import reCAPTCHA
 import '../assets/register.css';
 import Breadcrumb from '../components/breadcrumb';
 const Register = () => {
@@ -29,29 +30,33 @@ const Register = () => {
     return Object.keys(newErrors).length === 0; // Return true if no errors
   };
 
-  const handleSubmit = (event) => {
+
+
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      console.log("Registration attempt with:", {
-        name,
-        email,
-        phone,
-        username,
-        password,
-        recaptchaToken,
-      });
-      // Implement your registration logic here
-    }
+    //  try {
+    //   const response = await api.post('/customers/register', {
+    //     email: email,
+    //     password: password,
+    //   });
 
+    //     console.log(response.data); // In ra để kiểm tra phản hồi
 
-    console.log("Registration attempt with:", {
-      name,
-      email,
-      phone,
-      username,
-      password,
-      recaptchaToken,
-    });
+    //     if (response.data.code === 200) {
+    //         // Lưu token và username vào localStorage
+    //         localStorage.setItem('token', response.data.data.token);
+    //         localStorage.setItem('username', response.data.data.username); // Lưu username
+    //         localStorage.setItem('userId', response.data.data.userId); // Lưu username
+    //         window.location.href = '/'; // Chuyển hướng
+    //     } else {
+    //         setError('Đăng nhập thất bại. Vui lòng thử lại.');
+    //     }
+    // } catch (error) {
+    //     console.error(error); // In lỗi ra console để kiểm tra
+    //     setError('Đăng nhập thất bại. Vui lòng thử lại.');
+    // }
   };
 
   return (
@@ -60,7 +65,6 @@ const Register = () => {
     <Container component="main" maxWidth="xs">
       <Box sx={{ mt: 3 }}>
         <div>
-
           <h2 style={{ width: '1200px', height: '38px' }}>
             Welcome to KOI PARADISE!
           </h2>

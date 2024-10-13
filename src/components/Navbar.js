@@ -66,7 +66,7 @@ function CustomNavbar() {
               <Nav.Link href="/login">Login/Register</Nav.Link>
             )}
               <NavDropdown title="Search Koi" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/koi">Action</NavDropdown.Item>
+                <NavDropdown.Item href="/koi">Koi Sale</NavDropdown.Item>
                 <NavDropdown.Item href="/koi">
                   Another action
                 </NavDropdown.Item>

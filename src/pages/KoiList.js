@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
-import { Link } from "react-router-dom";
 import Breadcrumb from "../components/breadcrumb";
 import "../assets/KoiList.css";
 import KoiCard from "../components/KoiCard";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
+
 
 
 const KoiList = () => {
@@ -194,9 +194,9 @@ const KoiList = () => {
   };
 
   return (
-    <>      <Breadcrumb title="High Quality Koi" />
+    <>
+      <Breadcrumb title="High Quality Koi" />
       <div className="container">
-      <div className="container" >
         <header className="products-header">
           <h1 className="products-header__title page-title">High Quality Koi</h1>
         </header>
@@ -341,7 +341,7 @@ const KoiList = () => {
           />
         </nav>
       </div>
-      </div>
+     
       </>
   );
 };

@@ -7,6 +7,7 @@ export const useCart = () => {
     return useContext(CartContext);
 };
 
+
 export const CartProvider = ({ children, userId }) => {
     const [cartItems, setCartItems] = useState(() => {
         // Lấy dữ liệu giỏ hàng từ localStorage khi khởi động ứng dụng
