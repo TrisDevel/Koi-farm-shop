@@ -66,12 +66,12 @@ const Cart = () => {
                                 <tr key={item.id}>
                                     <td>
                                         <img
-                                            src={item.image || '/images/default-product.jpg'}
-                                            alt={item.name}
+                                            src={item.imgSrc}
+                                            alt={item.title}
                                             style={{ width: '100px' }}
                                         />
                                         <br />
-                                        {item.name}
+                                        {item.title}
                                     </td>
                                     <td className="price">${formatPrice(item.price)}</td>
                                     <td>

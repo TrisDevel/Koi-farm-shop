@@ -254,6 +254,13 @@
 .card-k{
   margin-top: 30px;
 }
+
+img.koi-image{
+  max-width: 100%;
+  height: 421px;
+  width: 260px;
+  object-fit: cover;
+}
 body {
   overflow-x:hidden;
 }
