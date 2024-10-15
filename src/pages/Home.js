@@ -2,9 +2,36 @@ import React, { useState } from "react"; // Thêm useState
 import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
 import "../assets/home.css";
 import { Lock, Edit, Search } from "@mui/icons-material";
+import axios from "../config/axios"; // Import axios instance
 
 const Home = () => {
-  const [showVideo, setShowVideo] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: ""
+  });
+
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/email/signup", formData); // Gửi form data đến backend
+      if (response.status === 200) {
+        setSuccess("Thank you for signing up! Please check your email.");
+        setError(null);
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+      setSuccess(null);
+    }
+  };
 
   return (
     <>
@@ -32,7 +59,10 @@ const Home = () => {
         </Carousel>
         <div className="body">
           <Row
-            style={{ backgroundImage: "url(./menu-bg.jpg)", padding: "20px 0 20px 0" }}
+            style={{
+              backgroundImage: "url(./menu-bg.jpg)",
+              padding: "20px 0 20px 0",
+            }}
             className="text-center"
           >
             <Col style={{ margin: "15px 0 15 px 0", fontSize: "23px" }}>
@@ -93,7 +123,7 @@ const Home = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
+                // onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
                 style={{ cursor: "pointer", marginTop: "50px" }} // Thay đổi con trỏ khi di chuột
               ></iframe>
             </Col>
@@ -111,22 +141,28 @@ const Home = () => {
                   <p style={{ textAlign: "center", color: "red" }}>
                     <em>"*"</em> indicates required fields
                   </p>
-                  <form style={{ padding: "20px" }}>
+                  <form style={{ padding: "20px" }} onSubmit={handleSubmit}>
                     <div className="form-group">
                       <label htmlFor="firstName">Name *</label>
                       <div className="name-inputs">
                         <input
                           type="text"
                           className="form-control mb-2"
+                          label="First"
                           id="firstName"
                           placeholder="First"
+                          value={formData.firstName}
+                          onChange={handleChange}
                           required
                         />
                         <input
                           type="text"
                           className="form-control mb-2"
+                          label="Last"
                           id="lastName"
                           placeholder="Last"
+                          value={formData.lastName}
+                          onChange={handleChange}
                           required
                         />
                       </div>
@@ -136,13 +172,20 @@ const Home = () => {
                       <input
                         type="email"
                         className="form-control mb-2"
+                        label="Email"
                         id="email"
                         placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                       />
                     </div>
+
+                    {error && <p style={{ color: "red" }}>{error}</p>}
+                    {success && <p style={{ color: "green" }}>{success}</p>}
+
                     <Button variant="primary" type="submit">
-                      Sign-up
+                      Sign up
                     </Button>
                   </form>
                 </Card.Body>
