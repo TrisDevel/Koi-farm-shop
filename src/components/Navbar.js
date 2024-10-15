@@ -9,15 +9,14 @@ function CustomNavbar() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      // Giả sử thông tin người dùng được lưu trữ trong localStorage
-      const userData = localStorage.getItem("username");
+      const userData = localStorage.getItem("name");
       if (userData) {
-        setUser(userData); // Không cần JSON.parse nếu đã lưu dưới dạng chuỗi
+        setUser(userData); 
       }
     };
   
-    fetchUser(); // Gọi hàm fetchUser
-  }, []); // Thêm mảng phụ thuộc để chạy một lần khi component mount
+    fetchUser(); 
+  }, []); 
   
 
   return (
@@ -61,7 +60,7 @@ function CustomNavbar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
             {user ? (
-              <Nav.Link href="/user-profile">{user}</Nav.Link> // Sử dụng user trực tiếp
+              <Nav.Link href="/user-profile">{user}</Nav.Link> 
             ) : (
               <Nav.Link href="/login">Login/Register</Nav.Link>
             )}

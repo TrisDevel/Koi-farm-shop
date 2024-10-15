@@ -40,7 +40,7 @@ const Login = () => {
   
       if (response.data.code === 200) {
         localStorage.setItem('token', response.data.data.token);
-        localStorage.setItem('username', response.data.data.username);
+        localStorage.setItem('name', response.data.data.name);
         localStorage.setItem('userId', response.data.data.userId);
         window.location.href = '/';
       }

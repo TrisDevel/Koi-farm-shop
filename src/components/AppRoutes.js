@@ -55,7 +55,6 @@ function App() {
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/paymentinfo" element={<PaymentInfo />} />
 
-                {/* Các route yêu cầu đăng nhập */}
                 <Route element={<PrivateRoute />}>
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/consignment" element={<Consignment />} />

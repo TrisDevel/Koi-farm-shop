@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
     console.log("Token from localStorage:", token);
     console.log("Username from localStorage:", username);
 
-    if (token && username) {
+    if (token) {
       setIsAuthenticated(true);
       setUser({ username });
     } else {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout}}>
       {children}
     </AuthContext.Provider>
   );

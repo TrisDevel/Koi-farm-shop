@@ -20,7 +20,6 @@ export default function ProfilePage() {
     fullName: "",
     email: "",
     phone_number: "",
-    mobile: "",
     address: "",
   });
   const [loading, setLoading] = useState(true); // Trạng thái loading
@@ -70,135 +69,135 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Breadcrumb title="Profile" />
-      <section>
-        <MDBContainer className="py-5">
-          <MDBRow>
-            <MDBCol lg="12">
-              <div className="d-flex justify-content-between mb-4">
-                <button
-                  className="edit-button"
-                  onClick={() => {
-                    if (isEditing) handleSave();
-                    setIsEditing((prev) => !prev);
-                  }}
-                >
-                  {isEditing ? "Save" : "Edit"}
-                </button>
-              </div>
-
-              <MDBCard className="mb-4">
-                <MDBCardBody>
-                  {error && <div className="error-message">{error}</div>}
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Full Name</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      {isEditing ? (
-                        <input
-                          type="text"
-                          value={userInfo.name}
-                          onChange={(e) => handleChange(e, "fullName")}
-                        />
-                      ) : (
-                        <MDBCardText className="text-muted">
-                          {userInfo.name}
-                        </MDBCardText>
-                      )}
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Email</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      {isEditing ? (
-                        <input
-                          type="email"
-                          value={userInfo.email}
-                          onChange={(e) => handleChange(e, "email")}
-                        />
-                      ) : (
-                        <MDBCardText className="text-muted">
-                          {userInfo.email}
-                        </MDBCardText>
-                      )}
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Phone</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      {isEditing ? (
-                        <input
-                          type="text"
-                          value={userInfo.phone_number}
-                          onChange={(e) => handleChange(e, "phone_number")}
-                        />
-                      ) : (
-                        <MDBCardText className="text-muted">
-                          {userInfo.phone_number}
-                        </MDBCardText>
-                      )}
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Mobile</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      {isEditing ? (
-                        <input
-                          type="text"
-                          value={userInfo.mobile}
-                          onChange={(e) => handleChange(e, "mobile")}
-                        />
-                      ) : (
-                        <MDBCardText className="text-muted">
-                          {userInfo.mobile}
-                        </MDBCardText>
-                      )}
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Address</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      {isEditing ? (
-                        <input
-                          type="text"
-                          value={userInfo.address}
-                          onChange={(e) => handleChange(e, "address")}
-                        />
-                      ) : (
-                        <MDBCardText className="text-muted">
-                          {userInfo.address}
-                        </MDBCardText>
-                      )}
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-        <Container>
-        <button className="logout-button" onClick={logout}>
-          Logout
-        </button>
+      <body>
+        <Breadcrumb title="Profile" />
+        <Container className="profile-container">
+          <Row>
+            <Col md={11}>
+              <h1>{userInfo.name}'s Information</h1>
+            </Col>
+            <Col md={1}>
+            <button className="logout-button" onClick={logout}>
+              Logout
+            </button>
+            </Col>
+          </Row>
         </Container>
-      </section>
+        <section>
+          <MDBContainer className="py-5">
+            <MDBRow style={{ paddingLeft: "20px" }}>
+              <MDBCol lg="12">
+                <div className="d-flex justify-content-between mb-4">
+                  <button
+                    className="edit-button"
+                    onClick={() => {
+                      if (isEditing) handleSave();
+                      setIsEditing((prev) => !prev);
+                    }}
+                  >
+                    {isEditing ? "Save" : "Edit"}
+                  </button>
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                <MDBCard className="mb-4">
+                  <MDBCardBody>
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Full Name</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        {isEditing ? (
+                          <input
+                            type="text"
+                            value={userInfo.name}
+                            onChange={(e) => handleChange(e, "fullName")}
+                          />
+                        ) : (
+                          <MDBCardText className="text-muted">
+                            {userInfo.name}
+                          </MDBCardText>
+                        )}
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Email</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        {isEditing ? (
+                          <input
+                            type="email"
+                            value={userInfo.email}
+                            onChange={(e) => handleChange(e, "email")}
+                          />
+                        ) : (
+                          <MDBCardText className="text-muted">
+                            {userInfo.email}
+                          </MDBCardText>
+                        )}
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Phone</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        {isEditing ? (
+                          <input
+                            type="text"
+                            value={userInfo.phone_number}
+                            onChange={(e) => handleChange(e, "phone_number")}
+                          />
+                        ) : (
+                          <MDBCardText className="text-muted">
+                            {userInfo.phone_number}
+                          </MDBCardText>
+                        )}
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Address</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        {isEditing ? (
+                          <input
+                            type="text"
+                            value={userInfo.address}
+                            onChange={(e) => handleChange(e, "address")}
+                          />
+                        ) : (
+                          <MDBCardText className="text-muted">
+                            {userInfo.address}
+                          </MDBCardText>
+                        )}
+                      </MDBCol>
+                    </MDBRow>
+                    <hr />
+
+                    <MDBRow>
+                      <MDBCol sm="3">
+                        <MDBCardText>Created At</MDBCardText>
+                      </MDBCol>
+                      <MDBCol sm="9">
+                        <MDBCardText className="text-muted">
+                          {userInfo.created_at}
+                        </MDBCardText>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </section>
+      </body>
     </>
   );
 }

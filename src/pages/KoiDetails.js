@@ -8,15 +8,14 @@ import { faqsShipping } from "../components/Custom/custom-faqs";
 import "../assets/koidetail.css"; // Import tệp CSS
 import { useCart } from '../contexts/CartContext';
 import Breadcrumb from "../components/breadcrumb";
-
-
+import PopupNotification from '../components/PopupNotification'; // Import component popup
 
 const KoiDetails = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false); // State để quản lý modal
-
-
+  const [showNotification, setShowNotification] = useState(false); // State để quản lý popup thông báo
+  const [notificationMessage, setNotificationMessage] = useState(''); // State để lưu thông điệp thông báo
 
   const koi = {
     id: id,
@@ -34,9 +33,10 @@ const KoiDetails = () => {
   };
 
   const handleAddToCart = () => {
-    console.log("Adding to cart:", koi); // In thông tin sản phẩm ra console
     addToCart(koi); // Gọi hàm addToCart
-};
+    setNotificationMessage(`${koi.name} has been added to your cart!`); // Thiết lập thông điệp thông báo
+    setShowNotification(true); // Hiển thị popup thông báo
+  };
 
   return (
     <>
@@ -108,6 +108,14 @@ const KoiDetails = () => {
           />
         </Modal.Body>
       </Modal>
+
+      {/* Hiển thị popup thông báo */}
+      <PopupNotification 
+        show={showNotification} 
+        handleClose={() => setShowNotification(false)} 
+        title="Notification" 
+        message={notificationMessage} 
+      />
 
       <Container>
         <Row>
