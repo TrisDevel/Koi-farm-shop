@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Accordion, Container, Row, Col, Card, Button, ListGroup, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -9,28 +9,33 @@ import "../assets/koidetail.css"; // Import tệp CSS
 import { useCart } from '../contexts/CartContext';
 import Breadcrumb from "../components/breadcrumb";
 import PopupNotification from '../components/PopupNotification'; // Import component popup
-
+import api from "../config/axios";
 const KoiDetails = () => {
   const { id } = useParams();
+  const [koi, setKoi] = useState(null);
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false); // State để quản lý modal
   const [showNotification, setShowNotification] = useState(false); // State để quản lý popup thông báo
   const [notificationMessage, setNotificationMessage] = useState(''); // State để lưu thông điệp thông báo
 
-  const koi = {
-    id: id,
-    name: "Kohaku Koi",
-    image: "./koi-care.jpg",
-    description: "A beautiful Kohaku koi with vibrant red and white coloration.",
-    origin: "Japan",
-    gender: "Female",
-    age: "2 years",
-    size: "18 inches",
-    breed: "Kohaku",
-    personality: "Active and friendly",
-    foodAmount: "50 grams per day",
-    price: 1000,
-  };
+  useEffect(() => {
+    fetchKoiDetails();
+},[id]);
+
+const fetchKoiDetails = async () => {
+  try {
+    const response = await api.get(`/invidualKoi/get/${id}`); // Dùng id từ URL
+    if (response.data) {
+      setKoi(response.data); // Đặt dữ liệu nếu tồn tại
+    } else {
+      console.error("No koi data found.");
+      setKoi(null); // Xử lý nếu không có dữ liệu
+    }
+  } catch (error) {
+    console.error('Error fetching koi details:', error);
+    setKoi(null); // Đặt dữ liệu là null nếu có lỗi
+  }
+};
 
   const handleAddToCart = () => {
     addToCart(koi); // Gọi hàm addToCart
@@ -40,82 +45,68 @@ const KoiDetails = () => {
 
   return (
     <>
-    <Breadcrumb title="Koi Details" />
+<Breadcrumb title="Koi Details" />
     <div className="koidetail-container">
       <Container className="my-5">
-        <Row>
-          <Col md={4}>
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                className="img-koi"
-                variant="top"
-                src="../koi1.jpg"
-                alt={koi.name}
-                onClick={() => setShowModal(true)} 
-                style={{ cursor: "pointer" }} 
-              />
-              <Card.Body></Card.Body>
-            </Card>
-          </Col>
-          <Col md={8}>
-            <h2 style={{ fontFamily: 'font-family: Balthazar, Georgia, Times New Roman, serif' }}>{koi.name}</h2>
-            <ListGroup variant="flush">
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Origin:</strong> {koi.origin}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Gender:</strong> {koi.gender}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Age:</strong> {koi.age}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Size:</strong> {koi.size}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Breed:</strong> {koi.breed}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Personality:</strong> {koi.personality}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Food Amount:</strong> {koi.foodAmount}
-              </ListGroup.Item>
-            </ListGroup>
-            <Button
-                className="btn-add-to-cart"
-                variant="primary"
-                onClick={handleAddToCart} // Gọi hàm handleAddToCart
-              >
+        {koi ? (
+          <Row>
+            <Col md={4}>
+              <Card style={{ border: "none" }}>
+                <Card.Img
+                  className="img-koi"
+                  variant="top"
+                  src={koi.image}
+                  alt={koi.name}
+                  onClick={() => setShowModal(true)}
+                  style={{ cursor: "pointer" }}
+                />
+              </Card>
+            </Col>
+            <Col md={8}>
+              <h2>{koi.name}</h2>
+              <ListGroup variant="flush">
+                <ListGroup.Item><strong>Origin:</strong> {koi.origin}</ListGroup.Item>
+                <ListGroup.Item><strong>Gender:</strong> {koi.gender}</ListGroup.Item>
+                <ListGroup.Item><strong>Age:</strong> {koi.age}</ListGroup.Item>
+                <ListGroup.Item><strong>Size:</strong> {koi.size}</ListGroup.Item>
+                <ListGroup.Item><strong>Breed:</strong> {koi.breed}</ListGroup.Item>
+                <ListGroup.Item><strong>Personality:</strong> {koi.personality}</ListGroup.Item>
+                <ListGroup.Item><strong>Food Amount:</strong> {koi.foodAmount}</ListGroup.Item>
+              </ListGroup>
+              <Button className="btn-add-to-cart" variant="primary" onClick={handleAddToCart}>
                 Add to Cart
               </Button>
-            <div className="social-icon">
-              <IoLogoFacebook size={30} />
-              <FaInstagram size={30} />
-              <FaYoutube size={30} />
-            </div>
-          </Col>
-        </Row>
+              <div className="social-icon">
+                <IoLogoFacebook size={30} />
+                <FaInstagram size={30} />
+                <FaYoutube size={30} />
+              </div>
+            </Col>
+          </Row>
+        ) : (
+          <p>Loading Koi details...</p> // Thông báo khi đang tải dữ liệu
+        )}
       </Container>
 
-      {/* Modal hiển thị hình ảnh Koi */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Body>
-          <img
-            src="../koi1.jpg" // Thay đổi đường dẫn nếu cần
-            alt={koi.name}
-            style={{ width: "100%", height: "auto" }} // Đảm bảo hình ảnh chiếm toàn bộ modal
-          />
+          {koi && (
+            <img
+              src={koi.image}
+              alt={koi.name}
+              style={{ width: "100%" }}
+            />
+          )}
         </Modal.Body>
       </Modal>
 
-      {/* Hiển thị popup thông báo */}
-      <PopupNotification 
-        show={showNotification} 
-        handleClose={() => setShowNotification(false)} 
-        title="Notification" 
-        message={notificationMessage} 
+      <PopupNotification
+        show={showNotification}
+        handleClose={() => setShowNotification(false)}
+        title="Notification"
+        message={notificationMessage}
       />
+    </div>
 
       <Container>
         <Row>
@@ -171,8 +162,19 @@ const KoiDetails = () => {
                 role="tabpanel"
                 aria-labelledby="home-tab"
                 tabIndex="0"
-              >
-                {koi.description}
+              > 
+              {koi ? <iframe
+                width="1100"
+                height="700"
+                src={koi.description}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                // onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
+                style={{ cursor: "pointer", marginTop: "50px" }} // Thay đổi con trỏ khi di chuột
+              ></iframe> : 'Loading...'}
+              
               </div>
               <div
                 className="tab-pane fade"
@@ -240,7 +242,6 @@ const KoiDetails = () => {
           </Col>
         </Row>
       </Container>
-    </div>
     </>
   );
 };

@@ -19,11 +19,11 @@ function KoiCard({ id, image, title,price, breeder,sex,bornIn,size,variety}) {
                 </Link>
             </div>
             <Card.Body className='cardlist'>
-                <Card.Title className='tittle-name-koi'>{title || 'Card Title'}</Card.Title>
-                <Card.Text  className='price-koi '><strong>price:</strong> {price || 'Unknown'}</Card.Text>
+                <Card.Title style={{fontSize: '1.5rem', fontFamily: 'Lato, Helvetica, Arial, Lucida, sans-serif'}} className='tittle-name-koi'>{title || 'Card Title'}</Card.Title>
+                <Card.Text  className='price-koi '><strong>Price:</strong> {price || 'Unknown'}$</Card.Text>
                 <Card.Text  className='breeder-koi '><strong>Breeder:</strong> {breeder || 'Unknown'}</Card.Text>
                 <Card.Text  className='sex-koi '><strong>Sex:</strong> {sex || 'Unknown'}</Card.Text>
-                <Card.Text  className='size-koi '><strong>Size:</strong> {size || 'Unknown'}</Card.Text>
+                <Card.Text  className='size-koi '><strong>Size:</strong> {size || 'Unknown'} cm</Card.Text>
                 <button onClick={handleAddToCart} className='add-to-cart'  variant="primary">ADD TO CART</button>
             </Card.Body>
         </Card>

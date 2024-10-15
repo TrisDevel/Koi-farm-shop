@@ -19,8 +19,17 @@
   line-height: 1em;
   font-weight: 500;
   color: #333;
-  font-family: Lato, Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
   background: transparent;
+}
+
+.img-fluid{
+  width: 260px !important;
+  height: 421px !important;
+}
+
+.koi-column-main{
+  font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
 }
 .product-search-form{
   background:#f1f1f1;
@@ -204,10 +213,10 @@
   color: white; 
   cursor: pointer; 
 }
-.tittle-name-koi.card-tittle{
-  font-size: 1.75rem;
+.tittle-name-koi .card-tittle{
+  font-size: 2rem;
   font-weight: bold;
-  font-family: Lato, Helvetica, Arial, Lucida, sans-serif;
+  font-family: Lato, Helvetica, Arial, Lucida, sans-serif !important;
   padding: 0.5em 0;
 }
 .price-koi{
