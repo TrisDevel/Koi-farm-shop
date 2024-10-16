@@ -67,12 +67,12 @@ const Home = () => {
           >
             <Col style={{ margin: "15px 0 15 px 0", fontSize: "23px" }}>
               <strong style={{ justifyContent: "center" }}>
-                Kodama Koi Farm is not a Store Front. An appointment is needed
+                Paradise Koi Farm is not a Store Front. An appointment is needed
                 to schedule a tour or order pickup.
               </strong>
               <strong>
-                Please call us at (833)-564-5683 or email us at{" "}
-                <a href="mailto:info@koiparadise.com">info@kodamakoifarm.com</a>
+                Please call us at (03)-72899192 or email us at{" "}
+                <a href="mailto:info@koiparadise.com">info@paradisekoifarm.com</a>
               </strong>
             </Col>
           </Row>
@@ -82,10 +82,10 @@ const Home = () => {
                 <div className="banner-content">
                   <h1>
                     Highest Quality Japanese Koi Fish (Nishikigoi) for Sale from
-                    Niigata, Japan
+                    Vung Tau, Vietnam
                   </h1>
                   <p>
-                    Kodama Koi Farm imports and raises Japanese koi for sale
+                    Paradise Koi Farm imports and raises Japanese koi for sale
                     only from Niigata, Japan. These beautiful Nishikigoi koi for
                     sale are raised with the best quarantining procedures to
                     provide a safe and positive experience buying live koi fish
@@ -102,14 +102,6 @@ const Home = () => {
           </Row>
         </div>
         <Container className="body">
-          {/* <Row style={{marginTop:'0px'}} className="mb-5">
-          <Col>
-            <div style={{textAlign:'center'}}>
-            <img style={{width:'80%'}} src="./koi-farm.jpeg" alt="Koi Farm" className="img-fluid" />
-            </div>
-          </Col>
-        </Row> */}
-
           <Row className="mb-5">
             <Col className="md-6 mx-auto">
               <h2 style={{ textAlign: "center" }}>
@@ -136,7 +128,7 @@ const Home = () => {
                   </Card.Title>
                   <Card.Text style={{ textAlign: "center", fontSize: "16px" }}>
                     Stay up-to-date with current auctions, promotions, new blog
-                    posts and updates from the Kodama Koi Farm team.
+                    posts and updates from the Paradise Koi Farm team.
                   </Card.Text>
                   <p style={{ textAlign: "center", color: "red" }}>
                     <em>"*"</em> indicates required fields
@@ -301,20 +293,6 @@ const Home = () => {
                 <Button className="btn-blog">Buy</Button>
               </Card.Body>
             </Card>
-          </Col>
-        </Row>
-      </Container>
-
-      <Container style={{ padding: "80px" }}>
-        <Row className="mb-5">
-          <Col>
-            <h2>Latest News</h2>
-          </Col>
-        </Row>
-
-        <Row className="mb-5">
-          <Col>
-            <h2>Frequently Asked Questions</h2>
           </Col>
         </Row>
       </Container>

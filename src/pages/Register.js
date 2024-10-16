@@ -14,8 +14,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState(''); // Thông báo thành công
-  const navigate = useNavigate(); // Sử dụng useNavigate để chuyển trang
+  const [successMessage, setSuccessMessage] = useState(''); 
+  const navigate = useNavigate(); 
 
   const validateForm = () => {
     const newErrors = {};
@@ -47,7 +47,7 @@ const Register = () => {
       });
   
       console.log("API Response:", response.data); // Kiểm tra phản hồi từ API
-  
+
       if (response.data && response.data.token) {
         // Đăng ký thành công, lưu token và reload trang Home
         localStorage.setItem('token', response.data.token);
@@ -74,20 +74,9 @@ const Register = () => {
   return (
     <>
       <Breadcrumb title="Register" />
-      <Container component="main" maxWidth="xs">
-        <Box sx={{ mt: 3 }}>
-          <div>
-            <h2 style={{ width: '1200px', height: '38px' }}>
-              Welcome to KOI PARADISE!
-            </h2>
-            <p>
-              Please login or register below for access to the highest quality koi fish available from Japan.
-            </p>
-          </div>
-          <Typography component="h1" variant="h4">
-            Sign up
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
+      <Container style={{marginTop:'70px'}} maxWidth="xs">
+          <p style={{fontFamily:'Balthazar, Georgia, Times New Roman, serif', fontSize:'24px', textAlign:'center', padding:'0'}}>Sign Up</p>
+          <Box style={{padding:'0px', margin:'0px'}} component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
             <TextField
               margin="normal"
               required
@@ -170,7 +159,6 @@ const Register = () => {
               Sign Up
             </Button>
           </Box>
-        </Box>
       </Container>
     </>
   );

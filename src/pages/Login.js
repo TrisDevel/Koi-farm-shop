@@ -96,7 +96,7 @@ const Login = () => {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5" className="text-center">
+          <Typography style={{padding:'0'}} component="h1" variant="h5" className="text-center">
             Sign in
           </Typography>
           <Box

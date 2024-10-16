@@ -1,4 +1,13 @@
-L.css-form{
+.container h2 {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+}
+
+
+.main {
+    height: auto !important;
+    overflow-y: none !important;
+}
+.css-form{
     background-color: #EFE9D9; /* Light background color */
     border-radius: 4px; /* Rounded corners */
     width: 100%; /* Full width */

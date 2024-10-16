@@ -1,21 +1,20 @@
 .title-login {
     font-size: 2rem !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
 }
 
 .login-text {
     margin-top: 50px !important;
     font-size: 1.3rem !important;
-    
 }  
 
 .text-footer {
     font-size: 1.3rem !important;
-    margin-bottom: 100px   !important;
-    font-family: 'Times New Roman', serif !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
 }
 
 .header-login {
     margin-top: 100px !important;
-    font-family: 'Times New Roman', serif !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
 }
 
