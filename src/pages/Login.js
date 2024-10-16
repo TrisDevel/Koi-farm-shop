@@ -156,17 +156,6 @@ const Login = () => {
             </Link>
           </Box>
         </Box>
-        <Row>
-          <Col>
-            <Typography variant="body2" color="#212529" className="text-footer">
-              <span style={{ color: "red" }}>Read FAQs </span> or call us with
-              any questions at{" "}
-              <span style={{ color: "red" }}>
-                +84 KOI PARADISE SUPPORT (84-8567-1020)
-              </span>
-            </Typography>
-          </Col>
-        </Row>
       </Container>
     </>
   );
