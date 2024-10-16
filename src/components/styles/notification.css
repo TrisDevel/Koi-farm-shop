@@ -1,0 +1,37 @@
+/* Notification.css */
+.notification {
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    transition: opacity 0.5s ease;
+    opacity: 1; /* Đặt độ trong suốt ban đầu */
+  }
+  
+  .notification.success {
+    background-color: #C54125; /* Màu xanh cho thông báo thành công */
+  }
+  
+  .notification.error {
+    background-color: #dc3545; /* Màu đỏ cho thông báo lỗi */
+  }
+  
+  .notification.warning {
+    background-color: #ffc107; /* Màu vàng cho thông báo cảnh báo */
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  

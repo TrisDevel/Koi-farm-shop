@@ -4,9 +4,7 @@ import AppRoutes from './components/AppRoutes';
 function App() {
   
   return (
-    <Router>
         <AppRoutes />    
-    </Router>
   );
 }
 
