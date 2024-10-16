@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Slider from '@mui/material/Slider'; // Import Slider from MUI
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import Breadcrumb from "../components/breadcrumb";
 import "../assets/KoiList.css";
 import KoiCard from "../components/KoiCard";
 import api from "../config/axios"; // Import axios config
 import ReactPaginate from "react-paginate";
+import RangeSlider from "react-bootstrap-range-slider"; // Import range slider
 
 const KoiList = () => {
-  const [cards, setCards] = useState([]); // Empty initial state
+  const [cards, setCards] = useState([]);
   const [filteredCards, setFilteredCards] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [selectedSex, setSelectedSex] = useState("");
   const [selectedBreeder, setSelectedBreeder] = useState("");
   const [selectedVariety, setSelectedVariety] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
+  const [breeders, setBreeders] = useState([]);
+  const [minSize, setMinSize] = useState(0); // Trạng thái cho kích thước tối thiểu
+  const [maxSize, setMaxSize] = useState(100); // Trạng thái cho kích thước tối đa
   const ITEMS_PER_PAGE = 12;
 
-  // Fetch koi cards data from API when the component mounts
   useEffect(() => {
     fetchCardsData();
   }, []);
@@ -27,6 +31,9 @@ const KoiList = () => {
       const response = await api.get("/invidualKoi/get"); // Replace with actual API endpoint
       setCards(response.data);
       setFilteredCards(response.data); // Initially set filtered cards to all cards
+      
+      const uniqueBreeders = [...new Set(response.data.map(card => card.breed))];
+      setBreeders(uniqueBreeders);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -34,12 +41,14 @@ const KoiList = () => {
 
   const handleFilter = () => {
     const filtered = cards.filter((card) => {
+      const cardSize = parseFloat(card.size); // Chuyển đổi kích thước của cá sang số thực
       return (
         (searchText === "" ||
-          card.title.toLowerCase().includes(searchText.toLowerCase())) &&
-        (selectedSex === "" || card.sex === selectedSex) &&
-        (selectedBreeder === "" || card.breeder === selectedBreeder) &&
-        (selectedVariety === "" || card.variety === selectedVariety)
+          card.name.toLowerCase().includes(searchText.toLowerCase())) &&
+        (selectedSex === "" || card.gender === selectedSex) &&
+        (selectedBreeder === "" || card.breed === selectedBreeder) &&
+        (selectedVariety === "" || card.variety === selectedVariety) &&
+        (cardSize >= minSize && cardSize <= maxSize) // Kiểm tra kích thước
       );
     });
     setFilteredCards(filtered);
@@ -66,33 +75,7 @@ const KoiList = () => {
           </h1>
         </header>
         <div className="koi-description container my-5">
-          <div className="row">
-            <div className="col-md-8 koi-column koi-column-main">
-              <strong>Gokujo is a special expression for the Japanese.</strong>
-              <p>
-                We use Gokujo to describe the highest quality article, time, and
-                even a space. Our family is committed to raising the best
-                quality koi in the world and only select Japanese Koi from the
-                Niigata region. In the past, these carefully raised Gokujo class
-                of Koi have been introduced one-by-one, on an off-line request
-                basis. We are happy to now have the opportunity to offer you our
-                Gokujo class of high-quality koi fish online.
-              </p>
-              <strong>
-                We have Gokujo class Nishikigoi available to buy if shown below
-                the search field. If not, please contact us with what you are
-                looking for, and we will help find the right koi.
-              </strong>
-            </div>
-            <div className="col-md-4 koi-column koi-column-image">
-              <span className="koi-image-wrap">
-                <img
-                  src="https://www.kodamakoifarm.com/wp-content/uploads/2018/02/g-g-2.jpg"
-                  alt="Koi Fish"
-                />
-              </span>
-            </div>
-          </div>
+          {/* Description Content */}
         </div>
 
         <div className="product-search-form">
@@ -135,9 +118,11 @@ const KoiList = () => {
                     onChange={(e) => setSelectedBreeder(e.target.value)}
                   >
                     <option value="">Search by breeder</option>
-                    <option value="Dainichi Koi Farm">Dainichi Koi Farm</option>
-                    <option value="Kanno Koi Farm">Kanno Koi Farm</option>
-                    {/* Add more options as needed */}
+                    {breeders.map((breeder, index) => (
+                      <option key={index} value={breeder}>
+                        {breeder}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="select-inner">
@@ -152,10 +137,29 @@ const KoiList = () => {
                     <option value="Asagi">Asagi</option>
                     {/* Add more options as needed */}
                   </select>
-                </div>
+                </div>                
               </div>
             </div>
           </div>
+
+          {/* Thanh trượt cho kích thước */}
+          <div  className="size-slider">
+            <span className="size-slider-text">{minSize} cm</span>
+            <Slider style={{ color: "#666666" }}
+              value={[minSize, maxSize]}
+              onChange={(event, newValue) => {
+                setMinSize(newValue[0]);
+                setMaxSize(newValue[1]);
+                handleFilter(); // Lọc lại khi thay đổi kích thước
+              }}
+              valueLabelDisplay="auto"
+              min={0}
+              max={100}
+              marks
+            />
+            <span className="size-slider-text">{maxSize} cm</span>
+          </div>
+
           <div className="submit-search-container">
             <button
               className="button submit-search-form"
@@ -179,6 +183,7 @@ const KoiList = () => {
                     breeder={card.breed}
                     sex={card.gender}
                     size={card.size}
+                    type={card.type}
                   />
                 </Col>
               ))
@@ -196,7 +201,7 @@ const KoiList = () => {
             nextLabel="→"
             onPageChange={handlePageClick}
             pageRangeDisplayed={5}
-            pageCount={10} // Update with your total page count
+            pageCount={Math.ceil(filteredCards.length / ITEMS_PER_PAGE)} // Update with your total page count
             previousLabel="←"
             pageClassName="page-numbers"
             pageLinkClassName="page-link"

@@ -110,7 +110,7 @@ const Payment = () => {
                                         <br />
                                         {item.name}
                                     </td>
-                                    <td>${item.price.toFixed(2)}</td>
+                                    <td>${item.price}</td>
                                     <td>{item.quantity}</td>
                                 </tr>
                             ))}

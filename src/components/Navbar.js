@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/navbar.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 function CustomNavbar() {
   const [user, setUser] = useState(null);
@@ -17,6 +18,8 @@ function CustomNavbar() {
 
     fetchUser();
   }, []);
+
+  const { countItems } = useCart();
 
   return (
     <>
@@ -37,7 +40,7 @@ function CustomNavbar() {
             </a>
             <span style={{ marginRight: "20px" }} className="mx-2">
               <i style={{ color: "#C8D8A1" }} className="fa fa-shopping-cart">
-                <a href="/cart"> Cart</a>
+                <a href="/cart">   {countItems() > 0 ? `${countItems()} Items` : "Cart"}</a>
               </i>
             </span>
           </div>

@@ -14,12 +14,6 @@ const Cart = () => {
     console.log("Cart items in Cart component:", cartItems);
   }, [cartItems]);
 
-  // Hàm format giá an toàn
-//   const formatPrice = (item) => {
-//     const validPrice = parseFloat(item.price);
-//     return isNaN(validPrice) ? "0.00" : validPrice.toFixed(2);
-//   };
-
   const calculateTotal = () => {
     return cartItems
       .reduce(
@@ -29,9 +23,9 @@ const Cart = () => {
       .toFixed(2);
   };
 
-  const handleQuantityChange = (productId, event) => {
+  const handleQuantityChange = (productId, event, type) => {
     const newQuantity = parseInt(event.target.value, 10);
-    if (newQuantity > 0) {
+    if (newQuantity > 0 && type !== "invidual") {
       updateQuantity(productId, newQuantity);
     }
   };
@@ -48,7 +42,11 @@ const Cart = () => {
         <Typography variant="h6" className="cart-text">
           There are no products in the cart yet.
           <br />
-          <Button variant="primary" onClick={() => navigate("/")}>
+          <Button
+            style={{ marginTop: "50px" }}
+            variant="primary"
+            onClick={() => navigate("/")}
+          >
             Return to Home Page
           </Button>
         </Typography>
@@ -85,18 +83,24 @@ const Cart = () => {
                       {item.title}
                     </a>
                   </td>
-                  <td className="price">${(item.price)}</td>
+                  <td className="price">${item.price}</td>
                   <td>
-                    <Form.Control
-                      type="number"
-                      value={item.quantity}
-                      min="1"
-                      onChange={(event) => handleQuantityChange(item.id, event)}
-                      style={{ width: "80px" }}
-                    />
+                    {item.type !== "invidual" ? (
+                      <Form.Control
+                        type="number"
+                        value={item.quantity}
+                        min="1"
+                        onChange={(event) =>
+                          handleQuantityChange(item.id, event, item.type)
+                        }
+                        style={{ width: "80px" }}
+                      />
+                    ) : (
+                      <span>{item.quantity}</span>
+                    )}
                   </td>
                   <td className="price">
-                    ${(item.price * item.quantity)}
+                    ${(item.price * item.quantity).toFixed(2)}
                   </td>
                   <td className="button-of-cart">
                     <Button

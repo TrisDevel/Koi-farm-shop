@@ -212,54 +212,10 @@
   background-color: #C54125; 
   color: white; 
   cursor: pointer; 
+  transition: background-color 0.5s ease, color 0.5s ease, opacity 0.5s ease; /* Smooth transition for color and opacity */
+  opacity: 1; /* Fully opaque by default */
 }
-.tittle-name-koi .card-tittle{
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: Lato, Helvetica, Arial, Lucida, sans-serif !important;
-  padding: 0.5em 0;
-}
-.price-koi{
-  margin: 0;
-  padding: 0.5em 0; 
-  font: 18px / 30.6px Lato, Helvetica, Arial, Lucida, sans-serif;
-  color:#666666;
-}
-.breeder-koi {
-  font-size: 18px; 
-  line-height: 1.5; 
-  color: #C54125; 
-  margin: 0; 
-  padding: 0.5em 0; 
-  font-family: 'Lato', 'Helvetica', 'Arial', 'Lucida', sans-serif; 
-}
-.sex-koi{
-  font: 18px / 30.6px Lato, Helvetica, Arial, Lucida, sans-serif;
-  color:#666666;
-  margin: 0; 
-  padding: 0.5em 0; 
-}
-.born-koi{
-  font: 18px / 30.6px Lato, Helvetica, Arial, Lucida, sans-serif;
-  color:#666666;
-  margin: 0; 
-  padding: 0.5em 0; 
-}
-.size-koi{
-  font: 18px / 30.6px Lato, Helvetica, Arial, Lucida, sans-serif;
-  color:#666666;
-  margin: 0; 
-  padding: 0.5em 0; 
-}
-.variety-koi{
-  font-size: 18px; 
-  line-height: 1.5; 
-  color: #C54125; 
-  margin: 0; 
-  padding: 0.5em 0; 
-  font-family: 'Lato', 'Helvetica', 'Arial', 'Lucida', sans-serif; 
 
-}
 .card-k{
   margin-top: 30px;
 }
@@ -314,6 +270,21 @@ body {
   margin-top: 0 !important;
 
 }
+
+.size-slider{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.size-slider-text{
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666666;
+}
+
+
 
 
 

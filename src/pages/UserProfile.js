@@ -21,6 +21,7 @@ export default function ProfilePage() {
     email: "",
     phone_number: "",
     address: "",
+    created_at: "",
   });
   const [loading, setLoading] = useState(true); // Trạng thái loading
   const [error, setError] = useState(null); // Trạng thái lỗi
