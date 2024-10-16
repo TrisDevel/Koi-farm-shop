@@ -87,7 +87,6 @@ const KoiList = () => {
             <div className="col-md-4 koi-column koi-column-image">
               <span className="koi-image-wrap">
                 <img
-                  className="img-fluid koi-image"
                   src="https://www.kodamakoifarm.com/wp-content/uploads/2018/02/g-g-2.jpg"
                   alt="Koi Fish"
                 />
