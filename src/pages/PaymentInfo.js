@@ -149,7 +149,7 @@ const PaymentInfo = () => {
               {cartItems.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    {item.title} - {item.description} × <strong>{item.quantity}</strong>
+                    {item.name} × <strong>{item.quantity}</strong>
                   </td>
                   <td className='tdv2'>${(item.price * item.quantity).toFixed(2)}</td>
                 </tr>
