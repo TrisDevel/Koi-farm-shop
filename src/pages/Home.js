@@ -8,7 +8,7 @@ const Home = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: ""
+    email: "",
   });
 
   const [error, setError] = useState(null);
@@ -72,7 +72,9 @@ const Home = () => {
               </strong>
               <strong>
                 Please call us at (03)-72899192 or email us at{" "}
-                <a href="mailto:info@koiparadise.com">info@paradisekoifarm.com</a>
+                <a href="mailto:info@koiparadise.com">
+                  info@paradisekoifarm.com
+                </a>
               </strong>
             </Col>
           </Row>
@@ -220,10 +222,9 @@ const Home = () => {
               </a>
             </Col>
           </Row>
-
-          {/* Latest News */}
         </Container>
       </Container>
+
       <Container fluid style={{ backgroundColor: "#f4f0e7", padding: "80px" }}>
         <Row className="mb-5 text-center">
           <Col>
@@ -232,22 +233,37 @@ const Home = () => {
           </Col>
         </Row>
         <Row style={{}}>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
+          <Col md={2}></Col>
+          <Col style={{}} md={4}>
             <Card className="card-blog" style={{ width: "500px" }}>
               <Card.Img className="img-blog" src="./koipack.jpg" />
               <Card.Body>
                 <Card.Title className="title-blog">
                   <h2>Small Koi Packs!</h2>
                 </Card.Title>
+                <div style={{ margin: "10px 0 10px 0" }}></div>
                 <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  It is our pleasure to introduce the <span style={{color:'#C53125'}}>Build a Pack and Kodama's
+                  Choice Pack for Small Koi</span>, each with low or even free shipping
+                  options! We now offer two types of small koi mixes that vary
+                  by size, and variety. Buy our small koi mixes to easily and
+                  quickly purchase groups of koi. <br />
+                  <br />
+                  <span style={{ color: "#C53125" }}>
+                    Visit the landing page to learn more about these buying
+                    options.
+                  </span>
                 </Card.Text>
-                <Button className="btn-blog">Buy</Button>
+                <Button
+                  className="btn-blog"
+                  onClick={() => (window.location.href = "/koi")}
+                >
+                  View all available koi
+                </Button>
               </Card.Body>
             </Card>
           </Col>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
+          <Col style={{ paddingLeft: "100px" }} md={4}>
             <Card className="card-blog" style={{ width: "500px" }}>
               <Card.Img className="img-blog" src="./koioftheweek.jpg" />
               <Card.Body>
@@ -255,45 +271,18 @@ const Home = () => {
                   <h2>Koi Of The Week This Week!</h2>
                 </Card.Title>
                 <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  This week I will be showcasing an elegant Sanke from Marudo
+                  Koi Farm. Sanke or Sanshoku means three colors in Japanese. So
+                  the quality and the balance of the three colors determines the
+                  beauty and the value of Koi. If you do not own a Sanke in your
+                  pond she is highly recommended.<br/><br/><span style={{color:'#C53125'}}> Click the link button below to
+                  learn more about this koi!</span>
                 </Card.Text>
-                <Button className="btn-blog">Buy</Button>
+                <Button className="btn-blog" onClick={() => (window.location.href = "/koi")}>View Koi</Button>
               </Card.Body>
             </Card>
           </Col>
-        </Row>
-        <Row style={{ marginTop: "50px" }}>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
-            <Card className="card-blog" style={{ width: "500px" }}>
-              <Card.Img className="img-blog" src="./koipack.jpg" />
-              <Card.Body>
-                <Card.Title className="title-blog">
-                  <h2>Koi Of The Month!</h2>
-                </Card.Title>
-                <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button className="btn-blog">Buy</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
-            <Card className="card-blog" style={{ width: "500px" }}>
-              <Card.Img className="img-blog" src="./koipack.jpg" />
-              <Card.Body>
-                <Card.Title className="title-blog">
-                  <h2>Koi Of The Year!</h2>
-                </Card.Title>
-                <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button className="btn-blog">Buy</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Col md={2}></Col>
         </Row>
       </Container>
     </>

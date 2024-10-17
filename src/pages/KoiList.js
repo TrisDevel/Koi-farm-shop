@@ -150,7 +150,7 @@ const KoiList = () => {
               onChange={(event, newValue) => {
                 setMinSize(newValue[0]);
                 setMaxSize(newValue[1]);
-                handleFilter(); // Lọc lại khi thay đổi kích thước
+                // handleFilter(); // Lọc lại khi thay đổi kích thước
               }}
               valueLabelDisplay="auto"
               min={0}
