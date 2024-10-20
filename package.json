@@ -21,6 +21,7 @@
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.4",
     "echarts-for-react": "^3.0.2",
+    "firebase": "^10.14.1",
     "font-awesome": "^4.7.0",
     "koi-shop": "file:",
     "mdb-react-ui-kit": "^9.0.0",

@@ -93,8 +93,8 @@ const Footer = () => {
       <footer className="footer-custom">
         <Container>
           <Row>
-            <Col style={{}} md={6}>
-              <p style={{marginBottom: '0px'}}>© 2023 Koi Fish Farm. All rights reserved.</p>
+            <Col style={{paddingTop: '10px', color: '#D8C8A1'}} md={6}>
+              © 2023 Paradise Koi Farm. All rights reserved.
             </Col>
             <Col md={6}>
               <IconButton className="icon-button"

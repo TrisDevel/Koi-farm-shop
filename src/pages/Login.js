@@ -5,13 +5,41 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/login.css";
 import Breadcrumb from "../components/breadcrumb";
-import api from "../config/axios";
+import api from "../config/axios"; // Đảm bảo bạn đã cấu hình axios
+import { auth, provider, signInWithPopup } from "../config/firebase"; // Import cấu hình Firebase
+import GoogleIcon from '@mui/icons-material/Google'; // Import biểu tượng Google từ MUI Icons
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // Hàm xử lý đăng nhập với Google
+  const handleGoogleLogin = async () => {
+    try {
+      // Đăng nhập với Google và lấy idToken
+      const result = await signInWithPopup(auth, provider);
+      const token = await result.user.getIdToken();  // Lấy idToken từ Firebase
+
+      // Gửi idToken đến backend
+      const response = await api.post('customers/loginGoogle', {
+        idToken: token,  // Gửi idToken đến BE
+      });
+
+      // Xử lý phản hồi từ BE
+      if (response.data.message === 'Đăng nhập thành công') {
+        localStorage.setItem('token', response.data.customer.token);  // Lưu token vào localStorage
+        localStorage.setItem('name', response.data.customer.name);
+        localStorage.setItem('userId', response.data.customer.id);
+        window.location.href = '/';
+      }
+    } catch (error) {
+      console.error("Google login error:", error);
+      setError("Google login failed. Please try again.");
+    }
+  };
+
+  // Hàm xử lý đăng nhập với email và password
   const handleSubmit = async (event) => {
     event.preventDefault();
   
@@ -61,9 +89,6 @@ const Login = () => {
       }
     }
   };
-  
-  
-  
 
   return (
     <>
@@ -151,6 +176,19 @@ const Login = () => {
             >
               Sign In
             </Button>
+<p>
+  or
+</p>
+            {/* Nút đăng nhập bằng Google với biểu tượng */}
+            <Button
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              startIcon={<GoogleIcon />}  // Thêm biểu tượng Google ở đầu
+              onClick={handleGoogleLogin}
+            >
+              Sign in with Google
+            </Button><br/>
+
             <Link to="/register" variant="body2">
               {"Don't have an account? Sign Up"}
             </Link>
