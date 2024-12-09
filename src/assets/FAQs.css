@@ -1,0 +1,33 @@
+.faqs-container {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    /* background-color: #f9f9f9;  */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); Shadow */
+}
+
+.bg-banner {
+ padding: 20px 0 20px 0;
+ margin-bottom: 10px;
+ height: 120px;
+}
+
+
+
+.faqs-container .accordion-button {
+    background-color: white !important; /* Accordion button background */
+    color: #D8C8A1 !important; /* Button text color */
+}
+
+.faqs-container .accordion-button:not(.collapsed) {
+    border: 2px solid #D8C8A1;
+    background-color: #D8C8A1; /* Background when expanded */
+    color: #34495e;
+    font-weight: bold;
+}
+
+.faqs-container .accordion-body {
+    background-color: #ecf0f1; /* Accordion body background */
+    color: #34495e; /* Body text color */
+}

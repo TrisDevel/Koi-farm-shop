@@ -1,0 +1,83 @@
+
+.section-padding {
+    padding-top: 59px;
+    padding-bottom: 59px;
+}
+.about-text{
+    color: #666666;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    padding-bottom: 59px;
+}
+
+.text-inner {
+    color: #666666;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    
+}
+.text-topic{
+    color: black;
+}
+.text-topic2{
+    color: black;
+
+}
+
+.about-content {
+    padding-top: 59px;
+    padding-bottom: 59px;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
+}
+
+.video-container {
+    display: flex;
+}
+
+.commitment-section {
+    padding-top: 59px;
+    padding-bottom: 59px;
+}
+
+.statistics-section {
+    padding-top: 59px;
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    text-align: center;
+
+
+}
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display SC', Georgia, "Times New Roman", serif;
+    font-size: 50px;
+    color: white; 
+    padding-top: 600px;
+    text-align: center; 
+}
+.about-nishikigoi{
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
+
+}
+.text-5{
+    font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+    color: #666666;
+}
+.text-5 h2{
+    color: black;
+    text-align: center;
+    padding-top: 59px; 
+}
+.text-center{
+    color: black;
+    padding-bottom: 59px;
+}
+    
+
+
+
+
+
+

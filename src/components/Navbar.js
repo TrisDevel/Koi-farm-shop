@@ -1,36 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "../assets/navbar.css";
 import "font-awesome/css/font-awesome.min.css";
+import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 function CustomNavbar() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userData = localStorage.getItem("name");
+      if (userData) {
+        setUser(userData);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const { countItems } = useCart();
+
   return (
     <>
       <header className="header text-white py-2">
         <div className="container d-flex justify-content-between align-items-center">
           <div className="header-info">
-            <span style={{fontWeight: 'bold'}}>
+            <span style={{ fontWeight: "bold" }}>
               <i className="fa fa-phone"></i> 0372899192
             </span>
 
-            <span style={{fontWeight: 'bold'}}>
+            <span style={{ fontWeight: "bold" }}>
               <i className="fa fa-envelope"></i> info@Koiparadise.com
             </span>
           </div>
           <div className="d-flex align-items-center">
             <a href="#" className="text-white mx-2">
-              Check Out Koi Food
+              Sign Up
             </a>
-            <a href="#" className="text-white mx-2">
-              Buy Koi Food Supplies
-            </a>
-            <a href="#" className="text-white mx-2">
-              Wholesale Sign Up
-            </a>
-            <span style={{marginRight:'20px'}} className="mx-2">
-              <i style={{color:'#C8D8A1'}} className="fa fa-shopping-cart">
-                <a href="/cart"> Cart
-            </a>
+            <span style={{ marginRight: "20px" }} className="mx-2">
+              <i style={{ color: "#C8D8A1" }} className="fa fa-shopping-cart">
+                <a href="/cart">   {countItems() > 0 ? `${countItems()} Items` : "Cart"}</a>
               </i>
             </span>
           </div>
@@ -44,23 +54,27 @@ function CustomNavbar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="/login">Login/Register</Nav.Link>
-              <Nav.Link href="#">Instructions</Nav.Link>
+              {user ? (
+                <Nav.Link href="/user-profile">{user}</Nav.Link>
+              ) : (
+                <Nav.Link href="/login">Login/Register</Nav.Link>
+              )}
               <NavDropdown title="Search Koi" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-              <Nav.Link href="#">Auction</Nav.Link>
-              <Nav.Link href="#">Service</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
-              <Nav.Link href="#">Contact</Nav.Link>
+                <NavDropdown.Item href="/koi">Invidual Koi</NavDropdown.Item>
+                <NavDropdown.Item href="/koi">Batch Koi</NavDropdown.Item>
+              </NavDropdown>
+              {/* <Nav.Link href="#">Auction</Nav.Link> */}
+              <NavDropdown title="Consignment" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/consignment">
+                  Consignment
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/consignmentPolicy">
+                  Consignment Policy
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/contact">Contact</Nav.Link>
+              <Nav.Link href="/faqs">FAQs</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </div>

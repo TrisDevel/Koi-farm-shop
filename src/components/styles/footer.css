@@ -1,0 +1,76 @@
+.icon-youtube:hover,
+.icon-facebook:hover,
+.icon-ig:hover,
+.icon-zalo:hover {
+    opacity: 0.7;
+    transform: scale(1.5);
+}
+
+.footer-top {
+    background-color: #EFE9D9;
+    padding: 20px 0;
+    color: #333;
+
+}
+
+.footer {
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
+    line-height: 27.2px;
+    font-weight: 500;
+}
+
+.footer a {
+    color: #c53125;
+    text-decoration: none;
+}
+.footer h5 {
+    font-weight: bold;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif;
+}
+
+.footer p {
+    font-size: 16px;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
+}
+
+.footer-bottom {
+    background-color: #231815; 
+    color: #d8c8a1;
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+.footer-bottom p {
+    font-weight: 500;
+    margin: 0 !important;
+    font-family: Lato, Arial, Helvetica, Arial, Lucida, sans-serif !important;
+}
+
+.icon-button {
+    color: #fff !important;
+    background-color: #d8c8a3 !important;
+    border-radius: 3px !important;
+    margin-right: 10px !important;
+    
+}
+
+.footer-custom {
+    background-color: #222; /* Background color for footer */
+    color: white; /* Text color for footer */
+    padding: 20px; /* Padding for footer */
+    text-align: center;
+    justify-content: center;
+}
+
+.footer-custom h5 {
+    color: #D8C8A1; /* Title color in footer */
+}
+
+.footer-custom a {
+    color: #D8C8A1; /* Link color in footer */
+}
+
+.footer-custom a:hover {
+    color: #fff; /* Link hover color */
+}
+
+

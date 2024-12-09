@@ -1,0 +1,70 @@
+body h1 {
+  font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+}
+
+.profile-container {
+  margin-top: 50px;
+}
+
+.py-5 {
+  font-family: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+}
+
+.mb-4 {
+  padding-left: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.edit-button {
+  width: 50px;
+  margin-left: 95%;
+  background-color: transparent;
+  color: #C54125;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #C54125;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: #C54125;
+  border: 2px solid #C54125;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-button:hover {
+  background-color: #C54125;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.loading-spinner {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}

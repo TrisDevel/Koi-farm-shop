@@ -1,0 +1,71 @@
+.payment-title {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+.mb-3 {
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important ;
+}
+
+.form-control {
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important ;
+    background-color: #EEEEEE !important;
+    padding: 16px;
+}
+/* .payment-summary {  
+    text-align: center !important;
+    vertical-align: middle !important;
+    justify-content: center !important;
+    align-items: 'center' !important;
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important 
+}   */
+.price {  
+    margin-left: 230px; 
+}  
+.shipping{
+    margin-left:115px;
+}
+.btn-to-payment{
+    
+    padding-left: 70px !important;
+   
+}
+.ctn-to-payment {
+   
+    background-color: #efe9d9 !important;
+    border: 2px solid red !important;
+    color: red !important;
+   
+}
+.rtn-to-cart {
+    margin-top: 20px !important;
+}
+
+.table-summary {
+    border: 1px solid #EEEEEE !important;
+    border-radius: 80% !important;
+    width: 100%;
+    border-collapse: collapse;
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important 
+}
+.table-summary td {
+    padding: 20px 12px !important; /* Tạo khoảng cách cho nội dung */
+    text-align: left !important; /* Canh trái cho nội dung */
+    color: #666666 !important;
+}
+.table-summary .tdv2 {
+    padding: 8px 12px !important; /* Tạo khoảng cách cho nội dung */
+    text-align: center !important; /* Canh trái cho nội dung */
+}
+.table-summary th {
+    /* background-color: #f8f9fa; Màu nền nhạt cho tiêu đề */
+    font-weight: bold; /* Chữ đậm cho tiêu đề */
+}
+
+.table-summary td {
+    vertical-align: middle; /* Căn giữa theo chiều dọc */
+    background-color: #fff; /* Nền trắng cho các ô */
+}
+

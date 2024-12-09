@@ -1,117 +1,171 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, Row, Col, Form, Button} from "react-bootstrap";
+import '../assets/consignment.css';
+import Breadcrumb from "../components/breadcrumb";
+import { Link } from 'react-router-dom';
+
+
+
 
 const Consignment = () => {
-  const [consignmentForm, setConsignmentForm] = useState({
-    name: '',
-    email: '',
-    phoneNumber: '',
-    koiType: '',
-    koiSize: '',
-    koiAge: '',
-    consignmentType: 'offline'
-  });
-  const [requestSent, setRequestSent] = useState(false);
+  const [time, setTime] = useState("3 Months");
+  const [price, setPrice] = useState(20);
+  const [gender, setGender] = useState("");
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState("");
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setConsignmentForm({ ...consignmentForm, [name]: value });
+  const handleTimeChange = (e) => {
+    const selectedTime = e.target.value;
+    setTime(selectedTime);
+    // Cập nhật giá dựa trên thời gian
+    if (selectedTime === "1 Months") {
+      setPrice(20);
+    } else if (selectedTime === "2 Months") {
+      setPrice(40);
+    } else if (selectedTime === "3 Months") {
+      setPrice(60);
+    }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Here you would typically send the consignment request to your backend
-    console.log('Consignment request submitted:', consignmentForm);
-    setRequestSent(true);
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    const validTypes = ["image/png", "image/jpeg"];
+    if (selectedFile && validTypes.includes(selectedFile.type)) {
+      setFile(selectedFile);
+      setError(""); // Xóa thông báo lỗi nếu tệp hợp lệ
+    } else {
+      setFile(null);
+      setError("Vui lòng chỉ tải lên tệp hình ảnh có định dạng PNG hoặc JPG.");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!file) {
+      setError("Vui lòng tải lên một tệp hình ảnh hợp lệ.");
+      return;
+    }
+    // Gửi dữ liệu về backend
+    const formData = new FormData();
+    formData.append("time", time);
+    formData.append("price", price);
+    formData.append("gender", gender);
+    formData.append("file", file);
+    // Gọi API để gửi formData
+    // fetch('API_URL', { method: 'POST', body: formData });
   };
 
   return (
-    <Container className="my-5">
-      <h1>Koi Consignment</h1>
-      {requestSent ? (
-        <Alert variant="success">
-          Your consignment request has been sent successfully! We will contact you soon to discuss the details.
-        </Alert>
-      ) : (
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              value={consignmentForm.name}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              value={consignmentForm.email}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              type="tel"
-              name="phoneNumber"
-              value={consignmentForm.phoneNumber}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Koi Type</Form.Label>
-            <Form.Control
-              type="text"
-              name="koiType"
-              value={consignmentForm.koiType}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Koi Size (inches)</Form.Label>
-            <Form.Control
-              type="number"
-              name="koiSize"
-              value={consignmentForm.koiSize}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Koi Age (years)</Form.Label>
-            <Form.Control
-              type="number"
-              name="koiAge"
-              value={consignmentForm.koiAge}
-              onChange={handleInputChange}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Consignment Type</Form.Label>
-            <Form.Control
-              as="select"
-              name="consignmentType"
-              value={consignmentForm.consignmentType}
-              onChange={handleInputChange}
-              required
-            >
-              <option value="offline">Offline (Normal care)</option>
-              <option value="online">Online (For business)</option>
-            </Form.Control>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit Consignment Request
-          </Button>
-        </Form>
-      )}
+    <Container >
+       <Breadcrumb title="Consignment Service" />
+      <h2 className="consignment-title">Consignment Information</h2>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formTime">
+          <Form.Label className="consignment-text" >Time</Form.Label>
+          <Form.Control as="select" value={time} onChange={handleTimeChange} className="time-text">
+            <option>1 Months</option>
+            <option>2 Months</option>
+            <option>3 Months</option>
+          </Form.Control>
+          <Form.Text>Price: {price}$</Form.Text>
+        </Form.Group>
+
+        <h3 className="text-title">Fish Information</h3>
+        <Row>
+          <Col>
+            <Form.Group controlId="formName">
+              <Form.Label className="consignment-text">Name</Form.Label>
+              <Form.Control type="text" placeholder="Name" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="formGender">
+              <Form.Label className="consignment-text">Gender</Form.Label>
+              <Form.Check
+                type="radio"
+                label="Male"
+                value="Male"
+                checked={gender === "Male"}
+                onChange={handleGenderChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Female"
+                value="Female"
+                checked={gender === "Female"}
+                onChange={handleGenderChange}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <Form.Group controlId="formAge">
+              <Form.Label className="consignment-text">Age</Form.Label>
+              <Form.Control type="text" placeholder="Age" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="formSize">
+              <Form.Label className="consignment-text">Size</Form.Label>
+              <Form.Control type="text" placeholder="Size" />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <Form.Group controlId="formOrigin">
+              <Form.Label className="consignment-text">Origin</Form.Label>
+              <Form.Control type="text" placeholder="Origin" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="formBreed">
+              <Form.Label className="consignment-text">Breed</Form.Label>
+              <Form.Control type="text" placeholder="Breed" />
+            </Form.Group>
+          </Col>
+        </Row>
+
+        <Form.Group controlId="formFile">
+          <Form.Label className="consignment-text"> Upload Certificate</Form.Label>
+          <Form.Control type="file" onChange={handleFileChange} />
+          {error && <Form.Text className="text-danger">{error}</Form.Text>}
+        </Form.Group>
+
+        <Button variant="secondary" className="mb-3 certi-btn">
+          Certificate
+        </Button>
+
+
+        <Form.Group controlId="formNote">
+          <Form.Label className="consignment-text">Note (optional):</Form.Label>
+          <Form.Control as="textarea" rows={3} />
+        </Form.Group>
+
+        <Form.Group controlId="formCheckbox" className ='tick'>
+          <Form.Check
+            type="checkbox"
+            label=
+             {
+            <span>
+            I have read and accept the 
+            <Link to="/consignmentPolicy" className="cp-link">  Consignment Policy</Link>
+        </span>
+          }
+          />
+        </Form.Group>
+
+        <Button variant="dark" type="submit" className="ctn-to-payment">
+          Continue to Payment
+        </Button>
+      </Form>
     </Container>
   );
 };

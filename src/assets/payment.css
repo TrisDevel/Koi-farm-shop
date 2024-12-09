@@ -1,0 +1,41 @@
+.payment-title {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif !important;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.payment-summary {  
+    text-align: center !important;
+    vertical-align: middle !important;
+    justify-content: center !important;
+    align-items: 'center' !important;
+    font-family:'Lato', Helvetica, Arial, Lucida, sans-serif !important; 
+}  
+.btn-return {
+    margin-left: 150px !important;
+}
+
+.rtn-shipping{
+    color: black;
+    margin-top: 10px !important;
+}
+.btn-to-checkout{
+    padding-left: 70px;
+    
+
+}
+.payment-price{  
+    margin-left: 220px !important; 
+}  
+
+.payment-total{  
+    margin-left: 190px !important; 
+}  
+.payment-shipping{
+    margin-left:120px !important;
+}
+
+.checkout{
+    background-color: #efe9d9 !important;
+    border: 2px solid red !important;
+    color: red !important;
+}

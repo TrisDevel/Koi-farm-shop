@@ -1,7 +1,12 @@
+import { IconButton } from "@mui/material"; // Thêm import này
+import YouTubeIcon from "@mui/icons-material/YouTube"; // Thêm import cho YouTube
+import FacebookIcon from "@mui/icons-material/Facebook"; // Thêm import cho Facebook
+import InstagramIcon from "@mui/icons-material/Instagram"; // Thêm import cho Instagram
+import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Thêm import cho Zalo (hoặc icon khác)
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../assets/footer.css";
+import "../components/styles/footer.css";
 const Footer = () => {
   return (
     <>
@@ -85,11 +90,43 @@ const Footer = () => {
           </Row>
         </Container>
       </footer>
-      <footer className="footer-bottom">
+      <footer className="footer-custom">
         <Container>
           <Row>
-            <Col>
-              <p>© 2023 Koi Fish Farm. All rights reserved.</p>
+            <Col style={{paddingTop: '10px', color: '#D8C8A1'}} md={6}>
+              © 2023 Paradise Koi Farm. All rights reserved.
+            </Col>
+            <Col md={6}>
+              <IconButton className="icon-button"
+                onClick={() =>
+                  window.open(
+                    "https://www.youtube.com/channel/UC9J9f5J9QJnZ9v8Z2b7v9jw"
+                  )
+                }
+              >
+                <YouTubeIcon />
+              </IconButton>
+              <IconButton className="icon-button"
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/Shop-System-Ho-Chi-Minh-Branch-101925154381829"
+                  )
+                }
+              >
+                <FacebookIcon />
+              </IconButton>
+              <IconButton className="icon-button"
+                onClick={() =>
+                  window.open("https://www.instagram.com/shop.system.hcm/")
+                }
+              >
+                <InstagramIcon />
+              </IconButton>
+              <IconButton className="icon-button"
+                onClick={() => window.open("https://zalo.me/your-zalo-link")}
+              >
+                <WhatsAppIcon />
+              </IconButton>
             </Col>
           </Row>
         </Container>

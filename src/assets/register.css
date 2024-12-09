@@ -1,0 +1,44 @@
+.container h2 {
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+}
+
+
+.main {
+    height: auto !important;
+    overflow-y: none !important;
+}
+.css-form{
+    background-color: #EFE9D9; /* Light background color */
+    border-radius: 4px; /* Rounded corners */
+    width: 100%; /* Full width */
+
+}
+
+.name-input {
+    background-color: #EFE9D9; 
+    border-radius: 4px; 
+    width: 100%; 
+   
+  }
+.email-input{
+    background-color: #EFE9D9;
+    border-radius: 4px; 
+    width: 100%; 
+}
+.phone-input{
+    background-color: #EFE9D9; 
+    border-radius: 4px; 
+    width: 100%; 
+}
+.username-input{
+    background-color: #EFE9D9; 
+    border-radius: 4px; 
+    width: 100%;
+}
+.password-input{
+    background-color: #EFE9D9; 
+    border-radius: 4px; 
+    width: 100%; 
+}
+
+

@@ -1,0 +1,29 @@
+.title-login {
+    font-size: 2rem !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+    color: #C54125;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+.login-text {
+    margin-top: 50px !important;
+    font-size: 1.3rem !important;
+    color: #C54125
+}  
+
+.text-footer {
+    font-size: 1.3rem !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+}
+
+.header-login {
+    margin-top: 100px !important;
+    font-family: 'Balthazar', Georgia, 'Times New Roman', serif;
+}
+
+.css-usftfs {
+    margin-top: 50px !important;
+}
+
