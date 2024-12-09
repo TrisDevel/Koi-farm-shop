@@ -42,6 +42,11 @@ export const CartProvider = ({ children, userId }) => {
         // }
     };
 
+    const countItems = () => {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
+    };
+    
+
     const updateQuantity = (productId, newQuantity) => {
         const updatedCart = cartItems.map(item =>
             item.id === productId ? { ...item, quantity: newQuantity } : item
@@ -66,6 +71,7 @@ export const CartProvider = ({ children, userId }) => {
         updateQuantity,
         removeFromCart,
         calculateTotal,
+        countItems,
     };
 
     return (

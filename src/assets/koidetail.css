@@ -13,6 +13,16 @@
   transition: transform 0.3s; /* Thêm hiệu ứng khi hover */
 }
 
+.list-group-item{
+  background: transparent !important;
+  border: none !important;
+}
+
+.text-strong{
+  font-weight: bold;
+  color: #666666;
+}
+
 .img-koi:hover {
   transform: scale(1.05); /* Phóng to hình ảnh khi hover */
 }

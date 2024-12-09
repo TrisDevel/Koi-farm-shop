@@ -1,113 +1,148 @@
-import React, { useState } from "react";
-import { Accordion, Container, Row, Col, Card, Button, ListGroup, Modal } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import {
+  Accordion,
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  ListGroup,
+  Modal,
+} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import { IoLogoFacebook } from "react-icons/io5";
 import { FaInstagram, FaYoutube } from "react-icons/fa";
 import { faqsShipping } from "../components/Custom/custom-faqs";
-import "../assets/koidetail.css"; // Import tệp CSS
-import { useCart } from '../contexts/CartContext';
+import "../assets/koidetail.css";
+import { useCart } from "../contexts/CartContext";
 import Breadcrumb from "../components/breadcrumb";
-
-
+import PopupNotification from "../components/PopupNotification";
+import api from "../config/axios";
 
 const KoiDetails = () => {
   const { id } = useParams();
-  const { addToCart } = useCart();
-  const [showModal, setShowModal] = useState(false); // State để quản lý modal
+  const [koi, setKoi] = useState(null);
+  const { addToCart, cartItems } = useCart(); // Lấy cartItems từ useCart
+  const [showModal, setShowModal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
 
+  useEffect(() => {
+    fetchKoiDetails();
+  }, [id]);
 
-
-  const koi = {
-    id: id,
-    name: "Kohaku Koi",
-    image: "./koi-care.jpg",
-    description: "A beautiful Kohaku koi with vibrant red and white coloration.",
-    origin: "Japan",
-    gender: "Female",
-    age: "2 years",
-    size: "18 inches",
-    breed: "Kohaku",
-    personality: "Active and friendly",
-    foodAmount: "50 grams per day",
-    price: 1000,
+  const fetchKoiDetails = async () => {
+    try {
+      const response = await api.get(`/invidualKoi/get/${id}`);
+      if (response.data) {
+        setKoi(response.data);
+      } else {
+        console.error("No koi data found.");
+        setKoi(null);
+      }
+    } catch (error) {
+      console.error("Error fetching koi details:", error);
+      setKoi(null);
+    }
   };
 
   const handleAddToCart = () => {
-    console.log("Adding to cart:", koi); // In thông tin sản phẩm ra console
-    addToCart(koi); // Gọi hàm addToCart
-};
+    if (cartItems.some((item) => item.id === koi.id)) {
+      // Kiểm tra nếu sản phẩm đã có trong giỏ hàng
+      setNotificationMessage(`${koi.name} is already in your cart!`);
+    } else {
+      addToCart(koi); // Gọi hàm addToCart
+      setNotificationMessage(`${koi.name} has been added to your cart!`);
+    }
+    setShowNotification(true);
+  };
 
   return (
     <>
-    <Breadcrumb title="Koi Details" />
-    <div className="koidetail-container">
-      <Container className="my-5">
-        <Row>
-          <Col md={4}>
-            <Card style={{ border: "none" }}>
-              <Card.Img
-                className="img-koi"
-                variant="top"
-                src="../koi1.jpg"
-                alt={koi.name}
-                onClick={() => setShowModal(true)} 
-                style={{ cursor: "pointer" }} 
-              />
-              <Card.Body></Card.Body>
-            </Card>
-          </Col>
-          <Col md={8}>
-            <h2 style={{ fontFamily: 'font-family: Balthazar, Georgia, Times New Roman, serif' }}>{koi.name}</h2>
-            <ListGroup variant="flush">
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Origin:</strong> {koi.origin}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Gender:</strong> {koi.gender}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Age:</strong> {koi.age}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Size:</strong> {koi.size}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Breed:</strong> {koi.breed}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Personality:</strong> {koi.personality}
-              </ListGroup.Item>
-              <ListGroup.Item className="koi-detail-item">
-                <strong>Food Amount:</strong> {koi.foodAmount}
-              </ListGroup.Item>
-            </ListGroup>
-            <Button
-                className="btn-add-to-cart"
-                variant="primary"
-                onClick={handleAddToCart} // Gọi hàm handleAddToCart
-              >
-                Add to Cart
-              </Button>
-            <div className="social-icon">
-              <IoLogoFacebook size={30} />
-              <FaInstagram size={30} />
-              <FaYoutube size={30} />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <Breadcrumb title="Koi Details" />
+      <div className="koidetail-container">
+        <Container className="my-5">
+          {koi ? (
+            <Row>
+              <Col md={4}>
+                <Card style={{ border: "none" }}>
+                  <Card.Img
+                    className="img-koi"
+                    variant="top"
+                    src={koi.image}
+                    alt={koi.name}
+                    onClick={() => setShowModal(true)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </Card>
+              </Col>
+              <Col md={8}>
+                <h2 style={{fontFamily: 'Balthazar', fontSize: '40px', color: '#333333'}}>{koi.name}</h2>
+                <ListGroup variant="flush">
+                <ListGroup.Item>
+                    <strong className="text-strong"></strong> <span style={{fontSize: '26px', color: '#C54125', padding:'0 10px 0 10px'}}>{koi.price}$</span>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong">Origin:</strong> {koi.origin}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong">Gender:</strong> {koi.gender}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong">Age:</strong> {koi.age}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong" >Size:</strong> {koi.size} cm
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong" >Breed:</strong> {koi.breed}
+                  </ListGroup.Item>
+                  {/* <ListGroup.Item>
+                    <strong className="text-strong" >Personality:</strong> {koi.personality}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong className="text-strong" >Food Amount:</strong> {koi.foodAmount}
+                  </ListGroup.Item> */}
+                </ListGroup>
+                <Button
+                  className="btn-add-to-cart"
+                  variant="primary"
+                  onClick={handleAddToCart}
+                >
+                  {cartItems.some((item) => item.id === koi.id)
+                    ? "In Cart"
+                    : "Add to Cart"}{" "}
+                  {/* Thay đổi nội dung nút */}
+                </Button>
 
-      {/* Modal hiển thị hình ảnh Koi */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-        <Modal.Body>
-          <img
-            src="../koi1.jpg" // Thay đổi đường dẫn nếu cần
-            alt={koi.name}
-            style={{ width: "100%", height: "auto" }} // Đảm bảo hình ảnh chiếm toàn bộ modal
-          />
-        </Modal.Body>
-      </Modal>
+                <div className="social-icon">
+                  <IoLogoFacebook size={30} />
+                  <FaInstagram size={30} />
+                  <FaYoutube size={30} />
+                </div>
+              </Col>
+            </Row>
+          ) : (
+            <p>Loading Koi details...</p>
+          )}
+        </Container>
+
+        <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+          <Modal.Body>
+            {koi && (
+              <img src={koi.image} alt={koi.name} style={{ width: "100%" }} />
+            )}
+          </Modal.Body>
+        </Modal>
+
+        <PopupNotification
+          show={showNotification}
+          handleClose={() => setShowNotification(false)}
+          title="Notification"
+          message={notificationMessage}
+        />
+      </div>
 
       <Container>
         <Row>
@@ -164,7 +199,20 @@ const KoiDetails = () => {
                 aria-labelledby="home-tab"
                 tabIndex="0"
               >
-                {koi.description}
+                {koi ? (
+                  <iframe
+                    width="1100"
+                    height="700"
+                    src={koi.description}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ cursor: "pointer", marginTop: "50px" }}
+                  ></iframe>
+                ) : (
+                  "Loading..."
+                )}
               </div>
               <div
                 className="tab-pane fade"
@@ -173,10 +221,12 @@ const KoiDetails = () => {
                 aria-labelledby="profile-tab"
                 tabIndex="0"
               >
-                <h2 style={{ margin: '30px 0 30px 0' }}>Shipping FAQs</h2>
-                <p style={{ color: '#C54125' }}>PLEASE CONTACT US WITH ANY QUESTIONS BEFORE ORDERING.</p>
+                <h2 style={{ margin: "30px 0 30px 0" }}>Shipping FAQs</h2>
+                <p style={{ color: "#C54125" }}>
+                  PLEASE CONTACT US WITH ANY QUESTIONS BEFORE ORDERING.
+                </p>
                 <Accordion defaultActiveKey="0">
-                  {faqsShipping.map((faqShipping , index) => (
+                  {faqsShipping.map((faqShipping, index) => (
                     <Accordion.Item eventKey={index.toString()} key={index}>
                       <Accordion.Header>
                         <span style={{ marginRight: "10px" }}>
@@ -184,9 +234,7 @@ const KoiDetails = () => {
                         </span>
                         {faqShipping.question}
                       </Accordion.Header>
-                      <Accordion.Body>
-                        {faqShipping.answer}
-                      </Accordion.Body>
+                      <Accordion.Body>{faqShipping.answer}</Accordion.Body>
                     </Accordion.Item>
                   ))}
                 </Accordion>
@@ -212,27 +260,24 @@ const KoiDetails = () => {
                   <strong>Important - </strong>All koi shipments need 7–10 days
                   notice prior to shipping in order to stop the feeding and
                   prepare your koi for a safe journey. Kodama Koi Farm has been
-                  shipping koi for many years and have learned what works best
+                  shipping koi for many years and has learned what works best
                   for a safe delivery of your koi. The shipping formula is not
                   absolute. However, when packing koi, Kodama Koi Farm takes
                   into consideration the condition of the koi, water
-                  temperature, delivery time, and so on. Kodama Koi Farm
-                  reserves the right to determine how many koi can be shipped in
-                  a box.
-                </p>
-                <p>
-                  Our 24 hour koi health guarantee is based on our farm’s
-                  packing recommendation for your shipment. Any request to alter
-                  the shipping/packing recommendation requires a waiver of the
-                  24 hour koi health guarantee to be sent to Kodama Koi Farm via
-                  E-mail.
+                  temperature, delivery time, and so on. Kodama Koi Farm also
+                  factors in the size of the koi, as larger koi require more
+                  space and may require additional time for acclimation. <br />
+                  <strong style={{ marginTop: "30px" }}>
+                    If your koi is large (over 8 inches), we recommend shipping
+                    during warmer months (April-October). If your koi is under 8
+                    inches, we can ship them year-round.
+                  </strong>
                 </p>
               </div>
             </div>
           </Col>
         </Row>
       </Container>
-    </div>
     </>
   );
 };

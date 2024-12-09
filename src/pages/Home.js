@@ -2,9 +2,36 @@ import React, { useState } from "react"; // Thêm useState
 import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
 import "../assets/home.css";
 import { Lock, Edit, Search } from "@mui/icons-material";
+import axios from "../config/axios"; // Import axios instance
 
 const Home = () => {
-  const [showVideo, setShowVideo] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/email/signup", formData); // Gửi form data đến backend
+      if (response.status === 200) {
+        setSuccess("Thank you for signing up! Please check your email.");
+        setError(null);
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+      setSuccess(null);
+    }
+  };
 
   return (
     <>
@@ -32,17 +59,22 @@ const Home = () => {
         </Carousel>
         <div className="body">
           <Row
-            style={{ backgroundImage: "url(./menu-bg.jpg)", padding: "20px 0 20px 0" }}
+            style={{
+              backgroundImage: "url(./menu-bg.jpg)",
+              padding: "20px 0 20px 0",
+            }}
             className="text-center"
           >
             <Col style={{ margin: "15px 0 15 px 0", fontSize: "23px" }}>
               <strong style={{ justifyContent: "center" }}>
-                Kodama Koi Farm is not a Store Front. An appointment is needed
+                Paradise Koi Farm is not a Store Front. An appointment is needed
                 to schedule a tour or order pickup.
               </strong>
               <strong>
-                Please call us at (833)-564-5683 or email us at{" "}
-                <a href="mailto:info@koiparadise.com">info@kodamakoifarm.com</a>
+                Please call us at (03)-72899192 or email us at{" "}
+                <a href="mailto:info@koiparadise.com">
+                  info@paradisekoifarm.com
+                </a>
               </strong>
             </Col>
           </Row>
@@ -52,10 +84,10 @@ const Home = () => {
                 <div className="banner-content">
                   <h1>
                     Highest Quality Japanese Koi Fish (Nishikigoi) for Sale from
-                    Niigata, Japan
+                    Vung Tau, Vietnam
                   </h1>
                   <p>
-                    Kodama Koi Farm imports and raises Japanese koi for sale
+                    Paradise Koi Farm imports and raises Japanese koi for sale
                     only from Niigata, Japan. These beautiful Nishikigoi koi for
                     sale are raised with the best quarantining procedures to
                     provide a safe and positive experience buying live koi fish
@@ -72,14 +104,6 @@ const Home = () => {
           </Row>
         </div>
         <Container className="body">
-          {/* <Row style={{marginTop:'0px'}} className="mb-5">
-          <Col>
-            <div style={{textAlign:'center'}}>
-            <img style={{width:'80%'}} src="./koi-farm.jpeg" alt="Koi Farm" className="img-fluid" />
-            </div>
-          </Col>
-        </Row> */}
-
           <Row className="mb-5">
             <Col className="md-6 mx-auto">
               <h2 style={{ textAlign: "center" }}>
@@ -93,7 +117,7 @@ const Home = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
+                // onClick={() => setShowVideo(true)} // Mở modal khi nhấn vào video
                 style={{ cursor: "pointer", marginTop: "50px" }} // Thay đổi con trỏ khi di chuột
               ></iframe>
             </Col>
@@ -106,27 +130,33 @@ const Home = () => {
                   </Card.Title>
                   <Card.Text style={{ textAlign: "center", fontSize: "16px" }}>
                     Stay up-to-date with current auctions, promotions, new blog
-                    posts and updates from the Kodama Koi Farm team.
+                    posts and updates from the Paradise Koi Farm team.
                   </Card.Text>
                   <p style={{ textAlign: "center", color: "red" }}>
                     <em>"*"</em> indicates required fields
                   </p>
-                  <form style={{ padding: "20px" }}>
+                  <form style={{ padding: "20px" }} onSubmit={handleSubmit}>
                     <div className="form-group">
                       <label htmlFor="firstName">Name *</label>
                       <div className="name-inputs">
                         <input
                           type="text"
                           className="form-control mb-2"
+                          label="First"
                           id="firstName"
                           placeholder="First"
+                          value={formData.firstName}
+                          onChange={handleChange}
                           required
                         />
                         <input
                           type="text"
                           className="form-control mb-2"
+                          label="Last"
                           id="lastName"
                           placeholder="Last"
+                          value={formData.lastName}
+                          onChange={handleChange}
                           required
                         />
                       </div>
@@ -136,83 +166,26 @@ const Home = () => {
                       <input
                         type="email"
                         className="form-control mb-2"
+                        label="Email"
                         id="email"
                         placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                       />
                     </div>
+
+                    {error && <p style={{ color: "red" }}>{error}</p>}
+                    {success && <p style={{ color: "green" }}>{success}</p>}
+
                     <Button variant="primary" type="submit">
-                      Sign-up
+                      Sign up
                     </Button>
                   </form>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
-
-          {/* Modal for Video */}
-          {/* <Modal show={showVideo} onHide={() => setShowVideo(false)} size="lg">
-          <Modal.Header closeButton>
-            <Modal.Title>3 Secrets for Buying Koi Fish</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <iframe
-              width="100%"
-              height="500px" // Đặt chiều cao lớn hơn
-              src="https://www.youtube.com/embed/jCl9cXZjCAU"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </Modal.Body>
-        </Modal> */}
-
-          {/* <Row className="mb-5">
-          <Col md={4}>
-            <Card className="h-100">
-              <Card.Img variant="top" src="./koi-vari.jpg" />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title>Koi Varieties</Card.Title>
-                <Card.Text>
-                  Explore our wide range of beautiful koi varieties.
-                </Card.Text>
-                <Button variant="primary" href="/koi" className="mt-auto">
-                  Learn More
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Img variant="top" src="./koi-care.jpg" />
-              <Card.Body>
-                <Card.Title>Koi Care Guide</Card.Title>
-                <Card.Text>
-                  Learn how to properly care for your koi fish.
-                </Card.Text>
-                <Button variant="primary" href="/koi-care">
-                  Read Guide
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Img variant="top" src="./koi-food.jpg" />
-              <Card.Body>
-                <Card.Title>Premium Koi Food</Card.Title>
-                <Card.Text>
-                  Shop our selection of high-quality koi food.
-                </Card.Text>
-                <Button variant="primary" href="/shop/food">
-                  Shop Now
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row> */}
-
           <Row style={{ marginTop: "100px" }} className="mb-5 mid-body">
             <h2>
               How to Get Started and Buy Live Koi Online at Paradise Koi Farm
@@ -249,10 +222,9 @@ const Home = () => {
               </a>
             </Col>
           </Row>
-
-          {/* Latest News */}
         </Container>
       </Container>
+
       <Container fluid style={{ backgroundColor: "#f4f0e7", padding: "80px" }}>
         <Row className="mb-5 text-center">
           <Col>
@@ -261,22 +233,37 @@ const Home = () => {
           </Col>
         </Row>
         <Row style={{}}>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
+          <Col md={2}></Col>
+          <Col style={{}} md={4}>
             <Card className="card-blog" style={{ width: "500px" }}>
               <Card.Img className="img-blog" src="./koipack.jpg" />
               <Card.Body>
                 <Card.Title className="title-blog">
                   <h2>Small Koi Packs!</h2>
                 </Card.Title>
+                <div style={{ margin: "10px 0 10px 0" }}></div>
                 <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  It is our pleasure to introduce the <span style={{color:'#C53125'}}>Build a Pack and Kodama's
+                  Choice Pack for Small Koi</span>, each with low or even free shipping
+                  options! We now offer two types of small koi mixes that vary
+                  by size, and variety. Buy our small koi mixes to easily and
+                  quickly purchase groups of koi. <br />
+                  <br />
+                  <span style={{ color: "#C53125" }}>
+                    Visit the landing page to learn more about these buying
+                    options.
+                  </span>
                 </Card.Text>
-                <Button className="btn-blog">Buy</Button>
+                <Button
+                  className="btn-blog"
+                  onClick={() => (window.location.href = "/koi")}
+                >
+                  View all available koi
+                </Button>
               </Card.Body>
             </Card>
           </Col>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
+          <Col style={{ paddingLeft: "100px" }} md={4}>
             <Card className="card-blog" style={{ width: "500px" }}>
               <Card.Img className="img-blog" src="./koioftheweek.jpg" />
               <Card.Body>
@@ -284,59 +271,18 @@ const Home = () => {
                   <h2>Koi Of The Week This Week!</h2>
                 </Card.Title>
                 <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  This week I will be showcasing an elegant Sanke from Marudo
+                  Koi Farm. Sanke or Sanshoku means three colors in Japanese. So
+                  the quality and the balance of the three colors determines the
+                  beauty and the value of Koi. If you do not own a Sanke in your
+                  pond she is highly recommended.<br/><br/><span style={{color:'#C53125'}}> Click the link button below to
+                  learn more about this koi!</span>
                 </Card.Text>
-                <Button className="btn-blog">Buy</Button>
+                <Button className="btn-blog" onClick={() => (window.location.href = "/koi")}>View Koi</Button>
               </Card.Body>
             </Card>
           </Col>
-        </Row>
-        <Row style={{ marginTop: "50px" }}>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
-            <Card className="card-blog" style={{ width: "500px" }}>
-              <Card.Img className="img-blog" src="./koipack.jpg" />
-              <Card.Body>
-                <Card.Title className="title-blog">
-                  <h2>Koi Of The Month!</h2>
-                </Card.Title>
-                <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button className="btn-blog">Buy</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col style={{ paddingLeft: "100px" }} md={6}>
-            <Card className="card-blog" style={{ width: "500px" }}>
-              <Card.Img className="img-blog" src="./koipack.jpg" />
-              <Card.Body>
-                <Card.Title className="title-blog">
-                  <h2>Koi Of The Year!</h2>
-                </Card.Title>
-                <Card.Text className="text-blog">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button className="btn-blog">Buy</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-
-      <Container style={{ padding: "80px" }}>
-        <Row className="mb-5">
-          <Col>
-            <h2>Latest News</h2>
-          </Col>
-        </Row>
-
-        <Row className="mb-5">
-          <Col>
-            <h2>Frequently Asked Questions</h2>
-          </Col>
+          <Col md={2}></Col>
         </Row>
       </Container>
     </>
